@@ -114,3 +114,68 @@
 .calc-resumo { scroll-margin-top: 7rem; }
 #titulo-resultado { scroll-margin-top: 8rem; }
 #resultado-conteudo { margin: 1.5rem 0; }
+
+.pagina-calculadora { --calc-transporte: #436b4c; --calc-energia: #9c7840; --calc-gas: #5d8190; }
+.categorias-lista { display: grid; gap: 1.1rem; }
+.resultado-detalhes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid #bbd4b2;
+}
+
+.categoria-topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+  color: #3e5d44;
+  font-size: 0.85rem;
+}
+
+.categoria-topo strong,
+.categoria-topo output {
+  color: var(--texto);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.categoria-trilho {
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #edf4e7;
+}
+
+.categoria-barra {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--calc-transporte);
+}
+
+.categoria-barra[data-categoria="energia"],
+[data-categoria="energia"] .categoria-barra {
+  background: var(--calc-energia);
+}
+
+.categoria-barra[data-categoria="gas"],
+[data-categoria="gas"] .categoria-barra {
+  background: var(--calc-gas);
+}
+
+.categoria-barra[data-categoria="transporte"],
+[data-categoria="transporte"] .categoria-barra {
+  background: var(--calc-transporte);
+}
+
+.categoria-percentual {
+  display: inline-block;
+  margin-left: 0.25rem;
+  color: #3e5d44;
+  font-size: 0.8rem;
+  font-weight: 400;
+}

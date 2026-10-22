@@ -61,6 +61,15 @@
     status.textContent = "Dados alterados. Calcule novamente para atualizar o resultado.";
   }
 
+  function atualizarGrafico(resultado) {
+    for (const [categoria, valor] of Object.entries(resultado.categorias)) {
+      const percentual = resultado.total === 0 ? 0 : valor / resultado.total * 100;
+      document.querySelector(`#valor-${categoria}`).textContent = `${formatar(valor)} kg`;
+      document.querySelector(`#percentual-${categoria}`).textContent = `${Math.round(percentual)}%`;
+      document.querySelector(`#barra-${categoria}`).style.width = `${percentual}%`;
+    }
+  }
+
   function processarDados(valores) {
     resultadoAtual = modelo.calcular(valores);
     resultadoAtualizado = true;
@@ -70,6 +79,7 @@
     document.querySelector("#resultado-mensal").textContent = formatar(resultadoAtual.total);
     document.querySelector("#resultado-anual").textContent = formatar(resultadoAtual.anual);
     document.querySelector("#resultado-biogenico").textContent = formatar(resultadoAtual.biogenico);
+    atualizarGrafico(resultadoAtual);
     status.dataset.estado = "sucesso";
     status.textContent = `Estimativa calculada: ${formatar(resultadoAtual.total)} kg de CO₂ por pessoa no mês e ${formatar(resultadoAtual.anual)} kg em 12 meses iguais.`;
     document.querySelector("#titulo-resultado").focus();

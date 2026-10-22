@@ -111,7 +111,15 @@
           <p><strong id="resultado-mensal" class="resultado-valor">0,0</strong><span class="resultado-unidade">kg de CO₂ por pessoa / mês</span></p>
           <p class="resultado-anual"><strong id="resultado-anual">0,0</strong> kg de CO₂ em 12 meses iguais</p>
           <p class="resultado-nota">CO₂ biogênico da gasolina: <strong id="resultado-biogenico">0,0</strong> kg/mês, informado separadamente e fora do total acima.</p>
-          <!-- CATEGORIAS -->
+          <div class="resultado-detalhes" aria-labelledby="titulo-categorias">
+            <h3 id="titulo-categorias">De onde vem o seu impacto</h3>
+            <p class="resultado-nota">Valores em kg de CO₂ por pessoa no mês. As barras mostram a participação no total.</p>
+            <ul class="categorias-lista">
+              <li class="categoria-item" data-categoria="transporte"><div class="categoria-topo"><span>Transporte</span><span><strong id="valor-transporte">0,0 kg</strong> <span class="categoria-percentual" id="percentual-transporte">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-transporte"></span></div></li>
+              <li class="categoria-item" data-categoria="energia"><div class="categoria-topo"><span>Energia elétrica</span><span><strong id="valor-energia">0,0 kg</strong> <span class="categoria-percentual" id="percentual-energia">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-energia"></span></div></li>
+              <li class="categoria-item" data-categoria="gas"><div class="categoria-topo"><span>Gás de cozinha</span><span><strong id="valor-gas">0,0 kg</strong> <span class="categoria-percentual" id="percentual-gas">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-gas"></span></div></li>
+            </ul>
+          </div>
           <!-- DICAS E COMPARACAO -->
         </div>
         <p class="resumo-escopo">Estimativa parcial por pessoa: CO₂ fóssil e da geração elétrica. Referência elétrica do SIN de 2023. <a href="#titulo-metodo">Fontes e limites</a>.</p>
