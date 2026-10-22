@@ -7,36 +7,46 @@
   <title>Calculadora ecológica | ECOnscientização</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="calculadora.css">
   <script src="calculadora-modelo.js" defer></script>
   <script src="calculadora.js" defer></script>
 </head>
 <body class="pagina-calculadora">
+  <!-- Céu com nuvens que passam atrás da página -->
+  <div class="ceu" aria-hidden="true">
+    <span class="nuvem-ceu"></span>
+    <span class="nuvem-ceu"></span>
+    <span class="nuvem-ceu"></span>
+    <span class="nuvem-ceu"></span>
+    <span class="nuvem-ceu"></span>
+    <span class="nuvem-ceu"></span>
+  </div>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
   <header class="topo">
     <div class="container topo-interno">
-      <a class="marca" href="index.html">
-        <img class="marca-logo" src="resources/img/logo.png" width="802" height="290" alt="ECOnscientização - Pegada Ecológica, página inicial">
+      <a class="marca" href="../index.html">
+        <img class="marca-logo" src="../resources/img/logo-transparente.png" width="802" height="290" alt="ECOnscientização - Pegada Ecológica, página inicial">
       </a>
       <nav aria-label="Navegação principal">
         <ul class="menu">
-          <li><a href="index.html">Início</a></li>
+          <li><a href="../index.html">Início</a></li>
           <li><a href="calculadora.html" aria-current="page">Calculadora ecológica</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="../ongs/ongs.html">ONGs</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="conteudo" class="container calc-conteudo">
-    <section class="calc-intro" aria-labelledby="titulo-calculadora">
+    <section class="pagina-intro" aria-labelledby="titulo-calculadora">
       <div>
         <p class="selo">Conhecer é o primeiro passo</p>
         <h1 id="titulo-calculadora">Sua rotina deixa uma marca.<br><em>Vamos entender a sua?</em></h1>
-        <p class="calc-lead">Transforme seus consumos do mês em uma estimativa de CO₂ e descubra por onde começar a reduzir.</p>
+        <p class="pagina-lead">Transforme seus consumos do mês em uma estimativa de CO₂ e descubra por onde começar a reduzir.</p>
       </div>
-      <div class="calc-intro-nota"><span class="intro-folha" aria-hidden="true">↗</span><p>Pequenas mudanças,<br><strong>novas possibilidades.</strong></p></div>
     </section>
 
     <noscript><p class="calc-noscript">Ative o JavaScript no navegador para usar a calculadora. Os cálculos acontecem no seu dispositivo.</p></noscript>
@@ -151,6 +161,12 @@
     </section>
   </main>
 
-  <footer class="rodape"><div class="container rodape-interno"><p class="marca marca-rodape"><strong>ECO</strong>nscientização</p><p>Projeto de Web Design · Facens · 2026</p><p><a href="#conteudo">Voltar ao topo ↑</a></p></div></footer>
+  <footer class="rodape">
+    <div class="container rodape-interno">
+      <p class="marca marca-rodape"><strong>ECO</strong>nscientização</p>
+      <p>Projeto de Web Design · Facens · 2026</p>
+      <p><a href="#conteudo">Voltar ao topo ↑</a></p>
+    </div>
+  </footer>
 </body>
 </html>

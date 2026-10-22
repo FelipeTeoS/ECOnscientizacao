@@ -1,7 +1,7 @@
 "use strict";
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const modelo = require("../calculadora-modelo.js");
+const modelo = require("../calculadora/calculadora-modelo.js");
 const entrada = (extras = {}) => ({ distancia: "100", eficiencia: "10", energia: "120", moradores: "3", usaGas: true, duracaoGas: "60", ...extras });
 
 test("aceita decimais com vírgula ou ponto sem consumir texto inválido", () => {
