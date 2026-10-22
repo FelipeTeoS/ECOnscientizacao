@@ -146,10 +146,7 @@ article p:last-child {
   background-color: var(--cor-destaque);
 }
 
-/* Lista de artigos */
-.lista-artigos article + article {
-  margin-top: 20px;
-}
+
 
 /* Rodapé */
 footer {
@@ -162,4 +159,81 @@ footer {
 
 footer p {
   margin: 6px 0;
+}
+
+/* Listagem: uma coluna como configuração inicial. */
+.lista-artigos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* O título ocupa toda a largura da listagem. */
+.lista-artigos > h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+/* Permite quebrar palavras ou endereços muito longos. */
+article {
+  overflow-wrap: anywhere;
+}
+
+/* A partir de 768px: dois artigos por linha. */
+@media (min-width: 768px) {
+  .lista-artigos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Até 600px: ajustes para telas menores. */
+@media (max-width: 600px) {
+  header {
+    padding: 20px 16px;
+  }
+
+  header > a {
+    font-size: 21px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+
+  main {
+    width: calc(100% - 32px);
+  }
+
+  .apresentacao {
+    padding-top: 32px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .apresentacao p {
+    font-size: 16px;
+  }
+
+  article {
+    padding: 20px;
+  }
+
+  section {
+    margin-bottom: 32px;
+  }
+
+  footer {
+    margin-top: 32px;
+    padding: 24px 16px;
+  }
 }
