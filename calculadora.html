@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estime as emissões de CO₂ do transporte e do consumo de energia e gás da sua casa.">
+  <title>Calculadora ecológica | ECOnscientização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="calculadora.css">
+</head>
+<body class="pagina-calculadora">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="index.html">
+        <img class="marca-logo" src="resources/img/logo.png" width="802" height="290" alt="ECOnscientização - Pegada Ecológica, página inicial">
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="calculadora.html" aria-current="page">Calculadora ecológica</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container calc-conteudo">
+    <section class="calc-intro" aria-labelledby="titulo-calculadora">
+      <div>
+        <p class="selo">Conhecer é o primeiro passo</p>
+        <h1 id="titulo-calculadora">Sua rotina deixa uma marca.<br><em>Vamos entender a sua?</em></h1>
+        <p class="calc-lead">Transforme seus consumos do mês em uma estimativa de CO₂ e descubra por onde começar a reduzir.</p>
+      </div>
+      <div class="calc-intro-nota"><span class="intro-folha" aria-hidden="true">↗</span><p>Pequenas mudanças,<br><strong>novas possibilidades.</strong></p></div>
+    </section>
+
+    <div class="calc-layout">
+      <form id="form-calculadora" class="calc-form" novalidate>
+        <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência.</p></div>
+        <!-- CAMPOS -->
+        <div class="calc-acoes">
+          <button class="botao botao-primario" id="calcular" type="submit" disabled>Calcular meu impacto <span aria-hidden="true">↗</span></button>
+          <button class="calc-limpar" type="reset">Limpar dados</button>
+        </div>
+        <p id="calc-status" class="calc-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="calc-resumo" aria-labelledby="titulo-resultado">
+        <header><p class="selo">Um retrato do seu mês</p><h2 id="titulo-resultado">Seu impacto estimado</h2></header>
+        <div id="resultado-vazio" class="resultado-vazio"><span class="resultado-simbolo" aria-hidden="true">↗</span><p>Todo passo começa<br>com uma descoberta.</p><span>Preencha os consumos e calcule para ver sua estimativa aqui.</span></div>
+        <!-- RESULTADO -->
+        <p class="resumo-escopo">Estimativa parcial de CO₂ fóssil por pessoa. Transporte a gasolina comum, eletricidade e GLP.</p>
+      </aside>
+    </div>
+    <!-- METODOLOGIA -->
+  </main>
+
+  <footer class="rodape"><div class="container rodape-interno"><p class="marca marca-rodape"><strong>ECO</strong>nscientização</p><p>Projeto de Web Design · Facens · 2026</p><p><a href="#conteudo">Voltar ao topo ↑</a></p></div></footer>
+</body>
+</html>

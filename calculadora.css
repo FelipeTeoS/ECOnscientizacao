@@ -1,0 +1,29 @@
+/* Complementos da calculadora; a identidade comum permanece em style.css. */
+.pagina-calculadora [hidden] { display: none !important; }
+.calc-conteudo { padding-bottom: 4rem; }
+.calc-intro { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 3rem 0; }
+.calc-intro h1 { font-size: clamp(2rem, 4vw, 3.1rem); max-width: 47rem; }
+.calc-intro h1 em { font-weight: 500; color: var(--verde-escuro); }
+.calc-lead { max-width: 39rem; color: var(--texto-suave); margin-top: 1.25rem; }
+.calc-intro-nota { flex-shrink: 0; padding: 1.5rem; border-radius: 90px 90px 20px 20px; background: var(--verde-claro); text-align: center; font-size: .9rem; }
+.intro-folha { display: block; font-family: var(--fonte-titulo); font-size: 4rem; color: var(--verde-escuro); line-height: 1.3; }
+.calc-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.calc-form { background: var(--superficie); border-radius: var(--raio); padding: 2rem; min-width: 0; }
+.calc-form-titulo { margin-bottom: 1.75rem; }
+.calc-form-titulo h2 { font-size: 1.6rem; }
+.calc-form-titulo p { color: var(--texto-suave); margin-top: .5rem; }
+.calc-acoes { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.75rem; }
+.pagina-calculadora button { font: inherit; cursor: pointer; border: 0; }
+.pagina-calculadora button:disabled { cursor: default; opacity: .55; }
+.calc-limpar { background: transparent; color: var(--verde-escuro); text-decoration: underline; padding: .6rem; }
+.calc-status { font-size: .95rem; color: var(--texto-suave); margin-top: 1rem; }
+.calc-status:empty { display: none; }
+.calc-resumo { padding: 2rem; background: var(--verde-claro); border-radius: var(--raio); position: sticky; top: 7.5rem; min-width: 0; }
+.calc-resumo h2 { font-size: 1.6rem; }
+.calc-resumo .selo { padding: 0; background: transparent; font-size: .75rem; }
+.resultado-vazio { text-align: center; padding: 2rem 0; }
+.resultado-simbolo { display: block; font-size: 5rem; font-family: var(--fonte-titulo); line-height: 1.3; color: var(--verde-escuro); }
+.resultado-vazio p { font-family: var(--fonte-titulo); font-size: 1.65rem; color: var(--verde-escuro); margin: .75rem 0; line-height: 1.25; }
+.resultado-vazio > span:last-child { display: block; font-size: .95rem; color: var(--texto-suave); }
+.resumo-escopo { font-size: .8rem; line-height: 1.5; color: var(--texto-suave); padding-top: 1.25rem; border-top: 1px solid #b4cbae; }
+@media (max-width: 760px) { .calc-layout { grid-template-columns: minmax(0, 1fr); } .calc-intro-nota { display: none; } .calc-resumo { position: static; } }
