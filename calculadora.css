@@ -1,6 +1,6 @@
 /* Complementos da calculadora; a identidade comum permanece em style.css. */
 .pagina-calculadora [hidden] { display: none !important; }
-.calc-conteudo { padding-bottom: 4rem; }
+.calc-conteudo { padding-bottom: 4rem; scroll-margin-top: 7rem; }
 .calc-intro { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 3rem 0; }
 .calc-intro h1 { font-size: clamp(2rem, 4vw, 3.1rem); max-width: 47rem; }
 .calc-intro h1 em { font-weight: 500; color: var(--verde-escuro); }
@@ -238,4 +238,59 @@
   margin: 0.5rem 0;
   color: var(--verde-escuro);
   font-weight: 700;
+}
+
+/* Responsividade, foco e leitura em telas pequenas. */
+.pagina-calculadora { --calc-erro: #913d30; --calc-erro-fundo: #fff1ec; }
+.pagina-calculadora :is(input, button, a, summary, [tabindex]):focus-visible { outline: 3px solid var(--verde-escuro); outline-offset: 3px; }
+.pagina-calculadora input:focus-visible { background: #fffdf5; border-color: var(--verde-escuro); }
+.pagina-calculadora input[aria-invalid="true"]:focus-visible { outline-color: var(--calc-erro); }
+.pagina-calculadora .menu a { display: flex; align-items: center; min-height: 44px; }
+.pagina-calculadora .calc-checkbox { min-height: 44px; }
+.pagina-calculadora .botao { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; min-height: 48px; line-height: 1.4; }
+.calc-limpar { min-height: 44px; }
+.calc-form-titulo p { font-size: .9rem; line-height: 1.6; }
+.calc-metodologia a, .calc-resumo p { overflow-wrap: anywhere; }
+.calc-metodologia summary { min-height: 44px; }
+#titulo-metodo { scroll-margin-top: 8rem; }
+.categoria-topo { flex-wrap: wrap; gap: .25rem .75rem; }
+.categoria-topo > span:last-child { white-space: nowrap; }
+.calc-resumo:has(#resultado-conteudo:not([hidden])) { position: static; }
+.pagina-calculadora .marca-logo { max-width: 100%; object-fit: contain; }
+
+@media (max-width: 1000px) {
+  .calc-form, .calc-resumo { padding: 1.5rem; }
+  .calc-intro-nota { display: none; }
+}
+@media (max-width: 760px) {
+  .calc-intro { padding: 2rem 0; }
+  .calc-layout { grid-template-columns: minmax(0, 1fr); }
+  .calc-resumo { position: static; }
+  .calc-conteudo, #titulo-resultado, #titulo-metodo { scroll-margin-top: 1rem; }
+  .calc-intro h1 { font-size: clamp(2rem, 7vw, 3rem); }
+}
+@media (max-width: 480px) {
+  .campos { grid-template-columns: minmax(0, 1fr); }
+  .calc-form, .calc-resumo { padding: 1.25rem; }
+  .calc-form-titulo h2, .calc-resumo h2 { font-size: 1.5rem; }
+  .calc-acoes { gap: .5rem; }
+  .calc-acoes .botao { width: 100%; padding: .85rem 1rem; font-size: .95rem; }
+  .calc-limpar { margin: 0 auto; }
+  .resultado-vazio { padding: 1rem 0 1.5rem; }
+  .resultado-valor { font-size: clamp(2.5rem, 12vw, 3.5rem); }
+  .calc-metodologia { padding: 1.25rem; }
+  .tabela-metodo { font-size: .8rem; }
+  .tabela-metodo th, .tabela-metodo td { padding: .5rem; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pagina-calculadora { scroll-behavior: auto; }
+  .pagina-calculadora *, .pagina-calculadora *::before, .pagina-calculadora *::after { animation: none; transition: none; }
+}
+@media print {
+  .pagina-calculadora .topo, .pagina-calculadora .rodape, .calc-form, .calc-intro-nota, .calc-comparacao button { display: none; }
+  .calc-layout { display: block; }
+  .calc-resumo { position: static; background: white; padding: 0; }
+  .calc-metodologia { background: white; }
+  .resultado-valor { font-size: 2.5rem; }
+  .categoria-item, .resultado-dicas { break-inside: avoid; }
 }

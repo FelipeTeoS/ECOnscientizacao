@@ -64,3 +64,21 @@ A referência é um resultado imutável guardado somente na memória da aba. A v
 é omitido quando a referência é zero. Limpar ou recarregar apaga a referência. Ao editar
 entradas, o resultado anterior é sinalizado como desatualizado até um novo cálculo.
 As dicas priorizam até duas categorias com maior contribuição positiva.
+
+## Interface e acessibilidade
+
+Rótulos e unidades são associados aos campos. Erros indicam o campo inválido, têm
+mensagens de texto e levam o foco ao primeiro erro. O resumo recebe foco após um cálculo
+válido, e alterações posteriores indicam resultado desatualizado. Os valores do gráfico
+também aparecem como texto. O layout se adapta a telas pequenas e permite navegação por
+teclado, com foco visível e respeito à preferência por movimento reduzido. Sem JavaScript,
+um aviso explica a necessidade e o botão de cálculo permanece desativado.
+
+A página usa apenas as fontes externas já presentes no site. Os consumos não são enviados
+a serviços externos, gravados em cookies ou persistidos no armazenamento do navegador.
+
+Verificações manuais realizadas: larguras de 320, 375 e 1440 pixels sem rolagem horizontal;
+fluxo pela navegação da página inicial; erro obrigatório e moradores fracionados; foco
+visível por Tab; decimal com vírgula; resultado conhecido de 23,5 kg/mês; comparação
+com redução e com referência zero; aviso de dados alterados; limpeza dos dados;
+abertura das fontes. Os nove testes automatizados passaram.

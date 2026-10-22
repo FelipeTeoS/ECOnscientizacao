@@ -49,13 +49,13 @@
           <div class="campos">
             <div class="campo">
               <label for="distancia">Distância no mês</label>
-              <div class="campo-linha"><input id="distancia" name="distancia" type="text" inputmode="decimal" value="0" aria-describedby="distancia-ajuda distancia-erro" required><span class="unidade">km</span></div>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="distancia" name="distancia" type="text" inputmode="decimal" value="0" aria-describedby="distancia-unidade distancia-ajuda distancia-erro" required><span class="unidade" id="distancia-unidade">km</span></div>
               <p id="distancia-ajuda" class="campo-ajuda">Some ida e volta. Sem carro? Mantenha 0.</p>
               <p id="distancia-erro" class="campo-erro" hidden></p>
             </div>
             <div class="campo">
               <label for="eficiencia">Consumo do carro</label>
-              <div class="campo-linha"><input id="eficiencia" name="eficiencia" type="text" inputmode="decimal" value="12" aria-describedby="eficiencia-ajuda eficiencia-erro"><span class="unidade">km/L</span></div>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="eficiencia" name="eficiencia" type="text" inputmode="decimal" value="12" aria-describedby="eficiencia-unidade eficiencia-ajuda eficiencia-erro"><span class="unidade" id="eficiencia-unidade">km/L</span></div>
               <p id="eficiencia-ajuda" class="campo-ajuda">Quantos quilômetros faz com 1 litro.</p>
               <p id="eficiencia-erro" class="campo-erro" hidden></p>
             </div>
@@ -68,13 +68,13 @@
           <div class="campos">
             <div class="campo">
               <label for="energia">Consumo no mês</label>
-              <div class="campo-linha"><input id="energia" name="energia" type="text" inputmode="decimal" placeholder="Ex.: 150" aria-describedby="energia-ajuda energia-erro" required><span class="unidade">kWh</span></div>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="energia" name="energia" type="text" inputmode="decimal" placeholder="Ex.: 150" aria-describedby="energia-unidade energia-ajuda energia-erro" required><span class="unidade" id="energia-unidade">kWh</span></div>
               <p id="energia-ajuda" class="campo-ajuda">Use o consumo, não o valor em reais.</p>
               <p id="energia-erro" class="campo-erro" hidden></p>
             </div>
             <div class="campo">
               <label for="moradores">Pessoas na casa</label>
-              <div class="campo-linha"><input id="moradores" name="moradores" type="text" inputmode="numeric" value="1" aria-describedby="moradores-ajuda moradores-erro" required><span class="unidade">pessoas</span></div>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="moradores" name="moradores" type="text" inputmode="numeric" value="1" aria-describedby="moradores-unidade moradores-ajuda moradores-erro" required><span class="unidade" id="moradores-unidade">pessoas</span></div>
               <p id="moradores-ajuda" class="campo-ajuda">Inclua você. Energia e gás serão divididos igualmente.</p>
               <p id="moradores-erro" class="campo-erro" hidden></p>
             </div>
@@ -87,7 +87,7 @@
           <div class="campos" id="gas-campos" hidden>
             <div class="campo campo-inteiro">
               <label for="duracao-gas">Quanto tempo dura um botijão?</label>
-              <div class="campo-linha"><input id="duracao-gas" name="duracaoGas" type="text" inputmode="decimal" placeholder="Ex.: 60" aria-describedby="duracao-gas-ajuda duracao-gas-erro" disabled><span class="unidade">dias</span></div>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="duracao-gas" name="duracaoGas" type="text" inputmode="decimal" placeholder="Ex.: 60" aria-describedby="duracao-gas-unidade duracao-gas-ajuda duracao-gas-erro" disabled><span class="unidade" id="duracao-gas-unidade">dias</span></div>
               <p id="duracao-gas-ajuda" class="campo-ajuda">O consumo será convertido para 30 dias e dividido pelos moradores.</p>
               <p id="duracao-gas-erro" class="campo-erro" hidden></p>
             </div>
@@ -109,11 +109,11 @@
           <p id="resultado-aviso" class="resultado-desatualizado" hidden>Você alterou os dados. Calcule novamente para atualizar este resultado.</p>
           <p class="resultado-rotulo">Seu mês, em números</p>
           <p><strong id="resultado-mensal" class="resultado-valor">0,0</strong><span class="resultado-unidade">kg de CO₂ por pessoa / mês</span></p>
-          <p class="resultado-anual"><strong id="resultado-anual">0,0</strong> kg de CO₂ em 12 meses iguais</p>
+          <p class="resultado-anual"><strong id="resultado-anual">0,0</strong> kg de CO₂ por pessoa em 12 meses iguais</p>
           <p class="resultado-nota">CO₂ biogênico da gasolina: <strong id="resultado-biogenico">0,0</strong> kg/mês, informado separadamente e fora do total acima.</p>
           <div class="resultado-detalhes" aria-labelledby="titulo-categorias">
             <h3 id="titulo-categorias">De onde vem o seu impacto</h3>
-            <p class="resultado-nota">Valores em kg de CO₂ por pessoa no mês. As barras mostram a participação no total.</p>
+            <p class="resultado-nota">Valores em kg de CO₂ por pessoa no mês. As barras mostram a participação no total. Percentuais arredondados.</p>
             <ul class="categorias-lista">
               <li class="categoria-item" data-categoria="transporte"><div class="categoria-topo"><span>Transporte</span><span><strong id="valor-transporte">0,0 kg</strong> <span class="categoria-percentual" id="percentual-transporte">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-transporte"></span></div></li>
               <li class="categoria-item" data-categoria="energia"><div class="categoria-topo"><span>Energia elétrica</span><span><strong id="valor-energia">0,0 kg</strong> <span class="categoria-percentual" id="percentual-energia">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-energia"></span></div></li>

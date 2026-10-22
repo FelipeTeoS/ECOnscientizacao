@@ -67,7 +67,7 @@
     for (const [categoria, valor] of Object.entries(resultado.categorias)) {
       const percentual = resultado.total === 0 ? 0 : valor / resultado.total * 100;
       document.querySelector(`#valor-${categoria}`).textContent = `${formatar(valor)} kg`;
-      document.querySelector(`#percentual-${categoria}`).textContent = `${Math.round(percentual)}%`;
+      document.querySelector(`#percentual-${categoria}`).textContent = `${new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 }).format(percentual)}%`;
       document.querySelector(`#barra-${categoria}`).style.width = `${percentual}%`;
     }
   }
@@ -87,7 +87,9 @@
     document.querySelector("#salvar-cenario").disabled = false;
     status.dataset.estado = "sucesso";
     status.textContent = `Estimativa calculada: ${formatar(resultadoAtual.total)} kg de CO₂ por pessoa no mês e ${formatar(resultadoAtual.anual)} kg em 12 meses iguais.`;
-    document.querySelector("#titulo-resultado").focus();
+    const titulo = document.querySelector("#titulo-resultado");
+    titulo.focus({ preventScroll: true });
+    titulo.scrollIntoView({ block: "start", behavior: "instant" });
   }
 
   function atualizarDicas(resultado) {
@@ -113,7 +115,7 @@
       return;
     }
     const sentido = variacao.direcao === "reducao" ? "Redução" : "Aumento";
-    const percentual = variacao.percentual === null ? " A referência informada era zero." : ` (${formatar(variacao.percentual)}%).`;
+    const percentual = variacao.percentual === null ? ". A referência informada era zero." : ` (${formatar(variacao.percentual)}%).`;
     comparacao.textContent = `${sentido} de ${formatar(Math.abs(variacao.diferenca))} kg de CO₂ por pessoa/mês${percentual}`;
   }
 
@@ -157,6 +159,9 @@
       status.textContent = "";
       delete status.dataset.estado;
     }, 0);
+  });
+  document.querySelector('a[href="#titulo-metodo"]').addEventListener("click", () => {
+    document.querySelector(".calc-metodologia details").open = true;
   });
   atualizarGas();
   document.querySelector("#calcular").disabled = false;
