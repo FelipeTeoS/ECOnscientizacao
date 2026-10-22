@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="calculadora.css">
+  <script src="calculadora-modelo.js" defer></script>
   <script src="calculadora.js" defer></script>
 </head>
 <body class="pagina-calculadora">
@@ -38,9 +39,10 @@
       <div class="calc-intro-nota"><span class="intro-folha" aria-hidden="true">↗</span><p>Pequenas mudanças,<br><strong>novas possibilidades.</strong></p></div>
     </section>
 
+    <noscript><p class="calc-noscript">Ative o JavaScript no navegador para usar a calculadora. Os cálculos acontecem no seu dispositivo.</p></noscript>
     <div class="calc-layout">
       <form id="form-calculadora" class="calc-form" novalidate>
-        <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência.</p></div>
+        <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência. Aceitamos vírgula ou ponto para decimais, sem separador de milhar.</p></div>
         <fieldset class="calc-etapa" id="etapa-transporte">
           <legend><span class="etapa-numero" aria-hidden="true">01</span> Transporte</legend>
           <p class="etapa-descricao">Seus trajetos de carro a gasolina comum (E30).</p>

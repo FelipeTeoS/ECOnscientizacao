@@ -46,3 +46,7 @@
 #gas-campos { margin-top: 1rem; }
 .campo-inteiro { grid-column: 1 / -1; }
 .campo input:disabled { opacity: .6; }
+
+.campo-erro { color: #913d30; font-size: .85rem; font-weight: 700; margin-top: .4rem; }
+.campo input[aria-invalid="true"] { border-color: #913d30; background: #fff1ec; }
+.calc-status[data-estado="erro"], .calc-noscript { background: #fff1ec; color: #913d30; padding: 1rem; border-radius: var(--raio-pequeno); }
