@@ -59,6 +59,24 @@
           </div>
           <p class="etapa-nota">Informe apenas os quilômetros atribuídos a você. O cálculo não cobre etanol hidratado, diesel ou gasolina premium.</p>
         </fieldset>
+        <fieldset class="calc-etapa" id="etapa-energia">
+          <legend><span class="etapa-numero" aria-hidden="true">02</span> Energia da casa</legend>
+          <p class="etapa-descricao">Pegue o consumo em kWh na sua conta de luz.</p>
+          <div class="campos">
+            <div class="campo">
+              <label for="energia">Consumo no mês</label>
+              <div class="campo-linha"><input id="energia" name="energia" type="text" inputmode="decimal" placeholder="Ex.: 150" aria-describedby="energia-ajuda energia-erro" required><span class="unidade">kWh</span></div>
+              <p id="energia-ajuda" class="campo-ajuda">Use o consumo, não o valor em reais.</p>
+              <p id="energia-erro" class="campo-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="moradores">Pessoas na casa</label>
+              <div class="campo-linha"><input id="moradores" name="moradores" type="text" inputmode="numeric" value="1" aria-describedby="moradores-ajuda moradores-erro" required><span class="unidade">pessoas</span></div>
+              <p id="moradores-ajuda" class="campo-ajuda">Inclua você. Energia e gás serão divididos igualmente.</p>
+              <p id="moradores-erro" class="campo-erro" hidden></p>
+            </div>
+          </div>
+        </fieldset>
         <!-- CAMPOS -->
         <div class="calc-acoes">
           <button class="botao botao-primario" id="calcular" type="submit" disabled>Calcular meu impacto <span aria-hidden="true">↗</span></button>
