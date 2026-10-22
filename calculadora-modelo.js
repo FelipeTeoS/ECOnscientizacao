@@ -40,5 +40,37 @@
     return { valido: Object.keys(erros).length === 0, valores, erros };
   }
 
-  return Object.freeze({ lerNumero, validar });
+  /* Fontes, conversões e limites: CALCULADORA.md e a seção de metodologia. */
+  const FATORES = Object.freeze({
+    gasolina: 2.212 * 0.7,
+    gasolinaBiogenica: 1.526 * 0.3,
+    energia: 0.0385,
+    glp: 47.3 * 63100 / 1000000,
+    massaBotijao: 13,
+    diasMes: 30
+  });
+
+  function calcular(entrada) {
+    const validacao = validar(entrada);
+    if (!validacao.valido) throw new RangeError("Dados inválidos para o cálculo.");
+    const valores = validacao.valores;
+    const litros = valores.distancia === 0 ? 0 : valores.distancia / valores.eficiencia;
+    const categorias = Object.freeze({
+      transporte: litros * FATORES.gasolina,
+      energia: valores.energia * FATORES.energia / valores.moradores,
+      gas: valores.usaGas
+        ? FATORES.massaBotijao * FATORES.diasMes / valores.duracaoGas * FATORES.glp / valores.moradores
+        : 0
+    });
+    const total = categorias.transporte + categorias.energia + categorias.gas;
+    return Object.freeze({
+      entrada: Object.freeze({ ...valores }),
+      categorias,
+      total,
+      anual: total * 12,
+      biogenico: litros * FATORES.gasolinaBiogenica
+    });
+  }
+
+  return Object.freeze({ lerNumero, validar, calcular, FATORES });
 });

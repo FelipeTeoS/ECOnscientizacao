@@ -106,10 +106,25 @@
         <header><p class="selo">Um retrato do seu mês</p><h2 id="titulo-resultado">Seu impacto estimado</h2></header>
         <div id="resultado-vazio" class="resultado-vazio"><span class="resultado-simbolo" aria-hidden="true">↗</span><p>Todo passo começa<br>com uma descoberta.</p><span>Preencha os consumos e calcule para ver sua estimativa aqui.</span></div>
         <!-- RESULTADO -->
-        <p class="resumo-escopo">Estimativa parcial de CO₂ fóssil por pessoa. Transporte a gasolina comum, eletricidade e GLP.</p>
+        <p class="resumo-escopo">Estimativa parcial por pessoa: CO₂ fóssil e da geração elétrica. Referência elétrica do SIN de 2023. <a href="#titulo-metodo">Fontes e limites</a>.</p>
       </aside>
     </div>
-    <!-- METODOLOGIA -->
+    <section class="calc-metodologia" aria-labelledby="titulo-metodo">
+      <details>
+        <summary id="titulo-metodo">Como chegamos a esses números? <span>Conheça as fontes e os limites ↓</span></summary>
+        <div class="metodo-corpo">
+          <p>Esta é uma estimativa educacional de três atividades. Ela soma CO₂ fóssil da combustão e CO₂ da geração elétrica, sem representar sua pegada de carbono completa. Alimentação, outros transportes, resíduos, produção dos combustíveis e outros gases não entram na conta.</p>
+          <div class="tabela-scroll"><table class="tabela-metodo"><caption>Fatores fixos usados nesta calculadora</caption><thead><tr><th scope="col">Categoria</th><th scope="col">Fator</th><th scope="col">Referência</th></tr></thead><tbody>
+            <tr><th scope="row">Gasolina comum E30</th><td>1,5484 kg CO₂ fóssil/L</td><td>Gasolina A: 2,212 × 70%. <a href="https://repositorio.cetesb.sp.gov.br/bitstreams/8d3c979c-1534-46bb-9505-5ba9b6fa8c16/download#page=195">CETESB, 2015, apêndice X</a> e <a href="https://www.gov.br/mme/pt-br/assuntos/secretarias/petroleo-gas-natural-e-biocombustiveis/combustivel-do-futuro/e30">MME, E30</a>.</td></tr>
+            <tr><th scope="row">Energia elétrica</th><td>0,0385 kg CO₂/kWh</td><td>Média histórica fixa do SIN em 2023. <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2024/02/fator-de-emissao-de-co2-na-geracao-de-energia-eletrica-no-brasil-em-2023-e-o-menor-em-12-anos">MCTI, publicado em 2024</a>.</td></tr>
+            <tr><th scope="row">GLP</th><td>2,98463 kg CO₂/kg</td><td>47,3 × 63.100 ÷ 1.000.000. <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_1_Ch1_Introduction.pdf">IPCC 2006, tabelas 1.2 e 1.4</a>.</td></tr>
+          </tbody></table></div>
+          <p><strong>Por pessoa:</strong> transporte = km ÷ km/L × fator. Energia = kWh × fator ÷ moradores. GLP = 13 × 30 ÷ dias do botijão × fator ÷ moradores. A projeção anual considera 12 meses iguais.</p>
+          <p>O etanol da E30 emite cerca de 0,4578 kg de CO₂ biogênico por litro da mistura. Esse valor é informado separadamente, fora do total fóssil; isso não significa impacto zero do etanol.</p>
+          <p>Fatores selecionados em outubro de 2026, sem atualização automática. A referência elétrica não representa a rede atual nem sistemas isolados. Zero significa ausência de consumo informado nestas categorias.</p>
+        </div>
+      </details>
+    </section>
   </main>
 
   <footer class="rodape"><div class="container rodape-interno"><p class="marca marca-rodape"><strong>ECO</strong>nscientização</p><p>Projeto de Web Design · Facens · 2026</p><p><a href="#conteudo">Voltar ao topo ↑</a></p></div></footer>

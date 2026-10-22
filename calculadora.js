@@ -47,8 +47,10 @@
   }
 
   function processarDados(valores) {
+    const resultado = modelo.calcular(valores);
+    const numero = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
     status.dataset.estado = "sucesso";
-    status.textContent = "Dados válidos. Os consumos estão prontos para o cálculo.";
+    status.textContent = `Estimativa: ${numero.format(resultado.total)} kg de CO₂ por pessoa no mês; ${numero.format(resultado.anual)} kg em 12 meses iguais.`;
   }
 
   form.addEventListener("submit", (evento) => {

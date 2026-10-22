@@ -50,3 +50,13 @@
 .campo-erro { color: #913d30; font-size: .85rem; font-weight: 700; margin-top: .4rem; }
 .campo input[aria-invalid="true"] { border-color: #913d30; background: #fff1ec; }
 .calc-status[data-estado="erro"], .calc-noscript { background: #fff1ec; color: #913d30; padding: 1rem; border-radius: var(--raio-pequeno); }
+
+.calc-metodologia { margin-top: 2rem; background: var(--fundo-claro); border-radius: var(--raio); padding: 1.5rem; }
+.calc-metodologia summary { cursor: pointer; font-weight: 700; color: var(--verde-escuro); }
+.calc-metodologia summary span { display: block; color: var(--texto-suave); font-size: .85rem; font-weight: 400; margin: .35rem 0 0 1rem; }
+.metodo-corpo { font-size: .9rem; padding-top: 1rem; }
+.metodo-corpo p + p { margin-top: 1rem; }
+.tabela-scroll { overflow-x: auto; margin: 1.25rem 0; }
+.tabela-metodo { width: 100%; border-collapse: collapse; text-align: left; }
+.tabela-metodo caption { text-align: left; font-weight: 700; margin-bottom: .75rem; }
+.tabela-metodo th, .tabela-metodo td { padding: .75rem; border-bottom: 1px solid #cfdec8; vertical-align: top; }
