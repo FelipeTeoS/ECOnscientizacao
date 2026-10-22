@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estime as emissões de CO₂ do transporte e do consumo de energia e gás da sua casa.">
+  <title>Calculadora ecológica | ECOnscientização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="calculadora.css">
+  <script src="calculadora-modelo.js" defer></script>
+  <script src="calculadora.js" defer></script>
+</head>
+<body class="pagina-calculadora">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="index.html">
+        <img class="marca-logo" src="resources/img/logo.png" width="802" height="290" alt="ECOnscientização - Pegada Ecológica, página inicial">
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="calculadora.html" aria-current="page">Calculadora ecológica</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container calc-conteudo">
+    <section class="calc-intro" aria-labelledby="titulo-calculadora">
+      <div>
+        <p class="selo">Conhecer é o primeiro passo</p>
+        <h1 id="titulo-calculadora">Sua rotina deixa uma marca.<br><em>Vamos entender a sua?</em></h1>
+        <p class="calc-lead">Transforme seus consumos do mês em uma estimativa de CO₂ e descubra por onde começar a reduzir.</p>
+      </div>
+      <div class="calc-intro-nota"><span class="intro-folha" aria-hidden="true">↗</span><p>Pequenas mudanças,<br><strong>novas possibilidades.</strong></p></div>
+    </section>
+
+    <noscript><p class="calc-noscript">Ative o JavaScript no navegador para usar a calculadora. Os cálculos acontecem no seu dispositivo.</p></noscript>
+    <div class="calc-layout">
+      <form id="form-calculadora" class="calc-form" novalidate>
+        <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência. Aceitamos vírgula ou ponto para decimais, sem separador de milhar.</p></div>
+        <fieldset class="calc-etapa" id="etapa-transporte">
+          <legend><span class="etapa-numero" aria-hidden="true">01</span> Transporte</legend>
+          <p class="etapa-descricao">Seus trajetos de carro a gasolina comum (E30).</p>
+          <div class="campos">
+            <div class="campo">
+              <label for="distancia">Distância no mês</label>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="distancia" name="distancia" type="text" inputmode="decimal" value="0" aria-describedby="distancia-unidade distancia-ajuda distancia-erro" required><span class="unidade" id="distancia-unidade">km</span></div>
+              <p id="distancia-ajuda" class="campo-ajuda">Some ida e volta. Sem carro? Mantenha 0.</p>
+              <p id="distancia-erro" class="campo-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="eficiencia">Consumo do carro</label>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="eficiencia" name="eficiencia" type="text" inputmode="decimal" value="12" aria-describedby="eficiencia-unidade eficiencia-ajuda eficiencia-erro"><span class="unidade" id="eficiencia-unidade">km/L</span></div>
+              <p id="eficiencia-ajuda" class="campo-ajuda">Quantos quilômetros faz com 1 litro.</p>
+              <p id="eficiencia-erro" class="campo-erro" hidden></p>
+            </div>
+          </div>
+          <p class="etapa-nota">Informe apenas os quilômetros atribuídos a você. O cálculo não cobre etanol hidratado, diesel ou gasolina premium.</p>
+        </fieldset>
+        <fieldset class="calc-etapa" id="etapa-energia">
+          <legend><span class="etapa-numero" aria-hidden="true">02</span> Energia da casa</legend>
+          <p class="etapa-descricao">Pegue o consumo em kWh na sua conta de luz.</p>
+          <div class="campos">
+            <div class="campo">
+              <label for="energia">Consumo no mês</label>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="energia" name="energia" type="text" inputmode="decimal" placeholder="Ex.: 150" aria-describedby="energia-unidade energia-ajuda energia-erro" required><span class="unidade" id="energia-unidade">kWh</span></div>
+              <p id="energia-ajuda" class="campo-ajuda">Use o consumo, não o valor em reais.</p>
+              <p id="energia-erro" class="campo-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="moradores">Pessoas na casa</label>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="moradores" name="moradores" type="text" inputmode="numeric" value="1" aria-describedby="moradores-unidade moradores-ajuda moradores-erro" required><span class="unidade" id="moradores-unidade">pessoas</span></div>
+              <p id="moradores-ajuda" class="campo-ajuda">Inclua você. Energia e gás serão divididos igualmente.</p>
+              <p id="moradores-erro" class="campo-erro" hidden></p>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="calc-etapa" id="etapa-gas">
+          <legend><span class="etapa-numero" aria-hidden="true">03</span> Gás de cozinha</legend>
+          <p class="etapa-descricao">Opcional. Para quem usa botijão de GLP de 13 kg.</p>
+          <label class="calc-checkbox" for="usa-gas"><input id="usa-gas" name="usaGas" type="checkbox"> Minha casa usa botijão de 13 kg</label>
+          <div class="campos" id="gas-campos" hidden>
+            <div class="campo campo-inteiro">
+              <label for="duracao-gas">Quanto tempo dura um botijão?</label>
+              <div class="campo-linha"><input maxlength="12" autocomplete="off" id="duracao-gas" name="duracaoGas" type="text" inputmode="decimal" placeholder="Ex.: 60" aria-describedby="duracao-gas-unidade duracao-gas-ajuda duracao-gas-erro" disabled><span class="unidade" id="duracao-gas-unidade">dias</span></div>
+              <p id="duracao-gas-ajuda" class="campo-ajuda">O consumo será convertido para 30 dias e dividido pelos moradores.</p>
+              <p id="duracao-gas-erro" class="campo-erro" hidden></p>
+            </div>
+          </div>
+          <p class="etapa-nota">Gás encanado não entra nesta estimativa. Desmarcado, este item contribui com zero no resultado.</p>
+        </fieldset>
+
+        <div class="calc-acoes">
+          <button class="botao botao-primario" id="calcular" type="submit" disabled>Calcular meu impacto <span aria-hidden="true">↗</span></button>
+          <button class="calc-limpar" type="reset">Limpar dados</button>
+        </div>
+        <p id="calc-status" class="calc-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="calc-resumo" aria-labelledby="titulo-resultado">
+        <header><p class="selo">Um retrato do seu mês</p><h2 id="titulo-resultado" tabindex="-1">Seu impacto estimado</h2></header>
+        <div id="resultado-vazio" class="resultado-vazio"><span class="resultado-simbolo" aria-hidden="true">↗</span><p>Todo passo começa<br>com uma descoberta.</p><span>Preencha os consumos e calcule para ver sua estimativa aqui.</span></div>
+        <div id="resultado-conteudo" hidden>
+          <p id="resultado-aviso" class="resultado-desatualizado" hidden>Você alterou os dados. Calcule novamente para atualizar este resultado.</p>
+          <p class="resultado-rotulo">Seu mês, em números</p>
+          <p><strong id="resultado-mensal" class="resultado-valor">0,0</strong><span class="resultado-unidade">kg de CO₂ por pessoa / mês</span></p>
+          <p class="resultado-anual"><strong id="resultado-anual">0,0</strong> kg de CO₂ por pessoa em 12 meses iguais</p>
+          <p class="resultado-nota">CO₂ biogênico da gasolina: <strong id="resultado-biogenico">0,0</strong> kg/mês, informado separadamente e fora do total acima.</p>
+          <div class="resultado-detalhes" aria-labelledby="titulo-categorias">
+            <h3 id="titulo-categorias">De onde vem o seu impacto</h3>
+            <p class="resultado-nota">Valores em kg de CO₂ por pessoa no mês. As barras mostram a participação no total. Percentuais arredondados.</p>
+            <ul class="categorias-lista">
+              <li class="categoria-item" data-categoria="transporte"><div class="categoria-topo"><span>Transporte</span><span><strong id="valor-transporte">0,0 kg</strong> <span class="categoria-percentual" id="percentual-transporte">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-transporte"></span></div></li>
+              <li class="categoria-item" data-categoria="energia"><div class="categoria-topo"><span>Energia elétrica</span><span><strong id="valor-energia">0,0 kg</strong> <span class="categoria-percentual" id="percentual-energia">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-energia"></span></div></li>
+              <li class="categoria-item" data-categoria="gas"><div class="categoria-topo"><span>Gás de cozinha</span><span><strong id="valor-gas">0,0 kg</strong> <span class="categoria-percentual" id="percentual-gas">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-gas"></span></div></li>
+            </ul>
+          </div>
+          <section class="resultado-dicas" aria-labelledby="titulo-dicas"><h3 id="titulo-dicas">Seu próximo pequeno passo</h3><ul id="lista-dicas"></ul></section>
+          <section class="calc-comparacao" aria-labelledby="titulo-comparacao">
+            <h3 id="titulo-comparacao">E se você mudasse um hábito?</h3>
+            <p>Salve este resultado como referência. Depois, altere seus consumos e calcule de novo para comparar.</p>
+            <p id="comparacao-base" hidden></p>
+            <p class="comparacao-resultado" id="comparacao-resultado" hidden></p>
+            <button type="button" class="botao botao-secundario" id="salvar-cenario" disabled>Usar este resultado como referência</button>
+            <p class="resultado-nota">A referência fica apenas na memória desta aba. Limpar dados ou recarregar a página apaga a comparação.</p>
+          </section>
+        </div>
+        <p class="resumo-escopo">Estimativa parcial por pessoa: CO₂ fóssil e da geração elétrica. Referência elétrica do SIN de 2023. <a href="#titulo-metodo">Fontes e limites</a>.</p>
+      </aside>
+    </div>
+    <section class="calc-metodologia" aria-labelledby="titulo-metodo">
+      <details>
+        <summary id="titulo-metodo">Como chegamos a esses números? <span>Conheça as fontes e os limites ↓</span></summary>
+        <div class="metodo-corpo">
+          <p>Esta é uma estimativa educacional de três atividades. Ela soma CO₂ fóssil da combustão e CO₂ da geração elétrica, sem representar sua pegada de carbono completa. Alimentação, outros transportes, resíduos, produção dos combustíveis e outros gases não entram na conta.</p>
+          <div class="tabela-scroll"><table class="tabela-metodo"><caption>Fatores fixos usados nesta calculadora</caption><thead><tr><th scope="col">Categoria</th><th scope="col">Fator</th><th scope="col">Referência</th></tr></thead><tbody>
+            <tr><th scope="row">Gasolina comum E30</th><td>1,5484 kg CO₂ fóssil/L</td><td>Gasolina A: 2,212 × 70%. <a href="https://repositorio.cetesb.sp.gov.br/bitstreams/8d3c979c-1534-46bb-9505-5ba9b6fa8c16/download#page=195">CETESB, 2015, apêndice X</a> e <a href="https://www.gov.br/mme/pt-br/assuntos/secretarias/petroleo-gas-natural-e-biocombustiveis/combustivel-do-futuro/e30">MME, E30</a>.</td></tr>
+            <tr><th scope="row">Energia elétrica</th><td>0,0385 kg CO₂/kWh</td><td>Média histórica fixa do SIN em 2023. <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2024/02/fator-de-emissao-de-co2-na-geracao-de-energia-eletrica-no-brasil-em-2023-e-o-menor-em-12-anos">MCTI, publicado em 2024</a>.</td></tr>
+            <tr><th scope="row">GLP</th><td>2,98463 kg CO₂/kg</td><td>47,3 × 63.100 ÷ 1.000.000. <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_1_Ch1_Introduction.pdf">IPCC 2006, tabelas 1.2 e 1.4</a>.</td></tr>
+          </tbody></table></div>
+          <p><strong>Por pessoa:</strong> transporte = km ÷ km/L × fator. Energia = kWh × fator ÷ moradores. GLP = 13 × 30 ÷ dias do botijão × fator ÷ moradores. A projeção anual considera 12 meses iguais.</p>
+          <p>O etanol da E30 emite cerca de 0,4578 kg de CO₂ biogênico por litro da mistura. Esse valor é informado separadamente, fora do total fóssil; isso não significa impacto zero do etanol.</p>
+          <p>Fatores selecionados em outubro de 2026, sem atualização automática. A referência elétrica não representa a rede atual nem sistemas isolados. Zero significa ausência de consumo informado nestas categorias.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="rodape"><div class="container rodape-interno"><p class="marca marca-rodape"><strong>ECO</strong>nscientização</p><p>Projeto de Web Design · Facens · 2026</p><p><a href="#conteudo">Voltar ao topo ↑</a></p></div></footer>
+</body>
+</html>
