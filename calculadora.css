@@ -40,3 +40,9 @@
 .campo .unidade { position: absolute; right: .9rem; top: 50%; transform: translateY(-50%); font-size: .85rem; color: var(--texto-suave); pointer-events: none; }
 .campo-ajuda, .etapa-nota { font-size: .8rem; line-height: 1.5; color: var(--texto-suave); margin-top: .5rem; }
 .etapa-nota { margin-top: 1rem; }
+
+.calc-checkbox { display: flex; align-items: center; gap: .75rem; font-size: .95rem; cursor: pointer; }
+.calc-checkbox input { width: 1.2rem; height: 1.2rem; accent-color: var(--verde-escuro); flex-shrink: 0; }
+#gas-campos { margin-top: 1rem; }
+.campo-inteiro { grid-column: 1 / -1; }
+.campo input:disabled { opacity: .6; }
