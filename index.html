@@ -3,27 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto Webdesign</title>
+  <meta name="description" content="ECOnscientização: dicas práticas para viver de forma mais sustentável no dia a dia.">
+  <title>ECOnscientização | Pequenas atitudes, grande impacto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="receitas/index.html">Receitas</a>
-      <a href="blog/index.html">Blog</a>
-    </nav>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="index.html">
+        <img class="marca-logo" src="resources/img/logo.png" width="802" height="290"
+             alt="ECOnscientização - Pegada Ecológica, página inicial">
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <!-- Links para as outras páginas do site -->
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h1>Projeto Webdesign</h1>
-    <p>Bem-vindo! Confira nossas <a href="receitas/index.html">receitas</a> e o <a href="blog/index.html">blog</a>.</p>
+  <main id="conteudo">
+    <!-- Destaque principal -->
+    <section class="hero" id="inicio">
+      <div class="container hero-interno">
+        <div class="hero-texto">
+          <p class="selo">Sustentabilidade no dia a dia</p>
+          <h1>Pequenas atitudes, <em>grande impacto</em> no planeta.</h1>
+          <p class="hero-lead">
+            O ECOnscientização reúne dicas simples e informação confiável para
+            você consumir melhor, gerar menos lixo e cuidar do lugar onde vive.
+          </p>
+          <div class="hero-acoes">
+            <a class="botao botao-primario" href="#atitudes">Comece agora</a>
+            <a class="botao botao-secundario" href="#reciclagem">Aprenda a separar o lixo</a>
+          </div>
+        </div>
+
+        <!-- Ilustração: paisagem sustentável em SVG, animada só com CSS -->
+        <div class="hero-arte" aria-hidden="true">
+          <svg class="paisagem" viewBox="0 0 480 520">
+            <defs>
+              <clipPath id="arco">
+                <path d="M0 496V240a240 240 0 0 1 480 0v256a24 24 0 0 1 -24 24H24a24 24 0 0 1 -24 -24z"/>
+              </clipPath>
+              <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#dcecf2"/>
+                <stop offset="1" stop-color="#f4f8ec"/>
+              </linearGradient>
+            </defs>
+
+            <g clip-path="url(#arco)">
+              <rect width="480" height="520" fill="url(#ceu)"/>
+
+              <!-- Sol -->
+              <circle cx="340" cy="140" r="44" fill="#f6dc8c"/>
+
+              <!-- Nuvens -->
+              <g class="nuvem nuvem-1" fill="#ffffff">
+                <ellipse cx="110" cy="150" rx="44" ry="16"/>
+                <ellipse cx="96" cy="138" rx="22" ry="18"/>
+                <ellipse cx="124" cy="134" rx="26" ry="22"/>
+              </g>
+              <g class="nuvem nuvem-2" fill="#ffffff">
+                <ellipse cx="400" cy="214" rx="34" ry="12"/>
+                <ellipse cx="410" cy="203" rx="20" ry="16"/>
+              </g>
+
+              <!-- Colina ao fundo -->
+              <path d="M0 330C90 280 180 290 260 315s150 -15 220 -25V520H0z" fill="#d6e9cf"/>
+
+              <!-- Turbinas eólicas -->
+              <g transform="translate(290 222)">
+                <path d="M-2 0h4l3 100h-10z" fill="#ffffff"/>
+                <g class="pas">
+                  <path d="M0 0C5 -10 5 -40 0 -52C-5 -40 -5 -10 0 0z" fill="#ffffff"/>
+                  <path d="M0 0C5 -10 5 -40 0 -52C-5 -40 -5 -10 0 0z" fill="#ffffff" transform="rotate(120)"/>
+                  <path d="M0 0C5 -10 5 -40 0 -52C-5 -40 -5 -10 0 0z" fill="#ffffff" transform="rotate(240)"/>
+                  <circle r="5" fill="#e4eee0"/>
+                </g>
+              </g>
+              <g transform="translate(372 236) scale(.75)">
+                <path d="M-2 0h4l3 100h-10z" fill="#ffffff"/>
+                <g class="pas pas-lenta">
+                  <path d="M0 0C5 -10 5 -40 0 -52C-5 -40 -5 -10 0 0z" fill="#ffffff"/>
+                  <path d="M0 0C5 -10 5 -40 0 -52C-5 -40 -5 -10 0 0z" fill="#ffffff" transform="rotate(120)"/>
+                  <path d="M0 0C5 -10 5 -40 0 -52C-5 -40 -5 -10 0 0z" fill="#ffffff" transform="rotate(240)"/>
+                  <circle r="5" fill="#e4eee0"/>
+                </g>
+              </g>
+
+              <!-- Colina do meio -->
+              <path d="M0 380C100 330 200 340 280 370s140 10 200 -10V520H0z" fill="#b5d9a8"/>
+
+              <!-- Árvores -->
+              <rect x="104" y="296" width="12" height="60" rx="4" fill="#c4a283"/>
+              <circle cx="110" cy="284" r="36" fill="#7fb77e"/>
+              <circle cx="86" cy="304" r="24" fill="#8fc48a"/>
+              <circle cx="136" cy="302" r="24" fill="#8fc48a"/>
+
+              <rect x="192" y="320" width="8" height="38" rx="3" fill="#c4a283"/>
+              <circle cx="196" cy="312" r="22" fill="#8fc48a"/>
+
+              <!-- Casa com painel solar -->
+              <rect x="330" y="346" width="72" height="46" fill="#fffaf0"/>
+              <path d="M322 350L366 312L410 350z" fill="#f2c9b8"/>
+              <path d="M370 318L402 345L394 345L364 320z" fill="#8fb8de"/>
+              <rect x="338" y="358" width="16" height="13" rx="2" fill="#dcecf2"/>
+              <rect x="372" y="364" width="15" height="28" rx="2" fill="#c4a283"/>
+
+              <!-- Colina da frente -->
+              <path d="M0 440C120 400 260 420 340 445s100 10 140 0V520H0z" fill="#8cc49a"/>
+
+              <!-- Trilha de pegadas -->
+              <g fill="#f4faef">
+                <g transform="translate(70 488) rotate(-60)">
+                  <ellipse rx="7" ry="11"/><circle cx="-4" cy="-15" r="2.4"/><circle cx="1" cy="-17" r="2.4"/><circle cx="6" cy="-15" r="2.2"/>
+                </g>
+                <g transform="translate(116 470) rotate(-75)">
+                  <ellipse rx="7" ry="11"/><circle cx="-4" cy="-15" r="2.4"/><circle cx="1" cy="-17" r="2.4"/><circle cx="6" cy="-15" r="2.2"/>
+                </g>
+                <g transform="translate(166 476) rotate(-60)">
+                  <ellipse rx="7" ry="11"/><circle cx="-4" cy="-15" r="2.4"/><circle cx="1" cy="-17" r="2.4"/><circle cx="6" cy="-15" r="2.2"/>
+                </g>
+                <g transform="translate(214 458) rotate(-75)">
+                  <ellipse rx="7" ry="11"/><circle cx="-4" cy="-15" r="2.4"/><circle cx="1" cy="-17" r="2.4"/><circle cx="6" cy="-15" r="2.2"/>
+                </g>
+                <g transform="translate(264 464) rotate(-60)">
+                  <ellipse rx="7" ry="11"/><circle cx="-4" cy="-15" r="2.4"/><circle cx="1" cy="-17" r="2.4"/><circle cx="6" cy="-15" r="2.2"/>
+                </g>
+              </g>
+
+              <!-- Flores -->
+              <circle cx="360" cy="478" r="6" fill="#f6dc8c"/>
+              <circle cx="384" cy="492" r="5" fill="#fbe3d6"/>
+              <circle cx="412" cy="474" r="6" fill="#fbe3d6"/>
+              <circle cx="436" cy="496" r="5" fill="#f6dc8c"/>
+              <circle cx="36" cy="452" r="5" fill="#fbe3d6"/>
+
+              <!-- Folhas ao vento -->
+              <path class="folha-vento folha-vento-1" d="M200 170c14 -14 34 -14 40 -10c-6 16 -26 22 -40 10z" fill="#a9d3a0"/>
+              <path class="folha-vento folha-vento-2" d="M250 240c10 -10 24 -10 28 -7c-4 11 -18 15 -28 7z" fill="#7fb77e"/>
+            </g>
+          </svg>
+
+          <p class="hero-etiqueta"><span></span>Cada passo conta</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Números -->
+    <section class="numeros" aria-labelledby="numeros-titulo">
+      <div class="container">
+        <h2 id="numeros-titulo" class="visualmente-oculto">Por que isso importa</h2>
+        <ul class="numeros-lista">
+          <li>
+            <span class="numero">~400 anos</span>
+            <span class="numero-texto">é o tempo que uma garrafa plástica pode levar para se decompor na natureza.</span>
+          </li>
+          <li>
+            <span class="numero">Menos de 5%</span>
+            <span class="numero-texto">do lixo urbano produzido no Brasil é reciclado hoje.</span>
+          </li>
+          <li>
+            <span class="numero">Até 90 litros</span>
+            <span class="numero-texto">de água podem ser economizados ao reduzir o banho de 15 para 5 minutos.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Atitudes: os 4 Rs -->
+    <section class="secao" id="atitudes" aria-labelledby="atitudes-titulo">
+      <div class="container">
+        <header class="secao-cabecalho">
+          <p class="selo">Por onde começar</p>
+          <h2 id="atitudes-titulo">Os 4 Rs da sustentabilidade</h2>
+          <p>Uma forma fácil de lembrar o que fazer antes de comprar, usar ou descartar qualquer coisa.</p>
+        </header>
+
+        <div class="cartoes">
+          <article class="cartao cartao-verde">
+            <span class="cartao-letra" aria-hidden="true">R</span>
+            <h3>Repensar</h3>
+            <p>Antes de comprar, pergunte: eu realmente preciso disso? Consumo consciente começa na escolha.</p>
+          </article>
+          <article class="cartao cartao-areia">
+            <span class="cartao-letra" aria-hidden="true">R</span>
+            <h3>Reduzir</h3>
+            <p>Prefira produtos com menos embalagem, a granel ou refis. Menos consumo é menos resíduo.</p>
+          </article>
+          <article class="cartao cartao-ceu">
+            <span class="cartao-letra" aria-hidden="true">R</span>
+            <h3>Reutilizar</h3>
+            <p>Potes de vidro, sacolas de pano e garrafas viram itens do dia a dia em vez de lixo.</p>
+          </article>
+          <article class="cartao cartao-pessego">
+            <span class="cartao-letra" aria-hidden="true">R</span>
+            <h3>Reciclar</h3>
+            <p>Separe os materiais corretamente e encaminhe para a coleta seletiva da sua cidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reciclagem: cores da coleta seletiva -->
+    <section class="secao secao-clara" id="reciclagem" aria-labelledby="reciclagem-titulo">
+      <div class="container">
+        <header class="secao-cabecalho">
+          <p class="selo">Coleta seletiva</p>
+          <h2 id="reciclagem-titulo">Cada cor, um material</h2>
+          <p>As cores das lixeiras seguem o padrão da Resolução CONAMA nº 275. Veja onde descartar cada resíduo.</p>
+        </header>
+
+        <ul class="lixeiras">
+          <li class="lixeira">
+            <span class="lixeira-cor cor-azul" aria-hidden="true"></span>
+            <div>
+              <h3>Azul</h3>
+              <p class="lixeira-material">Papel e papelão</p>
+              <p>Caixas, jornais, revistas e folhas limpas e secas.</p>
+            </div>
+          </li>
+          <li class="lixeira">
+            <span class="lixeira-cor cor-vermelho" aria-hidden="true"></span>
+            <div>
+              <h3>Vermelho</h3>
+              <p class="lixeira-material">Plástico</p>
+              <p>Garrafas PET, embalagens, potes e sacolas plásticas.</p>
+            </div>
+          </li>
+          <li class="lixeira">
+            <span class="lixeira-cor cor-verde" aria-hidden="true"></span>
+            <div>
+              <h3>Verde</h3>
+              <p class="lixeira-material">Vidro</p>
+              <p>Garrafas, potes e frascos, de preferência sem tampa.</p>
+            </div>
+          </li>
+          <li class="lixeira">
+            <span class="lixeira-cor cor-amarelo" aria-hidden="true"></span>
+            <div>
+              <h3>Amarelo</h3>
+              <p class="lixeira-material">Metal</p>
+              <p>Latas de alumínio, enlatados e tampinhas metálicas.</p>
+            </div>
+          </li>
+          <li class="lixeira">
+            <span class="lixeira-cor cor-marrom" aria-hidden="true"></span>
+            <div>
+              <h3>Marrom</h3>
+              <p class="lixeira-material">Orgânico</p>
+              <p>Restos de alimentos, cascas e borra de café: ótimos para compostagem.</p>
+            </div>
+          </li>
+        </ul>
+
+        <p class="dica">
+          <strong>Dica:</strong> lave rapidamente as embalagens antes de descartar.
+          Resíduos sujos podem contaminar todo o lote e impedir a reciclagem.
+        </p>
+      </div>
+    </section>
+
+    <!-- Desafio interativo (somente CSS, com checkboxes) -->
+    <section class="secao" id="desafio" aria-labelledby="desafio-titulo">
+      <div class="container desafio">
+        <div class="desafio-texto">
+          <p class="selo">Desafio da semana</p>
+          <h2 id="desafio-titulo">Quantas você consegue cumprir?</h2>
+          <p>
+            Marque cada atitude conforme for colocando em prática nos próximos sete dias.
+            Mudar um hábito por vez já faz diferença.
+          </p>
+        </div>
+
+        <ul class="checklist">
+          <li>
+            <input type="checkbox" id="d1">
+            <label for="d1">Levar minha própria garrafa de água</label>
+          </li>
+          <li>
+            <input type="checkbox" id="d2">
+            <label for="d2">Usar sacola retornável no mercado</label>
+          </li>
+          <li>
+            <input type="checkbox" id="d3">
+            <label for="d3">Tomar banhos de até 5 minutos</label>
+          </li>
+          <li>
+            <input type="checkbox" id="d4">
+            <label for="d4">Desligar aparelhos da tomada ao sair</label>
+          </li>
+          <li>
+            <input type="checkbox" id="d5">
+            <label for="d5">Separar o lixo reciclável do orgânico</label>
+          </li>
+          <li>
+            <input type="checkbox" id="d6">
+            <label for="d6">Ir a pé, de bicicleta ou de transporte público</label>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="secao secao-sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container sobre">
+        <h2 id="sobre-titulo">Sobre o projeto</h2>
+        <p>
+          O ECOnscientização nasceu como um projeto acadêmico da disciplina de Web Design
+          na Facens. Nosso objetivo é mostrar que viver de forma sustentável não precisa
+          ser complicado: basta informação clara e um passo de cada vez.
+        </p>
+        <a class="botao botao-primario" href="#atitudes">Conheça as atitudes</a>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>Projeto Webdesign - Facens</p>
+  <footer class="rodape">
+    <div class="container rodape-interno">
+      <p class="marca marca-rodape"><strong>ECO</strong>nscientização</p>
+      <p>Projeto de Web Design · Facens · 2026</p>
+      <p><a href="#inicio">Voltar ao topo</a></p>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

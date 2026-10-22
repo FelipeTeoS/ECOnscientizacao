@@ -1,36 +1,700 @@
-* {
+/* ==========================================================
+   ECOnscientização - Folha de estilo da página inicial
+   Paleta clara, sem sombras, brilhos ou contornos.
+   ========================================================== */
+
+:root {
+  /* Cores base */
+  --fundo: #f7f9f1;
+  --fundo-claro: #eef4e6;
+  --superficie: #ffffff;
+  --texto: #24392b;
+  --texto-suave: #55695a;
+
+  /* Verdes */
+  --verde-escuro: #2f5d3a;
+  --verde: #7fb77e;
+  --verde-claro: #d8ead2;
+
+  /* Tons de apoio */
+  --areia: #f3ead6;
+  --ceu: #dcecf2;
+  --pessego: #fbe3d6;
+  --sol: #f6dc8c;
+
+  /* Lixeiras (CONAMA 275) em tons suaves */
+  --lixo-azul: #8fb8de;
+  --lixo-vermelho: #e8998d;
+  --lixo-verde: #8cc49a;
+  --lixo-amarelo: #f2d27a;
+  --lixo-marrom: #c4a283;
+
+  /* Tipografia */
+  --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Nunito Sans", "Segoe UI", Arial, Helvetica, sans-serif;
+
+  /* Medidas */
+  --raio: 20px;
+  --raio-pequeno: 12px;
+  --largura-max: 1120px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #fafafa;
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--texto);
+  background: var(--fundo);
 }
 
-header nav {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  background: #333;
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-header nav a {
-  color: #fff;
-  text-decoration: none;
+ul {
+  list-style: none;
 }
 
-main {
-  max-width: 800px;
-  margin: 2rem auto;
+a {
+  color: var(--verde-escuro);
+}
+
+/* Foco visível sem usar contorno: destaque por cor de fundo */
+a:focus,
+input:focus,
+label:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  background: var(--sol);
+  color: var(--texto);
+  border-radius: 6px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--verde-escuro);
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: 1.3rem; }
+
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
   padding: 0 1rem;
 }
 
-footer {
+@media (min-width: 640px) {
+  .container { padding: 0 2rem; }
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.pular {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  padding: 0.5rem 1rem;
+  background: var(--sol);
+  color: var(--texto);
+  border-radius: var(--raio-pequeno);
+  z-index: 10;
+}
+
+.pular:focus {
+  top: 1rem;
+}
+
+/* ---------- Selo (rótulo acima dos títulos) ---------- */
+.selo {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+  background: var(--verde-claro);
+  border-radius: 999px;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-primario {
+  background: var(--verde-escuro);
+  color: #ffffff;
+}
+
+.botao-primario:hover,
+.botao-primario:focus-visible {
+  background: #24492d;
+  color: #ffffff;
+}
+
+.botao-secundario {
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+.botao-secundario:hover,
+.botao-secundario:focus-visible {
+  background: #c6e0bd;
+  color: var(--verde-escuro);
+}
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+  background: rgba(247, 249, 241, 0.94);
+}
+
+@media (min-width: 760px) {
+  .topo {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+}
+
+.topo-interno {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  color: var(--verde-escuro);
+  text-decoration: none;
+}
+
+.marca strong {
+  color: var(--verde);
+}
+
+.marca-logo {
+  width: auto;
+  height: 56px;
+}
+
+@media (min-width: 760px) {
+  .marca-logo { height: 72px; }
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.menu a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 3rem 0 4rem;
+}
+
+.hero-interno {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--verde);
+}
+
+.hero-lead {
+  max-width: 34rem;
+  margin: 1.25rem 0 2rem;
+  font-size: 1.15rem;
+  color: var(--texto-suave);
+}
+
+.hero-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Ilustração da paisagem (SVG + animações em CSS) */
+.hero-arte {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto 1.1rem;
+}
+
+.paisagem {
+  width: 100%;
+  height: auto;
+}
+
+.pas {
+  animation: girar 7s linear infinite;
+}
+
+.pas-lenta {
+  animation-duration: 10s;
+}
+
+.nuvem {
+  animation: flutuar 9s ease-in-out infinite alternate;
+}
+
+.nuvem-2 {
+  animation-duration: 12s;
+}
+
+.folha-vento {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: balancar 5s ease-in-out infinite alternate;
+}
+
+.folha-vento-2 {
+  animation-duration: 6.5s;
+  animation-delay: -2s;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes flutuar {
+  to { transform: translateX(18px); }
+}
+
+@keyframes balancar {
+  from { transform: translate(0, 0) rotate(-10deg); }
+  to   { transform: translate(14px, 18px) rotate(16deg); }
+}
+
+.hero-etiqueta {
+  position: absolute;
+  right: 8%;
+  bottom: -1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--verde-escuro);
+  background: var(--superficie);
+  border-radius: 999px;
+}
+
+.hero-etiqueta span {
+  width: 10px;
+  height: 10px;
+  background: var(--verde);
+  border-radius: 50%;
+}
+
+@media (min-width: 860px) {
+  .hero {
+    padding: 4rem 0 5rem;
+  }
+
+  .hero-interno {
+    grid-template-columns: 1.15fr 1fr;
+  }
+}
+
+/* ---------- Números ---------- */
+.numeros {
+  padding-bottom: 1rem;
+}
+
+.numeros-lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.numeros-lista li {
+  padding: 1.5rem;
+  background: var(--superficie);
+  border-radius: var(--raio);
+}
+
+.numero {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.numero-texto {
+  color: var(--texto-suave);
+}
+
+@media (min-width: 760px) {
+  .numeros-lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Seções gerais ---------- */
+.secao {
+  padding: 4.5rem 0;
+}
+
+.secao-clara {
+  background: var(--fundo-claro);
+}
+
+.secao-cabecalho {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.secao-cabecalho h2 {
+  margin-bottom: 0.75rem;
+}
+
+.secao-cabecalho p:last-child {
+  color: var(--texto-suave);
+}
+
+/* ---------- Cartões dos 4 Rs ---------- */
+.cartoes {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.cartao {
+  padding: 1.75rem;
+  border-radius: var(--raio);
+  transition: transform 0.2s ease;
+}
+
+.cartao:hover {
+  transform: translateY(-4px);
+}
+
+.cartao h3 {
+  margin-bottom: 0.5rem;
+}
+
+.cartao p {
+  color: var(--texto-suave);
+}
+
+.cartao-letra {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.25rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+
+.cartao-verde   { background: var(--verde-claro); }
+.cartao-areia   { background: var(--areia); }
+.cartao-ceu     { background: var(--ceu); }
+.cartao-pessego { background: var(--pessego); }
+
+@media (min-width: 640px) {
+  .cartoes { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .cartoes { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- Lixeiras ---------- */
+.lixeiras {
+  display: grid;
+  gap: 1rem;
+}
+
+.lixeira {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--superficie);
+  border-radius: var(--raio);
+}
+
+.lixeira-cor {
+  flex-shrink: 0;
+  width: 44px;
+  height: 56px;
+  border-radius: 8px 8px 14px 14px;
+  position: relative;
+}
+
+/* Tampa da lixeira */
+.lixeira-cor::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: -8px;
+  height: 8px;
+  background: inherit;
+  border-radius: 6px 6px 0 0;
+  opacity: 0.8;
+}
+
+.lixeira h3 {
+  font-size: 1.1rem;
+}
+
+.lixeira-material {
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.lixeira p:last-child {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+
+.cor-azul     { background: var(--lixo-azul); }
+.cor-vermelho { background: var(--lixo-vermelho); }
+.cor-verde    { background: var(--lixo-verde); }
+.cor-amarelo  { background: var(--lixo-amarelo); }
+.cor-marrom   { background: var(--lixo-marrom); }
+
+.dica {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #fbefc4;
+  border-radius: var(--raio);
+}
+
+@media (min-width: 640px) {
+  .lixeiras { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .lixeiras { grid-template-columns: repeat(5, 1fr); }
+
+  .lixeira {
+    flex-direction: column;
+    padding-top: 1.75rem;
+  }
+}
+
+/* ---------- Desafio (checklist só com CSS) ---------- */
+.desafio {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+.desafio-texto h2 {
+  margin-bottom: 0.75rem;
+}
+
+.desafio-texto p:last-child {
+  color: var(--texto-suave);
+}
+
+.checklist {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.checklist li {
+  position: relative;
+}
+
+/* Esconde a caixa nativa, mantendo-a acessível */
+.checklist input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.checklist label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  background: var(--superficie);
+  border-radius: var(--raio-pequeno);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Caixa personalizada */
+.checklist label::before {
+  content: "";
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: var(--verde-claro);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.checklist label:hover {
+  background: #f1f7ec;
+}
+
+.checklist input:focus-visible + label {
+  background: #fbefc4;
+}
+
+.checklist input:checked + label {
+  background: var(--verde-claro);
+  color: var(--texto-suave);
+  text-decoration: line-through;
+}
+
+.checklist input:checked + label::before {
+  background-color: var(--verde-escuro);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 860px) {
+  .desafio {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+/* ---------- Sobre ---------- */
+.secao-sobre {
+  padding-top: 0;
+}
+
+.sobre {
+  max-width: 48rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
   text-align: center;
-  padding: 1rem;
-  color: #777;
+  background: var(--areia);
+  border-radius: var(--raio);
+}
+
+.sobre h2 {
+  margin-bottom: 1rem;
+}
+
+.sobre p {
+  margin-bottom: 1.75rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding: 2.5rem 0;
+  background: var(--verde-claro);
+}
+
+.rodape-interno {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  color: var(--texto-suave);
+}
+
+.marca-rodape {
+  font-size: 1.2rem;
+}
+
+.rodape a {
+  font-weight: 700;
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .cartao,
+  .botao,
+  .menu a,
+  .checklist label {
+    transition: none;
+  }
+
+  .cartao:hover {
+    transform: none;
+  }
+
+  .pas,
+  .nuvem,
+  .folha-vento {
+    animation: none;
+  }
 }
