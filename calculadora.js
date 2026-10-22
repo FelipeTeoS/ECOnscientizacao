@@ -6,6 +6,7 @@
   const status = document.querySelector("#calc-status");
   let resultadoAtual = null;
   let resultadoAtualizado = false;
+  let cenarioBase = null;
   const numero = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const usaGas = document.querySelector("#usa-gas");
   const campos = {
@@ -56,6 +57,7 @@
   function marcarDesatualizado() {
     if (!resultadoAtual) return;
     resultadoAtualizado = false;
+    document.querySelector("#salvar-cenario").disabled = true;
     document.querySelector("#resultado-aviso").hidden = false;
     status.dataset.estado = "aviso";
     status.textContent = "Dados alterados. Calcule novamente para atualizar o resultado.";
@@ -80,10 +82,48 @@
     document.querySelector("#resultado-anual").textContent = formatar(resultadoAtual.anual);
     document.querySelector("#resultado-biogenico").textContent = formatar(resultadoAtual.biogenico);
     atualizarGrafico(resultadoAtual);
+    atualizarDicas(resultadoAtual);
+    atualizarComparacao();
+    document.querySelector("#salvar-cenario").disabled = false;
     status.dataset.estado = "sucesso";
     status.textContent = `Estimativa calculada: ${formatar(resultadoAtual.total)} kg de CO₂ por pessoa no mês e ${formatar(resultadoAtual.anual)} kg em 12 meses iguais.`;
     document.querySelector("#titulo-resultado").focus();
   }
+
+  function atualizarDicas(resultado) {
+    const lista = document.querySelector("#lista-dicas");
+    lista.replaceChildren();
+    for (const texto of modelo.dicas(resultado)) {
+      const item = document.createElement("li");
+      item.textContent = texto;
+      lista.append(item);
+    }
+  }
+
+  function atualizarComparacao() {
+    const avisoBase = document.querySelector("#comparacao-base");
+    const comparacao = document.querySelector("#comparacao-resultado");
+    avisoBase.hidden = !cenarioBase;
+    comparacao.hidden = !cenarioBase;
+    if (!cenarioBase) return;
+    avisoBase.textContent = `Cenário de referência: ${formatar(cenarioBase.total)} kg de CO₂ por pessoa/mês.`;
+    const variacao = modelo.comparar(cenarioBase, resultadoAtual);
+    if (variacao.direcao === "igual") {
+      comparacao.textContent = "Este cenário tem a mesma estimativa da referência.";
+      return;
+    }
+    const sentido = variacao.direcao === "reducao" ? "Redução" : "Aumento";
+    const percentual = variacao.percentual === null ? " A referência informada era zero." : ` (${formatar(variacao.percentual)}%).`;
+    comparacao.textContent = `${sentido} de ${formatar(Math.abs(variacao.diferenca))} kg de CO₂ por pessoa/mês${percentual}`;
+  }
+
+  document.querySelector("#salvar-cenario").addEventListener("click", () => {
+    if (!resultadoAtual || !resultadoAtualizado) return;
+    cenarioBase = resultadoAtual;
+    atualizarComparacao();
+    document.querySelector("#salvar-cenario").textContent = "Atualizar cenário de referência";
+    status.textContent = "Referência salva nesta aba. Altere os consumos e calcule novamente para comparar.";
+  });
 
   form.addEventListener("submit", (evento) => {
     evento.preventDefault();
@@ -106,6 +146,11 @@
       Object.values(campos).forEach(limparErro);
       resultadoAtual = null;
       resultadoAtualizado = false;
+      cenarioBase = null;
+      document.querySelector("#comparacao-base").hidden = true;
+      document.querySelector("#comparacao-resultado").hidden = true;
+      document.querySelector("#salvar-cenario").textContent = "Usar este resultado como referência";
+      document.querySelector("#salvar-cenario").disabled = true;
       document.querySelector("#resultado-vazio").hidden = false;
       document.querySelector("#resultado-conteudo").hidden = true;
       document.querySelector("#resultado-aviso").hidden = true;

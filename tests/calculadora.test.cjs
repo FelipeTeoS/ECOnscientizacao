@@ -50,3 +50,36 @@ test("ratear a casa não divide o trajeto individual e dobrar a duração reduz 
   assert.equal(b.categorias.energia, a.categorias.energia / 2);
   assert.equal(b.categorias.gas, a.categorias.gas / 4);
 });
+
+test("cenário de referência fica imutável e comparação informa redução, aumento e igualdade", () => {
+  const original = entrada();
+  const base = modelo.calcular(original);
+  original.distancia = "0";
+  const menor = modelo.calcular(original);
+  assert.equal(base.entrada.distancia, 100);
+  assert.ok(Object.isFrozen(base) && Object.isFrozen(base.entrada) && Object.isFrozen(base.categorias));
+  assert.equal(modelo.comparar(base, menor).direcao, "reducao");
+  assert.ok(modelo.comparar(base, menor).diferenca < 0);
+  assert.equal(modelo.comparar(menor, base).direcao, "aumento");
+  assert.equal(modelo.comparar(base, base).direcao, "igual");
+});
+
+test("referência zero não gera percentual infinito", () => {
+  const zero = modelo.calcular(entrada({ distancia: 0, energia: 0, usaGas: false }));
+  const positivo = modelo.calcular(entrada());
+  assert.equal(modelo.comparar(zero, positivo).percentual, null);
+  assert.equal(modelo.comparar(zero, positivo).direcao, "aumento");
+  assert.equal(modelo.comparar(zero, zero).direcao, "igual");
+  assert.throws(() => modelo.comparar({ total: Infinity }, positivo), RangeError);
+});
+
+test("dicas acompanham a categoria dominante e não tratam zero informado como pegada zero", () => {
+  const transporte = modelo.calcular(entrada({ energia: 0, usaGas: false }));
+  assert.match(modelo.dicas(transporte)[0], /trajetos/);
+  const gas = modelo.calcular(entrada({ distancia: 0, energia: 0 }));
+  assert.match(modelo.dicas(gas)[0], /panelas/);
+  const energia = modelo.calcular(entrada({ distancia: 0, usaGas: false }));
+  assert.match(modelo.dicas(energia)[0], /aparelhos/);
+  const zero = modelo.calcular(entrada({ distancia: 0, energia: 0, usaGas: false }));
+  assert.match(modelo.dicas(zero)[0], /não representa sua pegada completa/);
+});

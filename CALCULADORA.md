@@ -56,3 +56,11 @@ decimais, dados inválidos, rateio doméstico, atividades opcionais e resultado 
 
 Arquivos: `calculadora-modelo.js` contém as fórmulas e validações; `calculadora.js`
 controla a interface; `calculadora.css` complementa `style.css` sem alterar a página inicial.
+
+## Comparação e dicas
+
+A referência é um resultado imutável guardado somente na memória da aba. A variação é
+`novo total - total de referência`; redução é negativa, aumento é positivo. O percentual
+é omitido quando a referência é zero. Limpar ou recarregar apaga a referência. Ao editar
+entradas, o resultado anterior é sinalizado como desatualizado até um novo cálculo.
+As dicas priorizam até duas categorias com maior contribuição positiva.

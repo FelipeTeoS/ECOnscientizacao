@@ -72,5 +72,34 @@
     });
   }
 
-  return Object.freeze({ lerNumero, validar, calcular, FATORES });
+  function comparar(base, atual) {
+    if (![base.total, atual.total].every((valor) => Number.isFinite(valor) && valor >= 0)) {
+      throw new RangeError("Cenários inválidos para comparação.");
+    }
+    const diferenca = atual.total - base.total;
+    const direcao = Math.abs(diferenca) < 1e-9 ? "igual" : diferenca < 0 ? "reducao" : "aumento";
+    return Object.freeze({
+      diferenca,
+      direcao,
+      percentual: base.total === 0 ? null : Math.abs(diferenca) / base.total * 100
+    });
+  }
+
+  function dicas(resultado) {
+    if (resultado.total === 0) return [
+      "Você informou zero nas categorias calculadas. Isso não representa sua pegada completa.",
+      "Confira se os consumos correspondem a um mês típico antes de comparar cenários."
+    ];
+    const mensagens = {
+      transporte: "Para os trajetos em que for possível, experimente caminhar, pedalar ou combinar deslocamentos para reduzir os quilômetros de carro.",
+      energia: "Observe quais aparelhos ficam ligados sem uso e prefira iluminação natural. Compare a conta de luz antes e depois da mudança.",
+      gas: "Cozinhar com panelas tampadas e organizar o preparo das refeições pode ajudar o botijão a durar mais."
+    };
+    const principais = Object.entries(resultado.categorias)
+      .filter(([, valor]) => valor > 0)
+      .sort((a, b) => b[1] - a[1]);
+    return principais.slice(0, 2).map(([categoria]) => mensagens[categoria]);
+  }
+
+  return Object.freeze({ lerNumero, validar, calcular, comparar, dicas, FATORES });
 });

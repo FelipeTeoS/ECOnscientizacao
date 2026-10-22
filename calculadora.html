@@ -120,7 +120,15 @@
               <li class="categoria-item" data-categoria="gas"><div class="categoria-topo"><span>Gás de cozinha</span><span><strong id="valor-gas">0,0 kg</strong> <span class="categoria-percentual" id="percentual-gas">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-gas"></span></div></li>
             </ul>
           </div>
-          <!-- DICAS E COMPARACAO -->
+          <section class="resultado-dicas" aria-labelledby="titulo-dicas"><h3 id="titulo-dicas">Seu próximo pequeno passo</h3><ul id="lista-dicas"></ul></section>
+          <section class="calc-comparacao" aria-labelledby="titulo-comparacao">
+            <h3 id="titulo-comparacao">E se você mudasse um hábito?</h3>
+            <p>Salve este resultado como referência. Depois, altere seus consumos e calcule de novo para comparar.</p>
+            <p id="comparacao-base" hidden></p>
+            <p class="comparacao-resultado" id="comparacao-resultado" hidden></p>
+            <button type="button" class="botao botao-secundario" id="salvar-cenario" disabled>Usar este resultado como referência</button>
+            <p class="resultado-nota">A referência fica apenas na memória desta aba. Limpar dados ou recarregar a página apaga a comparação.</p>
+          </section>
         </div>
         <p class="resumo-escopo">Estimativa parcial por pessoa: CO₂ fóssil e da geração elétrica. Referência elétrica do SIN de 2023. <a href="#titulo-metodo">Fontes e limites</a>.</p>
       </aside>
