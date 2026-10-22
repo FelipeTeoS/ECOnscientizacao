@@ -237,3 +237,86 @@ article {
     padding: 24px 16px;
   }
 }
+
+/* Página de leitura dos artigos */
+.pagina-artigo {
+  max-width: 760px;
+  padding-top: 32px;
+}
+
+.voltar-blog {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.aviso-modelo {
+  padding: 16px;
+  border-left: 4px solid var(--cor-principal);
+  background-color: var(--cor-destaque);
+}
+
+/* Sobrescreve a apresentação dos cartões da listagem. */
+.artigo-completo {
+  margin-top: 24px;
+  padding: 32px;
+}
+
+.artigo-completo .cabecalho-artigo {
+  margin-bottom: 32px;
+}
+
+.artigo-completo h1 {
+  font-size: clamp(28px, 5vw, 40px);
+}
+
+.artigo-completo .categoria-artigo {
+  margin: 0 0 12px;
+  color: var(--cor-principal);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.artigo-completo .introducao-artigo {
+  margin: 0;
+  color: var(--cor-texto-secundario);
+  font-size: 18px;
+}
+
+.artigo-completo section {
+  margin-bottom: 32px;
+}
+
+.artigo-completo section:last-child {
+  margin-bottom: 0;
+}
+
+.artigo-completo h2 {
+  margin-bottom: 16px;
+  font-size: 26px;
+}
+
+/* Mantém os parágrafos do artigo com aparência de texto,
+   mesmo quando são o primeiro elemento de uma seção. */
+.artigo-completo section p {
+  color: var(--cor-texto);
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.artigo-completo li + li {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .artigo-completo {
+    padding: 20px;
+  }
+
+  .artigo-completo h2 {
+    font-size: 23px;
+  }
+
+  .artigo-completo .introducao-artigo {
+    font-size: 17px;
+  }
+}
