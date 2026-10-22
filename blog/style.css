@@ -12,8 +12,10 @@
 
 .cartao .artigo-status {
   margin-top: 1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: var(--fonte-manuscrita);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--verde-escuro);
 }
 

@@ -31,7 +31,8 @@
 
   /* Tipografia */
   --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
-  --fonte-texto: "Nunito Sans", "Segoe UI", Arial, Helvetica, sans-serif;
+  --fonte-texto: "Mali", "Segoe UI", Arial, Helvetica, sans-serif;
+  --fonte-manuscrita: "Caveat", "Segoe Print", "Bradley Hand", cursive;
 
   /* Medidas */
   --raio: 20px;
@@ -100,6 +101,16 @@ h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
 h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
 h3 { font-size: 1.3rem; }
 
+/* Destaque manuscrito dentro dos títulos */
+h1 em {
+  font-family: var(--fonte-manuscrita);
+  font-size: 1.15em;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--verde);
+  margin-right: 0.12em;
+}
+
 .container {
   width: 100%;
   max-width: var(--largura-max);
@@ -151,7 +162,12 @@ h3 { font-size: 1.3rem; }
 
 /* ---------- Botões ---------- */
 .botao {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  line-height: 1.4;
   padding: 0.85rem 1.6rem;
   font-weight: 700;
   text-decoration: none;
@@ -220,7 +236,9 @@ h3 { font-size: 1.3rem; }
 
 .marca-logo {
   width: auto;
+  max-width: 100%;
   height: 56px;
+  object-fit: contain;
 }
 
 @media (min-width: 760px) {
@@ -234,7 +252,9 @@ h3 { font-size: 1.3rem; }
 }
 
 .menu a {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   padding: 0.4rem 0.85rem;
   font-weight: 600;
   color: var(--texto-suave);
@@ -258,11 +278,6 @@ h3 { font-size: 1.3rem; }
   display: grid;
   gap: 3rem;
   align-items: center;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--verde);
 }
 
 .hero-lead {
@@ -338,9 +353,10 @@ h3 { font-size: 1.3rem; }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 1rem;
+  font-family: var(--fonte-manuscrita);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.35rem;
   color: var(--verde-escuro);
   background: var(--superficie);
   border-radius: 999px;
@@ -534,6 +550,13 @@ h3 { font-size: 1.3rem; }
   border-radius: var(--raio);
 }
 
+.dica strong {
+  font-family: var(--fonte-manuscrita);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--verde-escuro);
+}
+
 @media (min-width: 640px) {
   .lixeiras { grid-template-columns: repeat(2, 1fr); }
 }
@@ -661,6 +684,7 @@ h3 { font-size: 1.3rem; }
 }
 
 .pagina-intro h1 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
   max-width: 47rem;
   margin-inline: auto;
   text-wrap: balance;
@@ -671,6 +695,11 @@ h3 { font-size: 1.3rem; }
   margin: 1.25rem auto 0;
   font-size: 1.15rem;
   color: var(--texto-suave);
+}
+
+@media (max-width: 760px) {
+  .pagina-intro { padding: 2rem 0; }
+  .pagina-intro h1 { font-size: clamp(2rem, 7vw, 3rem); }
 }
 
 /* ---------- Rodapé ---------- */
@@ -689,6 +718,7 @@ h3 { font-size: 1.3rem; }
 }
 
 .marca-rodape {
+  gap: 0;
   font-size: 1.2rem;
 }
 
