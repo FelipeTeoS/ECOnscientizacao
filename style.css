@@ -502,25 +502,36 @@ h1 em {
   border-radius: var(--raio);
 }
 
-.lixeira-cor {
+/* Lixeira simples e chapada (SVG); a cor vem de currentColor */
+.lixeira-icone {
   flex-shrink: 0;
-  width: 44px;
-  height: 56px;
-  border-radius: 8px 8px 14px 14px;
-  position: relative;
+  width: 48px;
+  height: 64px;
+  overflow: visible;
 }
 
-/* Tampa da lixeira */
-.lixeira-cor::before {
-  content: "";
-  position: absolute;
-  left: -4px;
-  right: -4px;
-  top: -8px;
-  height: 8px;
-  background: inherit;
-  border-radius: 6px 6px 0 0;
-  opacity: 0.8;
+/* A tampa abre um pouco ao passar o mouse, girando pela dobradiça de trás */
+.lixeira-tampa {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+  transition: transform 0.25s ease;
+}
+
+.lixeira:hover .lixeira-tampa {
+  transform: translateY(-3px) rotate(-20deg);
+}
+
+/* Um balancinho de desenho animado ao passar o mouse */
+.lixeira:hover .lixeira-icone {
+  transform-origin: 50% 100%;
+  animation: balancar-lixeira 0.5s ease-in-out;
+}
+
+@keyframes balancar-lixeira {
+  0%, 100% { transform: rotate(0); }
+  25%      { transform: rotate(-7deg); }
+  60%      { transform: rotate(5deg); }
+  85%      { transform: rotate(-2deg); }
 }
 
 .lixeira h3 {
@@ -537,11 +548,11 @@ h1 em {
   color: var(--texto-suave);
 }
 
-.cor-azul     { background: var(--lixo-azul); }
-.cor-vermelho { background: var(--lixo-vermelho); }
-.cor-verde    { background: var(--lixo-verde); }
-.cor-amarelo  { background: var(--lixo-amarelo); }
-.cor-marrom   { background: var(--lixo-marrom); }
+.cor-azul     { color: var(--lixo-azul); }
+.cor-vermelho { color: var(--lixo-vermelho); }
+.cor-verde    { color: var(--lixo-verde); }
+.cor-amarelo  { color: var(--lixo-amarelo); }
+.cor-marrom   { color: var(--lixo-marrom); }
 
 .dica {
   margin-top: 2rem;
@@ -726,6 +737,297 @@ h1 em {
   font-weight: 700;
 }
 
+/* ---------- Banner com foto (página inicial) ---------- */
+/* A foto cobre o topo da página; embaixo ela desfoca e se funde à camada de grama.
+   Foto: "Green hills, South Dakota", Tali Despins (Unsplash License)
+   https://unsplash.com/photos/FQkQxgO9Kh8 */
+.pagina-inicial {
+  --banner-foto: url("resources/img/banner-natureza.jpg");
+  --banner-altura: 54rem;
+  --fundo-rgb: 247, 249, 241;
+}
+
+/* Foto e camadas do banner */
+.pagina-inicial::before,
+.pagina-inicial::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--banner-altura);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.pagina-inicial::before {
+  background:
+    var(--banner-foto) center 80% / cover no-repeat,
+    var(--grama);
+  -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
+}
+
+/* Desfoque que aumenta para baixo e gradiente até a cor da grama */
+.pagina-inicial::after {
+  background: linear-gradient(to bottom, rgba(var(--grama-rgb), 0) 50%, rgba(var(--grama-rgb), 0.55) 82%, rgb(var(--grama-rgb)) 100%);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 50%, #000 85%);
+  mask-image: linear-gradient(to bottom, transparent 50%, #000 85%);
+}
+
+/* Cabeçalho de vidro sobre a foto */
+.pagina-inicial .topo {
+  background: rgba(var(--fundo-rgb), 0.55);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* Ilha acrílica com o texto, os botões e a ilustração animada do destaque */
+.pagina-inicial .hero-interno {
+  /* A ilha nunca encosta nas bordas da tela */
+  width: calc(100% - 2rem);
+  padding-block: 2.5rem;
+  background: rgba(var(--fundo-rgb), 0.62);
+  border-radius: var(--raio);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+}
+
+@media (max-width: 640px) {
+  .pagina-inicial .hero-interno { padding: 1.75rem 1.25rem; }
+}
+
+
+/* ---------- Camadas da terra (página inicial) ---------- */
+/* Abaixo da foto, cada seção é uma camada do solo: grama, húmus, terra, argila, pedra e rocha. */
+.pagina-inicial {
+  /* Cores tiradas do próprio solo; a grama continua o verde da foto */
+  --grama: #5a7a26;
+  --grama-rgb: 90, 122, 38;
+  --humus: #4a3626;
+  --terra: #6e5034;
+  --argila: #8c4f36;
+  --pedra: #686a64;
+  --rocha: #33352f;
+  background-color: var(--grama);
+}
+
+.pagina-inicial main > section:not(.hero),
+.pagina-inicial .rodape {
+  position: relative;
+}
+
+.pagina-inicial #atitudes   { --camada: var(--humus); --titulo-camada: #f2d49b; --texto-camada: #efe4d2;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%236b4f2f' fill-opacity='.14'%3E%3Ccircle cx='14' cy='20' r='2'/%3E%3Ccircle cx='62' cy='12' r='1.5'/%3E%3Ccircle cx='104' cy='34' r='2.5'/%3E%3Ccircle cx='30' cy='78' r='1.8'/%3E%3Ccircle cx='88' cy='96' r='2'/%3E%3Ccircle cx='124' cy='120' r='1.5'/%3E%3Ccircle cx='50' cy='126' r='2.2'/%3E%3C/g%3E%3Cg fill='none' stroke='%236b4f2f' stroke-opacity='.16' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M40 0c2 12-4 18 0 30'/%3E%3Cpath d='M112 60c-3 10 3 16-1 26'/%3E%3C/g%3E%3C/svg%3E") var(--humus); }
+.pagina-inicial #reciclagem { --camada: var(--terra); --titulo-camada: #f7e0b5; --texto-camada: #f3e8d6;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='%239c7b55' fill-opacity='.22'%3E%3Cellipse cx='30' cy='40' rx='9' ry='6'/%3E%3Cellipse cx='130' cy='24' rx='6' ry='4'/%3E%3Cellipse cx='168' cy='110' rx='11' ry='7'/%3E%3Cellipse cx='70' cy='150' rx='7' ry='5'/%3E%3Cellipse cx='110' cy='180' rx='4' ry='3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.28'%3E%3Cellipse cx='88' cy='70' rx='5' ry='3.5'/%3E%3Cellipse cx='20' cy='128' rx='4' ry='3'/%3E%3Cellipse cx='176' cy='60' rx='3.5' ry='2.5'/%3E%3C/g%3E%3C/svg%3E") var(--terra); }
+.pagina-inicial #desafio    { --camada: var(--argila); --titulo-camada: #ffd9c2; --texto-camada: #f8e7dc; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='120' viewBox='0 0 260 120'%3E%3Cg fill='none' stroke='%23a0705a' stroke-opacity='.16' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 24c40-8 80 6 130 0s90-6 130 2'/%3E%3Cpath d='M20 70c50 8 90-6 140 0s70 6 100-2'/%3E%3Cpath d='M0 104c30-4 60 4 90 0'/%3E%3C/g%3E%3C/svg%3E") var(--argila); }
+.pagina-inicial #sobre      { --camada: var(--pedra); --titulo-camada: #eef0e8; --texto-camada: #e9ebe4;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='%23b6b5ad' fill-opacity='.45' stroke='%239e9d95' stroke-opacity='.35' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M20 30l22-8 18 10-4 20-24 6-14-12z'/%3E%3Cpath d='M150 18l30 4 8 22-20 12-22-10z'/%3E%3Cpath d='M90 110l26-6 16 16-8 22-28 2-12-18z'/%3E%3Cpath d='M190 160l20 2 6 18-16 10-16-12z'/%3E%3Cpath d='M30 180l18-4 10 14-12 14-18-6z'/%3E%3C/g%3E%3C/svg%3E") var(--pedra); }
+.pagina-inicial .rodape     { --camada: var(--rocha); --titulo-camada: #cfe6bf; --texto-camada: #e2e4dc;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' viewBox='0 0 260 200'%3E%3Cg fill='none' stroke='%238e8f88' stroke-opacity='.4' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 40l40 10 20-14 34 8'/%3E%3Cpath d='M140 20l20 30 40 6 30 24'/%3E%3Cpath d='M60 120l30 16 10 30'/%3E%3Cpath d='M170 140l40-10 30 20'/%3E%3Cpath d='M90 136l24-8'/%3E%3C/g%3E%3C/svg%3E") var(--rocha); }
+
+/* Borda irregular de cada camada, subindo sobre a camada de cima */
+.pagina-inicial :is(#reciclagem, #desafio, #sobre, .rodape)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -23px;
+  height: 24px;
+  background: var(--camada);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V12C20 6 40 16 60 12S100 4 120 10S160 18 180 12S220 6 240 12V24Z'/%3E%3C/svg%3E") repeat-x bottom / 240px 24px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V12C20 6 40 16 60 12S100 4 120 10S160 18 180 12S220 6 240 12V24Z'/%3E%3C/svg%3E") repeat-x bottom / 240px 24px;
+}
+
+.pagina-inicial #desafio::before {
+  -webkit-mask-size: 360px 24px;
+  mask-size: 360px 24px;
+}
+
+.pagina-inicial :is(#sobre, .rodape)::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V14L18 8L34 13L52 6L70 12L90 9L108 15L128 7L146 11L166 5L186 12L204 8L222 13L240 14V24Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V14L18 8L34 13L52 6L70 12L90 9L108 15L128 7L146 11L166 5L186 12L204 8L222 13L240 14V24Z'/%3E%3C/svg%3E");
+}
+
+/* Raízes da grama descendo sobre o húmus */
+.pagina-inicial #atitudes::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 26px;
+  background: var(--grama);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x top / 60px 26px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x top / 60px 26px;
+}
+
+/* Espaço para a camada de pedra aparecer acima do quadro "Sobre" */
+.pagina-inicial #sobre {
+  padding-top: 3.5rem;
+}
+
+/* O quadro "Sobre" também não encosta nas bordas da tela */
+.pagina-inicial .sobre {
+  width: calc(100% - 2rem);
+}
+
+/* Títulos e textos claros, no tom de cada camada */
+.pagina-inicial :is(#atitudes, #reciclagem, #desafio) :is(.secao-cabecalho, .desafio-texto) h2 {
+  color: var(--titulo-camada);
+}
+
+.pagina-inicial :is(.secao-cabecalho, .desafio-texto) p:last-child {
+  color: var(--texto-camada);
+}
+
+.pagina-inicial :is(#atitudes, #reciclagem, #desafio) .selo {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--titulo-camada);
+}
+
+/* Cartões entalhados na camada: só um tom mais escuro do solo, com bordas irregulares */
+.pagina-inicial .numeros    { --entalhe: #47611e; --titulo-camada: #e3efc4; --texto-camada: #eef3e2; }
+.pagina-inicial #atitudes   { --entalhe: #372719; }
+.pagina-inicial #reciclagem { --entalhe: #553c25; }
+.pagina-inicial #desafio    { --entalhe: #6e3a26; --entalhe-hover: #7a4330; }
+.pagina-inicial #sobre      { --entalhe: #52544e; }
+
+.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira, .dica, .checklist label, .sobre) {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  color: var(--texto-camada);
+}
+
+/* O fundo do entalhe fica numa camada própria; o filtro ondula só as bordas dele, não o texto */
+.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira, .dica, .checklist label, .sobre)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--entalhe);
+  border-radius: var(--raio-pequeno);
+  filter: url(#entalhe-1);
+}
+
+.pagina-inicial .checklist li:nth-child(3n + 2) label::after,
+.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira):nth-child(3n + 2)::after,
+.pagina-inicial .sobre::after {
+  filter: url(#entalhe-2);
+}
+
+.pagina-inicial .checklist li:nth-child(3n) label::after,
+.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira):nth-child(3n)::after,
+.pagina-inicial .dica::after {
+  filter: url(#entalhe-3);
+}
+
+/* Checklist do desafio */
+.pagina-inicial .checklist label:hover,
+.pagina-inicial .checklist input:focus-visible + label,
+.pagina-inicial .checklist input:checked + label {
+  background: transparent;
+}
+
+.pagina-inicial .checklist label:hover::after,
+.pagina-inicial .checklist input:focus-visible + label::after {
+  background: var(--entalhe-hover);
+}
+
+.pagina-inicial .checklist label::before {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.pagina-inicial .checklist input:focus-visible + label {
+  outline: 2px solid var(--titulo-camada);
+  outline-offset: 2px;
+}
+
+.pagina-inicial .checklist input:checked + label {
+  color: var(--titulo-camada);
+  opacity: 0.8;
+}
+
+.pagina-inicial .checklist input:checked + label::before {
+  background-color: var(--grama);
+}
+
+/* Números sobre a grama */
+.pagina-inicial .numero {
+  color: var(--titulo-camada);
+}
+
+.pagina-inicial .numero-texto {
+  color: var(--texto-camada);
+}
+
+/* Os 4 Rs no húmus: o entalhe não flutua; a letra guarda a cor de cada R */
+.pagina-inicial .cartao:hover {
+  transform: none;
+}
+
+.pagina-inicial .cartao h3 {
+  color: var(--titulo-camada);
+}
+
+.pagina-inicial .cartao p {
+  color: var(--texto-camada);
+}
+
+.pagina-inicial .cartao-verde   .cartao-letra { background: var(--verde-claro); }
+.pagina-inicial .cartao-areia   .cartao-letra { background: var(--areia); }
+.pagina-inicial .cartao-ceu     .cartao-letra { background: var(--ceu); }
+.pagina-inicial .cartao-pessego .cartao-letra { background: var(--pessego); }
+
+/* Dica na terra */
+.pagina-inicial .dica {
+  color: var(--texto-camada);
+}
+
+.pagina-inicial .dica strong {
+  color: var(--titulo-camada);
+}
+
+/* Quadro "Sobre" na pedra */
+.pagina-inicial .sobre h2 {
+  color: var(--titulo-camada);
+}
+
+.pagina-inicial .sobre p {
+  color: var(--texto-camada);
+}
+
+/* Lixeiras da coleta seletiva */
+.pagina-inicial .lixeira h3 {
+  color: var(--titulo-camada);
+}
+
+.pagina-inicial .lixeira-material {
+  color: var(--texto-camada);
+}
+
+.pagina-inicial .lixeira p:last-child {
+  color: var(--texto-camada);
+  opacity: 0.85;
+}
+
+/* Rodapé sobre a rocha */
+.pagina-inicial .rodape-interno {
+  color: var(--texto-camada);
+}
+
+.pagina-inicial .rodape .marca {
+  color: var(--texto-camada);
+}
+
+.pagina-inicial .marca-rodape strong,
+.pagina-inicial .rodape a {
+  color: var(--titulo-camada);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .pagina-inicial .topo { background: var(--fundo); }
+  .pagina-inicial .hero-interno { background: var(--fundo); }
+}
+
 /* ---------- Movimento reduzido ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -733,8 +1035,17 @@ h1 em {
   .cartao,
   .botao,
   .menu a,
-  .checklist label {
+  .checklist label,
+  .lixeira-tampa {
     transition: none;
+  }
+
+  .lixeira:hover .lixeira-tampa {
+    transform: none;
+  }
+
+  .lixeira:hover .lixeira-icone {
+    animation: none;
   }
 
   .cartao:hover {
