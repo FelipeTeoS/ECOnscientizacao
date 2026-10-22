@@ -654,6 +654,25 @@ h3 { font-size: 1.3rem; }
   color: var(--texto-suave);
 }
 
+/* ---------- Apresentação das páginas internas ---------- */
+.pagina-intro {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.pagina-intro h1 {
+  max-width: 47rem;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+.pagina-lead {
+  max-width: 39rem;
+  margin: 1.25rem auto 0;
+  font-size: 1.15rem;
+  color: var(--texto-suave);
+}
+
 /* ---------- Rodapé ---------- */
 .rodape {
   padding: 2.5rem 0;
