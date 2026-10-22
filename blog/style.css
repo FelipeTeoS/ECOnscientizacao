@@ -35,3 +35,9 @@
 @media (min-width: 640px) {
   .lista-artigos { grid-template-columns: repeat(2, 1fr); }
 }
+/* Evita que palavras ou links longos ultrapassem os cartões. */
+.lista-artigos > article,
+.artigo-destaque {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
