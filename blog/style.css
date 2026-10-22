@@ -1,268 +1,80 @@
-/* Cores iniciais: alinhar com a identidade visual do grupo. */
-:root {
-  --cor-fundo: #f5f7f2;
-  --cor-superficie: #ffffff;
-  --cor-principal: #214e34;
-  --cor-destaque: #e6eedf;
-  --cor-texto: #243329;
-  --cor-texto-secundario: #526154;
-  --cor-borda: #ccd8c7;
-  --cor-foco: #905000;
+/* Complementos do blog; a identidade comum permanece em ../style.css. */
+
+/* ---------- Artigos da página principal ---------- */
+
+.artigo-categoria {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
 }
 
-/* Inclui bordas e preenchimentos na largura dos elementos. */
-* {
-  box-sizing: border-box;
+.cartao .artigo-status {
+  margin-top: 1rem;
+  font-family: var(--fonte-manuscrita);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--verde-escuro);
 }
 
-body {
-  margin: 0;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+.artigo-destaque {
+  max-width: 48rem;
 }
 
-/* Mantém os links identificáveis. */
-a {
-  color: var(--cor-principal);
-  text-underline-offset: 4px;
+.artigo-destaque h3 {
+  font-size: 1.6rem;
 }
 
-a:hover {
-  text-decoration-thickness: 2px;
-}
-
-/* Indica qual link está selecionado pelo teclado. */
-a:focus-visible {
-  outline: 3px solid var(--cor-foco);
-  outline-offset: 5px;
-}
-
-/* Cabeçalho */
-header {
-  padding: 24px;
-  background-color: var(--cor-principal);
-  color: white;
-}
-
-header > a {
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin: 16px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-nav a {
-  color: white;
-}
-
-nav a[aria-current="page"] {
-  font-weight: bold;
-  text-decoration-thickness: 3px;
-}
-
-header a:focus-visible {
-  outline-color: white;
-}
-
-/* Área principal */
-main {
-  width: min(100% - 40px, 1000px);
-  margin: 0 auto;
-}
-
-section {
-  margin-bottom: 40px;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.25;
-}
-
-h1 {
-  margin: 0 0 20px;
-  font-size: 40px;
-}
-
-h2 {
-  margin: 0 0 24px;
-  font-size: 28px;
-}
-
-h3 {
-  margin: 12px 0;
-  font-size: 22px;
-}
-
-/* Apresentação do blog */
-.apresentacao {
-  padding: 48px 0 16px;
-}
-
-.apresentacao p {
-  max-width: 650px;
-  color: var(--cor-texto-secundario);
-  font-size: 18px;
-}
-
-/* Base visual dos artigos */
-article {
-  padding: 28px;
-  border: 1px solid var(--cor-borda);
-  border-radius: 12px;
-  background-color: var(--cor-superficie);
-}
-
-article p {
-  color: var(--cor-texto-secundario);
-}
-
-article p:first-child {
-  margin-top: 0;
-  color: var(--cor-principal);
-  font-size: 14px;
-  font-weight: bold;
-}
-
-article p:last-child {
-  margin-bottom: 0;
-}
-
-/* Artigo em destaque */
-.destaque article {
-  border-left: 6px solid var(--cor-principal);
-  background-color: var(--cor-destaque);
-}
-
-
-
-/* Rodapé */
-footer {
-  margin-top: 48px;
-  padding: 28px 20px;
-  border-top: 1px solid var(--cor-borda);
-  text-align: center;
-  color: var(--cor-texto-secundario);
-}
-
-footer p {
-  margin: 6px 0;
-}
-
-/* Listagem: uma coluna como configuração inicial. */
 .lista-artigos {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
+  gap: 1.25rem;
 }
 
-/* O título ocupa toda a largura da listagem. */
-.lista-artigos > h2 {
-  grid-column: 1 / -1;
-  margin-bottom: 0;
-}
-
-/* Permite quebrar palavras ou endereços muito longos. */
-article {
-  overflow-wrap: anywhere;
-}
-
-/* A partir de 768px: dois artigos por linha. */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .lista-artigos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Até 600px: ajustes para telas menores. */
-@media (max-width: 600px) {
-  header {
-    padding: 20px 16px;
-  }
-
-  header > a {
-    font-size: 21px;
-  }
-
-  nav ul {
-    gap: 16px;
-  }
-
-  main {
-    width: calc(100% - 32px);
-  }
-
-  .apresentacao {
-    padding-top: 32px;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  .apresentacao p {
-    font-size: 16px;
-  }
-
-  article {
-    padding: 20px;
-  }
-
-  section {
-    margin-bottom: 32px;
-  }
-
-  footer {
-    margin-top: 32px;
-    padding: 24px 16px;
-  }
+/* Evita que palavras ou links longos ultrapassem os cartões. */
+.lista-artigos > article,
+.artigo-destaque {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-/* Página de leitura dos artigos */
+/* ---------- Página de leitura dos artigos ---------- */
+
 .pagina-artigo {
-  max-width: 760px;
-  padding-top: 32px;
+  width: min(100% - 2rem, 760px);
+  margin-inline: auto;
+  padding-block: 2rem;
 }
 
 .voltar-blog {
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .aviso-modelo {
-  padding: 16px;
-  border-left: 4px solid var(--cor-principal);
-  background-color: var(--cor-destaque);
+  padding: 1rem;
+  border-left: 4px solid var(--verde-escuro);
+  background-color: var(--fundo-claro);
 }
 
-/* Sobrescreve a apresentação dos cartões da listagem. */
 .artigo-completo {
-  margin-top: 24px;
-  padding: 32px;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--superficie);
+  overflow-wrap: anywhere;
 }
 
 .artigo-completo .cabecalho-artigo {
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 
 .artigo-completo h1 {
@@ -270,20 +82,20 @@ article {
 }
 
 .artigo-completo .categoria-artigo {
-  margin: 0 0 12px;
-  color: var(--cor-principal);
-  font-size: 14px;
-  font-weight: bold;
+  margin: 0 0 0.75rem;
+  color: var(--verde-escuro);
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .artigo-completo .introducao-artigo {
   margin: 0;
-  color: var(--cor-texto-secundario);
-  font-size: 18px;
+  color: var(--texto-suave);
+  font-size: 1.125rem;
 }
 
 .artigo-completo section {
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 
 .artigo-completo section:last-child {
@@ -291,32 +103,30 @@ article {
 }
 
 .artigo-completo h2 {
-  margin-bottom: 16px;
-  font-size: 26px;
+  margin-bottom: 1rem;
+  font-size: 1.625rem;
 }
 
-/* Mantém os parágrafos do artigo com aparência de texto,
-   mesmo quando são o primeiro elemento de uma seção. */
 .artigo-completo section p {
-  color: var(--cor-texto);
-  font-size: 16px;
-  font-weight: normal;
+  color: var(--texto);
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .artigo-completo li + li {
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 600px) {
   .artigo-completo {
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .artigo-completo h2 {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
 
   .artigo-completo .introducao-artigo {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
 }
