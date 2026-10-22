@@ -103,9 +103,17 @@
       </form>
 
       <aside class="calc-resumo" aria-labelledby="titulo-resultado">
-        <header><p class="selo">Um retrato do seu mês</p><h2 id="titulo-resultado">Seu impacto estimado</h2></header>
+        <header><p class="selo">Um retrato do seu mês</p><h2 id="titulo-resultado" tabindex="-1">Seu impacto estimado</h2></header>
         <div id="resultado-vazio" class="resultado-vazio"><span class="resultado-simbolo" aria-hidden="true">↗</span><p>Todo passo começa<br>com uma descoberta.</p><span>Preencha os consumos e calcule para ver sua estimativa aqui.</span></div>
-        <!-- RESULTADO -->
+        <div id="resultado-conteudo" hidden>
+          <p id="resultado-aviso" class="resultado-desatualizado" hidden>Você alterou os dados. Calcule novamente para atualizar este resultado.</p>
+          <p class="resultado-rotulo">Seu mês, em números</p>
+          <p><strong id="resultado-mensal" class="resultado-valor">0,0</strong><span class="resultado-unidade">kg de CO₂ por pessoa / mês</span></p>
+          <p class="resultado-anual"><strong id="resultado-anual">0,0</strong> kg de CO₂ em 12 meses iguais</p>
+          <p class="resultado-nota">CO₂ biogênico da gasolina: <strong id="resultado-biogenico">0,0</strong> kg/mês, informado separadamente e fora do total acima.</p>
+          <!-- CATEGORIAS -->
+          <!-- DICAS E COMPARACAO -->
+        </div>
         <p class="resumo-escopo">Estimativa parcial por pessoa: CO₂ fóssil e da geração elétrica. Referência elétrica do SIN de 2023. <a href="#titulo-metodo">Fontes e limites</a>.</p>
       </aside>
     </div>

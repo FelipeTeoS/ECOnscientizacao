@@ -4,6 +4,9 @@
   const modelo = window.ECOCalculadora;
   const form = document.querySelector("#form-calculadora");
   const status = document.querySelector("#calc-status");
+  let resultadoAtual = null;
+  let resultadoAtualizado = false;
+  const numero = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const usaGas = document.querySelector("#usa-gas");
   const campos = {
     distancia: document.querySelector("#distancia"),
@@ -46,11 +49,30 @@
     campos[Object.keys(erros)[0]].focus();
   }
 
+  function formatar(valor) {
+    return valor > 0 && valor < 0.1 ? "< 0,1" : numero.format(valor);
+  }
+
+  function marcarDesatualizado() {
+    if (!resultadoAtual) return;
+    resultadoAtualizado = false;
+    document.querySelector("#resultado-aviso").hidden = false;
+    status.dataset.estado = "aviso";
+    status.textContent = "Dados alterados. Calcule novamente para atualizar o resultado.";
+  }
+
   function processarDados(valores) {
-    const resultado = modelo.calcular(valores);
-    const numero = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
+    resultadoAtual = modelo.calcular(valores);
+    resultadoAtualizado = true;
+    document.querySelector("#resultado-vazio").hidden = true;
+    document.querySelector("#resultado-conteudo").hidden = false;
+    document.querySelector("#resultado-aviso").hidden = true;
+    document.querySelector("#resultado-mensal").textContent = formatar(resultadoAtual.total);
+    document.querySelector("#resultado-anual").textContent = formatar(resultadoAtual.anual);
+    document.querySelector("#resultado-biogenico").textContent = formatar(resultadoAtual.biogenico);
     status.dataset.estado = "sucesso";
-    status.textContent = `Estimativa: ${numero.format(resultado.total)} kg de CO₂ por pessoa no mês; ${numero.format(resultado.anual)} kg em 12 meses iguais.`;
+    status.textContent = `Estimativa calculada: ${formatar(resultadoAtual.total)} kg de CO₂ por pessoa no mês e ${formatar(resultadoAtual.anual)} kg em 12 meses iguais.`;
+    document.querySelector("#titulo-resultado").focus();
   }
 
   form.addEventListener("submit", (evento) => {
@@ -60,12 +82,23 @@
     if (!validacao.valido) return mostrarErros(validacao.erros);
     processarDados(validacao.valores);
   });
-  for (const campo of Object.values(campos)) campo.addEventListener("input", () => limparErro(campo));
-  usaGas.addEventListener("change", atualizarGas);
+  for (const campo of Object.values(campos)) campo.addEventListener("input", () => {
+    limparErro(campo);
+    marcarDesatualizado();
+  });
+  usaGas.addEventListener("change", () => {
+    atualizarGas();
+    marcarDesatualizado();
+  });
   form.addEventListener("reset", () => {
     setTimeout(() => {
       atualizarGas();
       Object.values(campos).forEach(limparErro);
+      resultadoAtual = null;
+      resultadoAtualizado = false;
+      document.querySelector("#resultado-vazio").hidden = false;
+      document.querySelector("#resultado-conteudo").hidden = true;
+      document.querySelector("#resultado-aviso").hidden = true;
       status.textContent = "";
       delete status.dataset.estado;
     }, 0);

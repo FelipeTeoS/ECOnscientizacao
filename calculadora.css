@@ -60,3 +60,57 @@
 .tabela-metodo { width: 100%; border-collapse: collapse; text-align: left; }
 .tabela-metodo caption { text-align: left; font-weight: 700; margin-bottom: .75rem; }
 .tabela-metodo th, .tabela-metodo td { padding: .75rem; border-bottom: 1px solid #cfdec8; vertical-align: top; }
+
+.resultado-rotulo {
+  color: #3e5d44;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.resultado-valor {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.75rem, 4.8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.resultado-unidade {
+  display: block;
+  margin-top: 0.35rem;
+  color: #3e5d44;
+  font-size: 0.9rem;
+}
+
+.resultado-anual {
+  margin-top: 1.2rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--raio-pequeno);
+  background: #edf4e7;
+  color: #3e5d44;
+  font-size: 0.9rem;
+}
+
+.resultado-anual strong {
+  color: var(--verde-escuro);
+  font-variant-numeric: tabular-nums;
+}
+
+.resultado-nota,
+.resumo-nota {
+  margin-top: 0.8rem;
+  color: #3e5d44;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+
+.resultado-desatualizado { margin: 1rem 0; padding: .75rem; border-radius: var(--raio-pequeno); background: var(--areia); color: #654f2d; font-size: .85rem; font-weight: 700; }
+.calc-resumo { scroll-margin-top: 7rem; }
+#titulo-resultado { scroll-margin-top: 8rem; }
+#resultado-conteudo { margin: 1.5rem 0; }
