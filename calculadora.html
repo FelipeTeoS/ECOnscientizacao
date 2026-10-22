@@ -40,6 +40,25 @@
     <div class="calc-layout">
       <form id="form-calculadora" class="calc-form" novalidate>
         <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência.</p></div>
+        <fieldset class="calc-etapa" id="etapa-transporte">
+          <legend><span class="etapa-numero" aria-hidden="true">01</span> Transporte</legend>
+          <p class="etapa-descricao">Seus trajetos de carro a gasolina comum (E30).</p>
+          <div class="campos">
+            <div class="campo">
+              <label for="distancia">Distância no mês</label>
+              <div class="campo-linha"><input id="distancia" name="distancia" type="text" inputmode="decimal" value="0" aria-describedby="distancia-ajuda distancia-erro" required><span class="unidade">km</span></div>
+              <p id="distancia-ajuda" class="campo-ajuda">Some ida e volta. Sem carro? Mantenha 0.</p>
+              <p id="distancia-erro" class="campo-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="eficiencia">Consumo do carro</label>
+              <div class="campo-linha"><input id="eficiencia" name="eficiencia" type="text" inputmode="decimal" value="12" aria-describedby="eficiencia-ajuda eficiencia-erro"><span class="unidade">km/L</span></div>
+              <p id="eficiencia-ajuda" class="campo-ajuda">Quantos quilômetros faz com 1 litro.</p>
+              <p id="eficiencia-erro" class="campo-erro" hidden></p>
+            </div>
+          </div>
+          <p class="etapa-nota">Informe apenas os quilômetros atribuídos a você. O cálculo não cobre etanol hidratado, diesel ou gasolina premium.</p>
+        </fieldset>
         <!-- CAMPOS -->
         <div class="calc-acoes">
           <button class="botao botao-primario" id="calcular" type="submit" disabled>Calcular meu impacto <span aria-hidden="true">↗</span></button>
