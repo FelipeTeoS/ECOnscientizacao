@@ -846,6 +846,22 @@ h1 em {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V14L18 8L34 13L52 6L70 12L90 9L108 15L128 7L146 11L166 5L186 12L204 8L222 13L240 14V24Z'/%3E%3C/svg%3E");
 }
 
+/* Detalhe simples da grama: poucos tufos num verde um pouco mais escuro */
+.pagina-inicial .numeros {
+  isolation: isolate;
+}
+
+.pagina-inicial .numeros::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='170' viewBox='0 0 180 170'%3E%3Cg fill='none' stroke='%234a6a1d' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M26 40l1-6M30 40V32M34 40l-1-6'/%3E%3Cpath d='M126 96l1-6M130 96V88M134 96l-1-6'/%3E%3Cpath d='M66 150l1-6M70 150V142M74 150l-1-6'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 180px 170px;
+  /* Surge aos poucos embaixo do desfoque da foto */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 160px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 160px);
+}
+
 /* Raízes da grama descendo sobre o húmus */
 .pagina-inicial #atitudes::before {
   content: "";
@@ -972,10 +988,11 @@ h1 em {
   color: var(--texto-camada);
 }
 
-.pagina-inicial .cartao-verde   .cartao-letra { background: var(--verde-claro); }
-.pagina-inicial .cartao-areia   .cartao-letra { background: var(--areia); }
-.pagina-inicial .cartao-ceu     .cartao-letra { background: var(--ceu); }
-.pagina-inicial .cartao-pessego .cartao-letra { background: var(--pessego); }
+/* Cada R com sua cor (os mesmos tons das lixeiras) e a letra num tom escuro da mesma cor */
+.pagina-inicial .cartao-verde   .cartao-letra { background: var(--lixo-verde);    color: #1d4a2b; }
+.pagina-inicial .cartao-areia   .cartao-letra { background: var(--lixo-amarelo);  color: #5e4208; }
+.pagina-inicial .cartao-ceu     .cartao-letra { background: var(--lixo-azul);     color: #1c4466; }
+.pagina-inicial .cartao-pessego .cartao-letra { background: var(--lixo-vermelho); color: #6a2419; }
 
 /* Dica na terra */
 .pagina-inicial .dica {

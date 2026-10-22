@@ -234,6 +234,64 @@
   font-weight: 700;
 }
 
+/* Céu azul com nuvens animadas atrás da calculadora */
+.ceu {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(180deg, #9fd2f2 0%, #c4e5f8 45%, #e9f6fc 100%);
+}
+
+.nuvem-ceu {
+  position: absolute;
+  left: 0;
+  top: var(--altura);
+  width: var(--largura);
+  aspect-ratio: 2 / 1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath fill='%23fff' d='M46 88h112a28 28 0 0 0 2-55.9A38 38 0 0 0 86 24a30 30 0 0 0-52 22 22 22 0 0 0 12 42z'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: var(--opacidade);
+  animation: vento var(--duracao) linear infinite;
+  animation-delay: var(--atraso);
+}
+
+/* Nuvens maiores parecem mais perto e passam mais rápido; atrasos negativos já espalham as nuvens ao abrir */
+.nuvem-ceu:nth-child(1) { --altura: 6%;  --largura: 240px; --opacidade: .95; --duracao: 70s;  --atraso: -12s; }
+.nuvem-ceu:nth-child(2) { --altura: 18%; --largura: 140px; --opacidade: .75; --duracao: 120s; --atraso: -80s; }
+.nuvem-ceu:nth-child(3) { --altura: 34%; --largura: 320px; --opacidade: .9;  --duracao: 60s;  --atraso: -40s; }
+.nuvem-ceu:nth-child(4) { --altura: 52%; --largura: 180px; --opacidade: .8;  --duracao: 95s;  --atraso: -20s; }
+.nuvem-ceu:nth-child(5) { --altura: 68%; --largura: 280px; --opacidade: .9;  --duracao: 75s;  --atraso: -55s; }
+.nuvem-ceu:nth-child(6) { --altura: 84%; --largura: 160px; --opacidade: .7;  --duracao: 110s; --atraso: -95s; }
+
+@keyframes vento {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100vw); }
+}
+
+/* Cabeçalho de vidro sobre o céu */
+.pagina-calculadora .topo {
+  background: rgba(247, 249, 241, 0.6);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Texto da abertura legível sobre o azul */
+.pagina-calculadora .pagina-lead { color: var(--texto); }
+.pagina-calculadora .pagina-intro h1 em { color: #3f7d3e; }
+
+/* Sem movimento: as nuvens ficam paradas, mas espalhadas pelo céu */
+@media (prefers-reduced-motion: reduce) {
+  .pagina-calculadora .nuvem-ceu {
+    animation: vento var(--duracao) linear infinite paused;
+    animation-delay: var(--atraso);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .pagina-calculadora .topo { background: var(--fundo); }
+}
+
 /* Responsividade, foco e leitura em telas pequenas. */
 .pagina-calculadora { --calc-erro: #913d30; --calc-erro-fundo: #fff1ec; }
 .pagina-calculadora :is(input, button, summary, [tabindex]):focus-visible { outline: 3px solid var(--verde-escuro); outline-offset: 3px; }
