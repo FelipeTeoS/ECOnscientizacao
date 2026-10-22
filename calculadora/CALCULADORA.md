@@ -1,8 +1,8 @@
 # Calculadora ecológica
 
 Página educacional em HTML, CSS e JavaScript, sem dependências ou serviços de cálculo externos.
-Abra `calculadora.html` no navegador ou sirva a pasta com `python3 -m http.server 8080` e visite
-`http://localhost:8080/calculadora.html`. Não há instalação nem compilação.
+Abra `calculadora.html` no navegador ou sirva a raiz do repositório com `python3 -m http.server 8080` e visite
+`http://localhost:8080/calculadora/calculadora.html`. Não há instalação nem compilação.
 
 ## Escopo e unidades
 
@@ -55,7 +55,7 @@ Os testes usam apenas o executor nativo do Node.js e verificam valores conhecido
 decimais, dados inválidos, rateio doméstico, atividades opcionais e resultado zero.
 
 Arquivos: `calculadora-modelo.js` contém as fórmulas e validações; `calculadora.js`
-controla a interface; `calculadora.css` complementa `style.css` sem alterar a página inicial.
+controla a interface; `calculadora.css` complementa `../style.css` sem alterar a página inicial.
 
 ## Comparação e dicas
 
