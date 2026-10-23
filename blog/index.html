@@ -2,105 +2,109 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Explore conteúdos sobre consumo consciente,
-    reciclagem e preservação ambiental no blog da ECOnscientização."
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore conteúdos sobre consumo consciente, reciclagem e preservação ambiental no blog da ECOnscientização.">
   <title>Blog | ECOnscientização</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <a href="../index.html">ECOnscientização</a>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li>
-          <a href="../index.html">Início</a>
-        </li>
-
-        <li>
-          <a href="index.html" aria-current="page">Blog</a>
-        </li>
-      </ul>
-    </nav>
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="../index.html">
+        <img class="marca-logo" src="../resources/img/logo-transparente.png" width="802" height="290"
+             alt="ECOnscientização - Pegada Ecológica, página inicial">
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../calculadora/calculadora.html">Calculadora ecológica</a></li>
+          <li><a href="index.html" aria-current="page">Blog</a></li>
+          <li><a href="../ongs/ongs.html">ONGs</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="conteudo">
-    <section class="apresentacao" aria-labelledby="titulo-blog">
-      <h1 id="titulo-blog">Blog da ECOnscientização</h1>
-
-      <p>
-        Informação para repensar hábitos e cuidar melhor
-        do meio ambiente.
-      </p>
-    </section>
-
-    <section class="destaque" aria-labelledby="titulo-destaque">
-      <h2 id="titulo-destaque">Artigo em destaque</h2>
-
-      <article>
-        <p>Consumo consciente</p>
-
-        <h3>Como cuidar da água no dia a dia</h3>
-
-        <p>
-          Conheça atitudes que ajudam a evitar desperdícios
-          e a observar o consumo de água na sua rotina.
+    <!-- Apresentação do blog -->
+    <section class="pagina-intro" aria-labelledby="titulo-blog">
+      <div class="container">
+        <p class="selo">Blog</p>
+        <h1 id="titulo-blog">Blog da ECOnscientização</h1>
+        <p class="pagina-lead">
+          Informação para repensar hábitos e cuidar melhor
+          do meio ambiente.
         </p>
 
-     <p>
+    </section>
+
+    <!-- Artigo em destaque -->
+    <section class="secao secao-clara" aria-labelledby="titulo-destaque">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <h2 id="titulo-destaque">Artigo em destaque</h2>
+        </div>
+
+        <article class="cartao cartao-verde artigo-destaque">
+          <p class="artigo-categoria">Consumo consciente</p>
+          <h3>Como cuidar da água no dia a dia</h3>
+          <p>
+            Conheça atitudes que ajudam a evitar desperdícios
+            e a observar o consumo de água na sua rotina.
+          </p>
+         <p class="artigo-status">
   <a href="consumo-de-agua/index.html">
     Ler artigo sobre consumo consciente de água
   </a>
 </p>
-      </article>
+        </article>
+      </div>
     </section>
 
-    <section class="lista-artigos" aria-labelledby="titulo-artigos">
-      <h2 id="titulo-artigos">Explore os temas</h2>
+    <!-- Lista de artigos -->
+    <section class="secao" aria-labelledby="titulo-artigos">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <h2 id="titulo-artigos">Explore os temas</h2>
+        </div>
 
-      <article>
-        <p>Resíduos e reciclagem</p>
+        <div class="lista-artigos">
+          <article class="cartao cartao-areia">
+            <p class="artigo-categoria">Resíduos e reciclagem</p>
+            <h3>Por onde começar a separar os resíduos em casa</h3>
+            <p>
+              Entenda a importância de conhecer os materiais
+              e as orientações da coleta da sua cidade.
+            </p>
+            <p class="artigo-status">Artigo em preparação.</p>
+          </article>
 
-        <h3>Por onde começar a separar os resíduos em casa</h3>
-
-        <p>
-          Entenda a importância de conhecer os materiais
-          e as orientações da coleta da sua cidade.
-        </p>
-
-        <p>Artigo em preparação.</p>
-      </article>
-
-      <article>
-        <p>Biodiversidade</p>
-
-        <h3>Por que preservar a natureza perto de você</h3>
-
-        <p>
-          Um convite para observar as áreas verdes
-          e conhecer iniciativas de preservação.
-        </p>
-
-        <p>Artigo em preparação.</p>
-      </article>
+          <article class="cartao cartao-ceu">
+            <p class="artigo-categoria">Biodiversidade</p>
+            <h3>Por que preservar a natureza perto de você</h3>
+            <p>
+              Um convite para observar as áreas verdes
+              e conhecer iniciativas de preservação.
+            </p>
+            <p class="artigo-status">Artigo em preparação.</p>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>ECOnscientização — Projeto acadêmico de Web Design.</p>
-    <p>Educação ambiental para o cotidiano.</p>
+  <footer class="rodape">
+    <div class="container rodape-interno">
+      <p class="marca marca-rodape"><strong>ECO</strong>nscientização</p>
+      <p>Projeto de Web Design · Facens · 2026</p>
+      <p><a href="#conteudo">Voltar ao topo ↑</a></p>
+    </div>
   </footer>
 </body>
 </html>
