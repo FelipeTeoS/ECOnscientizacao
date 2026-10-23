@@ -18,12 +18,13 @@ complementos locais em `ongs.css`.
 
 1. **Título e chamada:** apresente a proposta em linguagem simples, com âncoras
    para as duas seções temáticas (`#florestas` e `#biodiversidade`).
-2. **Seção Florestas, clima e restauração (`#florestas`):** quatro cartões de
+2. **Como escolher (`#como-apoiar`):** antes de conhecer as organizações, orienta
+   a escolha da causa, a verificação de transparência (CNPJ, relatórios) e a
+   confirmação dos canais oficiais antes de doar.
+3. **Seção Florestas, clima e restauração (`#florestas`):** quatro cartões de
    organizações: nome, resumo curto e botão “Conheça e apoie”.
-3. **Seção Biodiversidade, fauna e biomas (`#biodiversidade`):** quatro cartões
+4. **Seção Biodiversidade, fauna e biomas (`#biodiversidade`):** quatro cartões
    no mesmo formato da seção anterior.
-4. **Como escolher (`#como-apoiar`):** incentiva conhecer o trabalho e a
-   transparência da organização antes de doar, com passos numerados.
 5. **Aviso de segurança:** orientar que doações sejam feitas somente pelos
    canais oficiais.
 6. **Navegação:** menu do site para início e demais páginas.
