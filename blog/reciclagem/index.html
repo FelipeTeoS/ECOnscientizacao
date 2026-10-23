@@ -16,24 +16,45 @@
 
   <title>Separação de resíduos | ECOnscientização</title>
 
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Mali:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-  <header>
-    <a href="../../index.html">ECOnscientização</a>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li>
-          <a href="../../index.html">Início</a>
-        </li>
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="../../index.html">
+        <img
+          class="marca-logo"
+          src="../../resources/img/logo-transparente.png"
+          width="802"
+          height="290"
+          alt="ECOnscientização - Pegada Ecológica, página inicial"
+        >
+      </a>
 
-        <li>
-          <a href="../index.html">Blog</a>
-        </li>
-      </ul>
-    </nav>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="../../index.html">Início</a></li>
+          <li>
+            <a href="../../calculadora/calculadora.html">
+              Calculadora ecológica
+            </a>
+          </li>
+          <li><a href="../index.html" aria-current="page">Blog</a></li>
+          <li><a href="../../ongs/ongs.html">ONGs</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="conteudo" class="pagina-artigo">
@@ -165,9 +186,18 @@
     </article>
   </main>
 
-  <footer>
-    <p>ECOnscientização — Projeto acadêmico de Web Design.</p>
-    <p>Educação ambiental para o cotidiano.</p>
+   <footer class="rodape">
+    <div class="container rodape-interno">
+      <p class="marca marca-rodape">
+        <strong>ECO</strong>nscientização
+      </p>
+
+      <p>Projeto de Web Design · Facens · 2026</p>
+
+      <p>
+        <a href="#conteudo">Voltar ao topo ↑</a>
+      </p>
+    </div>
   </footer>
 </body>
 </html>

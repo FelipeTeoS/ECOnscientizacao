@@ -2,7 +2,7 @@
 
 /* ---------- Artigos da página principal ---------- */
 
-.artigo-categoria {
+.cartao .artigo-categoria {
   margin-bottom: 0.5rem;
   font-size: 0.85rem;
   font-weight: 700;
@@ -20,6 +20,15 @@
   color: var(--verde-escuro);
 }
 
+.cartao .artigo-status a {
+  color: var(--verde-escuro);
+  text-underline-offset: 0.2em;
+}
+
+.cartao .artigo-status a:hover {
+  text-decoration-thickness: 2px;
+}
+
 .artigo-destaque {
   max-width: 48rem;
 }
@@ -30,6 +39,7 @@
 
 .lista-artigos {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
 }
 
@@ -57,6 +67,8 @@
 .voltar-blog {
   display: inline-block;
   margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
 }
 
 .aviso-modelo {
@@ -94,6 +106,10 @@
   font-size: 1.125rem;
 }
 
+.artigo-completo h1 + .introducao-artigo {
+  margin-top: 1rem;
+}
+
 .artigo-completo section {
   margin-bottom: 2rem;
 }
@@ -111,6 +127,27 @@
   color: var(--texto);
   font-size: 1rem;
   font-weight: 400;
+}
+
+/* Separa os parágrafos consecutivos dentro dos artigos. */
+.artigo-completo section p + p {
+  margin-top: 1rem;
+}
+
+/* O CSS principal remove os marcadores das listas.
+   Nos artigos, eles ajudam na leitura das orientações. */
+.artigo-completo ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.artigo-completo ul + p {
+  margin-top: 1rem;
+}
+
+.artigo-completo li {
+  padding-left: 0.25rem;
 }
 
 .artigo-completo li + li {
