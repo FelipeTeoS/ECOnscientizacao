@@ -34,3 +34,27 @@
   background: var(--verde-escuro);
   border-radius: 50%;
 }
+
+/* ---------- Botão "Conheça e apoie" dos cartões ---------- */
+
+/* Cartão em coluna: o botão encosta no pé e alinha entre cartões de alturas
+   diferentes, mesmo que os textos variem. */
+.cartoes .cartao {
+  display: flex;
+  flex-direction: column;
+}
+
+/* O botão-secundário tem fundo igual ao do cartão-verde (--verde-claro) e
+   desaparece sobre ele. Fundo branco garante visibilidade nos quatro fundos. */
+.cartao .botao-secundario {
+  margin-top: auto;
+  align-self: flex-start;
+  background: #ffffff;
+  color: var(--verde-escuro);
+}
+
+.cartao .botao-secundario:hover,
+.cartao .botao-secundario:focus-visible {
+  background: var(--verde-escuro);
+  color: #ffffff;
+}
