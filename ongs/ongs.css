@@ -1,0 +1,81 @@
+/* Complementos da página de ONGs; a identidade comum permanece em ../style.css. */
+
+/* ---------- Passos "Como escolher uma organização para apoiar" ---------- */
+.passos {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.passos li {
+  position: relative;
+  padding: 1rem 1.25rem 1rem 4rem;
+  background: var(--verde-claro);
+  border-radius: var(--raio);
+  counter-increment: passo;
+}
+
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--verde-escuro);
+  border-radius: 50%;
+}
+
+/* ---------- Ícone temático no topo dos cartões ---------- */
+
+.cartao-icone {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.25rem;
+  color: var(--verde-escuro);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+
+/* ---------- Botão "Conheça e apoie" dos cartões ---------- */
+
+/* Cartões em coluna: alturas iguais, com o botão numa mesma linha na base
+   de todos os cartões, centralizado. */
+.cartoes .cartao {
+  display: flex;
+  flex-direction: column;
+}
+
+/* O botão-secundário tem fundo igual ao do cartão-verde (--verde-claro) e
+   desaparece sobre ele. Fundo branco garante visibilidade nos quatro fundos.
+   margin-top: auto assegura que o botão fique longe do texto, na base do
+   cartão, mesmo quando os textos e as larguras variam. */
+.cartao .botao-secundario {
+  margin-top: auto;
+  align-self: center;
+  white-space: nowrap;
+  background: #ffffff;
+  color: var(--verde-escuro);
+}
+
+/* Folga mínima entre o texto e o botão no cartão mais alto da fileira. */
+.cartao p:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.cartao .botao-secundario:hover,
+.cartao .botao-secundario:focus-visible {
+  background: var(--verde-escuro);
+  color: #ffffff;
+}
