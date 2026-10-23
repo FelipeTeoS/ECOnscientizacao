@@ -1,0 +1,36 @@
+/* Complementos da página de ONGs; a identidade comum permanece em ../style.css. */
+
+/* ---------- Passos "Como escolher uma organização para apoiar" ---------- */
+.passos {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.passos li {
+  position: relative;
+  padding: 1rem 1.25rem 1rem 4rem;
+  background: var(--verde-claro);
+  border-radius: var(--raio);
+  counter-increment: passo;
+}
+
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--verde-escuro);
+  border-radius: 50%;
+}
