@@ -45,10 +45,13 @@
 }
 
 /* O botão-secundário tem fundo igual ao do cartão-verde (--verde-claro) e
-   desaparece sobre ele. Fundo branco garante visibilidade nos quatro fundos. */
+   desaparece sobre ele. Fundo branco garante visibilidade nos quatro fundos.
+   Ocupando a largura do cartão, o rótulo fica centrado em uma única linha. */
 .cartao .botao-secundario {
   margin-top: auto;
-  align-self: flex-start;
+  align-self: stretch;
+  justify-content: center;
+  text-align: center;
   background: #ffffff;
   color: var(--verde-escuro);
 }
