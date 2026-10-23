@@ -35,6 +35,19 @@
   border-radius: 50%;
 }
 
+/* ---------- Ícone temático no topo dos cartões ---------- */
+
+.cartao-icone {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.25rem;
+  color: var(--verde-escuro);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+
 /* ---------- Botão "Conheça e apoie" dos cartões ---------- */
 
 /* Cartão em coluna: o botão encosta no pé e alinha entre cartões de alturas
