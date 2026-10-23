@@ -50,21 +50,11 @@
 
 /* ---------- Botão "Conheça e apoie" dos cartões ---------- */
 
-/* Cartão em coluna: o botão encosta no pé e alinha entre cartões de alturas
-   diferentes, mesmo que os textos variem. */
-.cartoes .cartao {
-  display: flex;
-  flex-direction: column;
-}
-
 /* O botão-secundário tem fundo igual ao do cartão-verde (--verde-claro) e
    desaparece sobre ele. Fundo branco garante visibilidade nos quatro fundos.
-   Ocupando a largura do cartão, o rótulo fica centrado em uma única linha. */
+   A margem superior separa o botão do texto que o antecede. */
 .cartao .botao-secundario {
-  margin-top: auto;
-  align-self: stretch;
-  justify-content: center;
-  text-align: center;
+  margin-top: 1.5rem;
   background: #ffffff;
   color: var(--verde-escuro);
 }
