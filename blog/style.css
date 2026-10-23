@@ -1,6 +1,7 @@
 /* Complementos do blog; a identidade comum permanece em ../style.css. */
 
-/* ---------- Artigos ---------- */
+/* ---------- Artigos da página principal ---------- */
+
 .artigo-categoria {
   margin-bottom: 0.5rem;
   font-size: 0.85rem;
@@ -33,11 +34,99 @@
 }
 
 @media (min-width: 640px) {
-  .lista-artigos { grid-template-columns: repeat(2, 1fr); }
+  .lista-artigos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
+
 /* Evita que palavras ou links longos ultrapassem os cartões. */
 .lista-artigos > article,
 .artigo-destaque {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+/* ---------- Página de leitura dos artigos ---------- */
+
+.pagina-artigo {
+  width: min(100% - 2rem, 760px);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.voltar-blog {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.aviso-modelo {
+  padding: 1rem;
+  border-left: 4px solid var(--verde-escuro);
+  background-color: var(--fundo-claro);
+}
+
+.artigo-completo {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--superficie);
+  overflow-wrap: anywhere;
+}
+
+.artigo-completo .cabecalho-artigo {
+  margin-bottom: 2rem;
+}
+
+.artigo-completo h1 {
+  font-size: clamp(28px, 5vw, 40px);
+}
+
+.artigo-completo .categoria-artigo {
+  margin: 0 0 0.75rem;
+  color: var(--verde-escuro);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.artigo-completo .introducao-artigo {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 1.125rem;
+}
+
+.artigo-completo section {
+  margin-bottom: 2rem;
+}
+
+.artigo-completo section:last-child {
+  margin-bottom: 0;
+}
+
+.artigo-completo h2 {
+  margin-bottom: 1rem;
+  font-size: 1.625rem;
+}
+
+.artigo-completo section p {
+  color: var(--texto);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.artigo-completo li + li {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .artigo-completo {
+    padding: 1.25rem;
+  }
+
+  .artigo-completo h2 {
+    font-size: 1.4375rem;
+  }
+
+  .artigo-completo .introducao-artigo {
+    font-size: 1.0625rem;
+  }
 }
