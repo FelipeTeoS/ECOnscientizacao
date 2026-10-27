@@ -45,8 +45,8 @@ arquivos temáticos separados.
   as políticas de marca e as autorizações pendentes.
 - **Leiaute:** o topo é empilhado (logo e, abaixo, a etiqueta). A placa branca é
   chapada, sem borda, sombra ou brilho, e tem duas variantes:
-  `cartao-logo--wordmark` (156 × 72 px, imagem até 140 × 44 px) e
-  `cartao-logo--quadrado` (72 × 72 px, imagem até 56 × 56 px), sempre com
+  `cartao-logo--wordmark` (124 × 52 px, imagem até 108 × 36 px) e
+  `cartao-logo--quadrado` (52 × 52 px, imagem até 40 × 40 px), sempre com
   `object-fit: contain`. O empilhamento mantém etiqueta, título e texto alinhados
   entre cartões vizinhos.
 - **Identificação:** uma nota discreta depois dos cartões informa que os logos
@@ -136,9 +136,10 @@ Textos de apoio usados na seção “Como escolher”:
 - `meta name="theme-color"` com o tom de fundo claro da página.
 - Favicon em `../resources/img/favicon.png` (64 × 64), gerado a partir do
   símbolo já existente no logo do site, sem recolorir a marca.
-- Open Graph com `og:type`, `og:locale`, `og:site_name`, `og:title` e
-  `og:description`. **Pendentes:** `canonical` e `og:image`, que dependem da URL
-  pública definitiva do site na Vercel.
+- Open Graph com `og:type`, `og:locale`, `og:site_name`, `og:title`,
+  `og:description`, `og:url` e `og:image`. A URL canônica é
+  `https://econscientizacao.vercel.app/ongs/ongs.html`; a imagem de
+  compartilhamento é `../resources/img/ongs-og.png` (1200 × 630).
 - Logos com `loading="lazy"` e `decoding="async"`, sem JavaScript.
 - As regras `@font-face` do subconjunto latino foram incorporadas a `ongs.css`
   para não depender da folha externa do Google Fonts, que bloqueava a primeira
