@@ -106,6 +106,16 @@
 
 /* ---------- Artigos da página principal ---------- */
 
+.artigo-imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.25rem;
+  border-radius: var(--raio-pequeno);
+  object-fit: cover;
+}
+
 .cartao .artigo-categoria {
   margin-bottom: 0.5rem;
   font-size: 0.85rem;
@@ -269,5 +279,9 @@
 
   .artigo-completo .introducao-artigo {
     font-size: 1.0625rem;
+  }
+
+   .artigo-imagem {
+    margin-bottom: 1rem;
   }
 }
