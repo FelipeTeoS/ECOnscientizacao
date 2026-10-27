@@ -35,47 +35,291 @@
   border-radius: 50%;
 }
 
-/* ---------- Ícone temático no topo dos cartões ---------- */
-
-.cartao-icone {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1.25rem;
-  color: var(--verde-escuro);
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 50%;
+/* ---------- Logos oficiais nos cartões ---------- */
+.cartao-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 0.75rem;
+  margin-bottom: 0.9rem;
 }
 
-/* ---------- Botão "Conheça e apoie" dos cartões ---------- */
+/* A placa branca mantém a mesma leitura para logos transparentes, com fundo
+   branco (WWF e IPÊ) ou com fundo colorido (Onçafari). */
+.cartao-logo {
+  display: flex;
+  flex: 0 0 120px;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 46px;
+  padding: 0.35rem 0.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(47, 93, 58, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(30, 58, 36, 0.06);
+}
 
-/* Cartões em coluna: alturas iguais, com o botão numa mesma linha na base
-   de todos os cartões, centralizado. */
+.cartao-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 104px;
+  max-height: 34px;
+  object-fit: contain;
+}
+
+/* O SVG do Greenpeace não informa largura própria; as duas medidas evitam
+   que ele colapse dentro do flex. */
+.cartao-logo .logo-greenpeace {
+  width: 104px;
+  height: 17px;
+  max-width: 104px;
+}
+
+/* Nota de identificação das marcas, mantida fora dos cartões. */
+.nota-marcas {
+  max-width: 42rem;
+  margin: 1.5rem auto 0;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+/* ---------- Cartões-jardim: o cartão inteiro leva ao site oficial ---------- */
+
+/* Quatro cartões por seção: em telas largas, duas colunas como na vitrine,
+   com as fileiras crescendo juntas e sem cartões menores no fim da grade. */
+.cartoes {
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 760px) {
+  .cartoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .cartoes .cartao {
   display: flex;
-  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
 }
 
-/* O botão-secundário tem fundo igual ao do cartão-verde (--verde-claro) e
-   desaparece sobre ele. Fundo branco garante visibilidade nos quatro fundos.
-   margin-top: auto assegura que o botão fique longe do texto, na base do
-   cartão, mesmo quando os textos e as larguras variam. */
-.cartao .botao-secundario {
+.cartao-conteudo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem 1.35rem 1.3rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: inherit;
+}
+
+/* O foco global pinta o link de amarelo; aqui o destaque é o contorno do
+   cartão inteiro, sem esconder o conteúdo pastel. */
+.cartao-conteudo:focus-visible {
+  background: transparent;
+  color: inherit;
+  outline: 3px solid var(--verde-escuro);
+  outline-offset: -4px;
+  border-radius: inherit;
+}
+
+.cartao-tag {
+  padding: 0.22rem 0.68rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+}
+
+/* Desenho de linha (Lucide, ISC): inteiro, num espaço próprio ao lado do
+   link. O traço usa a cor cheia do cartão, sem véu por cima do texto. */
+.cartao-rodape {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: auto;
-  align-self: center;
-  white-space: nowrap;
-  background: #ffffff;
+  padding-top: 0.9rem;
+}
+
+.cartao-arte {
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  pointer-events: none;
+  color: #2f5d3a;
+  transition: transform 0.25s ease;
+}
+
+.cartao-areia .cartao-arte {
+  color: #8a6a3d;
+}
+
+.cartao-ceu .cartao-arte {
+  color: #3d799b;
+}
+
+.cartao-pessego .cartao-arte {
+  color: #a85a3d;
+}
+
+.cartao:hover .cartao-arte {
+  transform: translateY(-3px);
+}
+
+.cartao .cartao-conteudo h3 {
+  margin-bottom: 0.55rem;
+  font-size: 1.2rem;
+}
+
+.cartao .cartao-conteudo p {
+  margin-bottom: 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.cartao .cartao-conteudo p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Primeiro parágrafo como resumo: mais escuro e com peso maior. */
+.cartao .cartao-conteudo p:first-of-type {
+  color: var(--verde-escuro);
+  font-weight: 600;
+}
+
+.cartao-seta {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 0.84rem;
+  font-weight: 700;
   color: var(--verde-escuro);
 }
 
-/* Folga mínima entre o texto e o botão no cartão mais alto da fileira. */
-.cartao p:last-of-type {
-  margin-bottom: 1.5rem;
+.cartao-conteudo:hover .cartao-seta,
+.cartao-conteudo:focus-visible .cartao-seta {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
-.cartao .botao-secundario:hover,
-.cartao .botao-secundario:focus-visible {
-  background: var(--verde-escuro);
-  color: #ffffff;
+/* As seções podem ser abertas por âncora; a folga evita que o título encoste
+   na borda superior ao chegar pelo link. */
+#florestas,
+#biodiversidade {
+  scroll-margin-top: 1.5rem;
+}
+
+@media (max-width: 519px) {
+  .cartao-rodape {
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .cartao-arte {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cartao-arte {
+    transition: none;
+  }
+
+  .cartao:hover .cartao-arte {
+    transform: none;
+  }
+}
+
+/* ---------- Planos de fundo da página ---------- */
+/* A abertura ganha uma paisagem leve, inspirada no banner da página inicial. */
+.pagina-ongs .pagina-intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 4.5rem 0 7rem;
+  background:
+    url("fundos/paisagem-ongs.svg") center bottom / cover no-repeat,
+    linear-gradient(180deg, #dcecf2, #eef4e6);
+}
+
+.pagina-ongs .pagina-intro .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Suaviza a passagem da paisagem para a primeira seção clara. */
+.pagina-ongs .pagina-intro::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 0;
+  height: 7rem;
+  background: linear-gradient(to bottom, rgba(238, 244, 230, 0), var(--fundo-claro));
+  pointer-events: none;
+}
+
+/* Padrão botânico discreto nas seções; cartões continuam opacos, então o
+   texto não perde contraste. */
+.pagina-ongs .secao,
+.pagina-ongs .secao-clara,
+.pagina-ongs .rodape {
+  background-image: url("fundos/padrao-ongs.svg");
+  background-size: 260px 260px;
+}
+
+/* Cabeçalho translúcido, como nas páginas que têm fundo. */
+.pagina-ongs .topo {
+  background: rgba(247, 249, 241, 0.86);
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  backdrop-filter: blur(12px) saturate(135%);
+}
+
+/* Borda de grama no rodapé, fechando a paisagem. */
+.pagina-ongs .rodape {
+  position: relative;
+}
+
+.pagina-ongs .rodape::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -24px;
+  height: 26px;
+  background: var(--verde-claro);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x bottom / 60px 26px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x bottom / 60px 26px;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .pagina-ongs .pagina-intro {
+    padding: 3rem 0 5.5rem;
+    background:
+      url("fundos/paisagem-ongs.svg") center bottom / 100% auto no-repeat,
+      linear-gradient(180deg, #dcecf2, #eef4e6);
+  }
+
+  .pagina-ongs .pagina-intro::after {
+    height: 5rem;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .pagina-ongs .topo {
+    background: var(--fundo);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
