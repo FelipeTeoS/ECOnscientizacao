@@ -36,54 +36,67 @@
 }
 
 /* ---------- Logos oficiais nos cartões ---------- */
+/* O topo é empilhado: a placa vem primeiro e a etiqueta logo abaixo. Assim
+   os oito cartões alinham etiqueta, título e texto na mesma linha de base. */
 .cartao-topo {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem 0.75rem;
-  margin-bottom: 0.9rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
 }
 
-/* A placa branca mantém a mesma leitura para logos transparentes, com fundo
-   branco (WWF e IPÊ) ou com fundo colorido (Onçafari). */
+/* Placa branca chapada, sem borda nem sombra. A altura é comum às duas
+   variantes para que a etiqueta e o título comecem na mesma altura. */
 .cartao-logo {
   display: flex;
-  flex: 0 0 120px;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 46px;
-  padding: 0.35rem 0.6rem;
-  background: #ffffff;
-  border: 1px solid rgba(47, 93, 58, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(30, 58, 36, 0.06);
+  height: 72px;
+  padding: 0.5rem;
+  background: var(--superficie);
+  border-radius: var(--raio-pequeno);
+}
+
+.cartao-logo--wordmark {
+  width: 156px;
+}
+
+/* Emblemas quadrados ganham área suficiente para leitura a 320 px. */
+.cartao-logo--quadrado {
+  width: 72px;
 }
 
 .cartao-logo img {
   display: block;
   width: auto;
   height: auto;
-  max-width: 104px;
-  max-height: 34px;
+  max-width: 140px;
+  max-height: 44px;
   object-fit: contain;
 }
 
-/* O SVG do Greenpeace não informa largura própria; as duas medidas evitam
-   que ele colapse dentro do flex. */
+.cartao-logo--quadrado img {
+  max-width: 56px;
+  max-height: 56px;
+}
+
+/* O SVG do Greenpeace não define largura própria; a proporção 300:49
+   mantém o wordmark legível sem depender do atributo do arquivo. */
 .cartao-logo .logo-greenpeace {
-  width: 104px;
-  height: 17px;
-  max-width: 104px;
+  width: 140px;
+  height: auto;
+  max-width: 140px;
+  aspect-ratio: 300 / 49;
 }
 
 /* Nota de identificação das marcas, mantida fora dos cartões. */
 .nota-marcas {
-  max-width: 42rem;
-  margin: 1.5rem auto 0;
-  font-size: 0.68rem;
-  line-height: 1.5;
+  max-width: 44rem;
+  margin: 1.75rem auto 0;
+  font-size: 0.75rem;
+  line-height: 1.55;
   text-align: center;
   color: var(--texto-suave);
 }
@@ -130,8 +143,9 @@
 }
 
 .cartao-tag {
-  padding: 0.22rem 0.68rem;
-  font-size: 0.68rem;
+  max-width: 100%;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.45;
   letter-spacing: 0.055em;
@@ -178,18 +192,15 @@
 }
 
 .cartao .cartao-conteudo h3 {
-  margin-bottom: 0.55rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
 }
 
 .cartao .cartao-conteudo p {
-  margin-bottom: 0.55rem;
-  font-size: 0.92rem;
-  line-height: 1.55;
-}
-
-.cartao .cartao-conteudo p:last-of-type {
   margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* Primeiro parágrafo como resumo: mais escuro e com peso maior. */
@@ -201,7 +212,7 @@
 .cartao-seta {
   margin-top: 0;
   padding-top: 0;
-  font-size: 0.84rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--verde-escuro);
 }
@@ -212,11 +223,22 @@
   text-underline-offset: 0.18em;
 }
 
-/* As seções podem ser abertas por âncora; a folga evita que o título encoste
-   na borda superior ao chegar pelo link. */
+/* As seções podem ser abertas por âncora. No desktop o cabeçalho fica preso
+   ao topo (~104 px); a folga de 7rem evita que ele cubra o título. */
+#como-apoiar,
 #florestas,
-#biodiversidade {
-  scroll-margin-top: 1.5rem;
+#biodiversidade,
+#conteudo {
+  scroll-margin-top: 1rem;
+}
+
+@media (min-width: 760px) {
+  #como-apoiar,
+  #florestas,
+  #biodiversidade,
+  #conteudo {
+    scroll-margin-top: 7rem;
+  }
 }
 
 @media (max-width: 519px) {
@@ -298,6 +320,7 @@
   top: -24px;
   height: 26px;
   background: var(--verde-claro);
+  transform: scaleY(-1);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x bottom / 60px 26px;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x bottom / 60px 26px;
   pointer-events: none;
