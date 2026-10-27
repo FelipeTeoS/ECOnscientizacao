@@ -520,20 +520,23 @@ h1 em {
   .pagina-inicial main > section { scroll-margin-top: 6.5rem; }
 }
 
-/* ---------- Fundo botânico (página inicial e ONGs) ---------- */
-/* Padrão discreto nas seções; cartões continuam opacos, então o texto não perde contraste. */
-:is(.pagina-inicial, .pagina-ongs) :is(.secao, .secao-clara, .rodape) {
+/* ---------- Fundo botânico (página inicial, ONGs e calculadora) ---------- */
+/* Padrão discreto nas seções (na calculadora, na página toda); cartões continuam opacos,
+   então o texto não perde contraste. */
+:is(.pagina-inicial, .pagina-ongs) :is(.secao, .secao-clara, .rodape),
+.pagina-calculadora,
+.pagina-calculadora .rodape {
   background-image: url("ongs/fundos/padrao-ongs.svg");
   background-size: 340px 340px;
 }
 
 /* Borda de grama no rodapé. A máscara desenha as lâminas para baixo; o eixo é
    invertido para que cresçam para cima, a partir da borda superior do rodapé. */
-:is(.pagina-inicial, .pagina-ongs) .rodape {
+:is(.pagina-inicial, .pagina-ongs, .pagina-calculadora) .rodape {
   position: relative;
 }
 
-:is(.pagina-inicial, .pagina-ongs) .rodape::before {
+:is(.pagina-inicial, .pagina-ongs, .pagina-calculadora) .rodape::before {
   content: "";
   position: absolute;
   left: 0;
@@ -781,7 +784,9 @@ h1 em {
   background: rgba(255, 255, 255, 0.08);
 }
 
-:root[data-tema="escuro"] :is(.pagina-inicial, .pagina-ongs) :is(.secao, .secao-clara, .rodape) {
+:root[data-tema="escuro"] :is(.pagina-inicial, .pagina-ongs) :is(.secao, .secao-clara, .rodape),
+:root[data-tema="escuro"] .pagina-calculadora,
+:root[data-tema="escuro"] .pagina-calculadora .rodape {
   background-image: url("ongs/fundos/padrao-ongs-escuro.svg");
 }
 
