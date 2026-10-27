@@ -44,7 +44,77 @@
  
     </div>
   </section>
+    <!-- Busca e filtros -->
+    <section
+      class="controles-blog"
+      aria-labelledby="titulo-controles"
+    >
+      <div class="container">
+        <h2 id="titulo-controles" class="visualmente-oculto">
+          Buscar e filtrar artigos
+        </h2>
 
+        <div class="busca-blog">
+          <label for="busca-artigos">Buscar artigos</label>
+
+          <input
+            type="search"
+            id="busca-artigos"
+            name="busca-artigos"
+            placeholder="Digite um tema, como água ou reciclagem"
+            autocomplete="off"
+          >
+        </div>
+
+        <div
+          class="filtros-blog"
+          role="group"
+          aria-label="Filtrar artigos por categoria"
+        >
+          <button
+            type="button"
+            class="filtro-blog filtro-ativo"
+            data-filtro="todos"
+            aria-pressed="true"
+          >
+            Todos
+          </button>
+
+          <button
+            type="button"
+            class="filtro-blog"
+            data-filtro="consumo-consciente"
+            aria-pressed="false"
+          >
+            Consumo consciente
+          </button>
+
+          <button
+            type="button"
+            class="filtro-blog"
+            data-filtro="residuos-reciclagem"
+            aria-pressed="false"
+          >
+            Resíduos e reciclagem
+          </button>
+
+          <button
+            type="button"
+            class="filtro-blog"
+            data-filtro="biodiversidade"
+            aria-pressed="false"
+          >
+            Biodiversidade
+          </button>
+        </div>
+
+        <p
+          id="resultado-busca"
+          class="resultado-busca"
+          aria-live="polite"
+        ></p>
+      </div>
+    </section>
     <!-- Artigo em destaque -->
     <section class="secao secao-clara" aria-labelledby="titulo-destaque">
       <div class="container">
