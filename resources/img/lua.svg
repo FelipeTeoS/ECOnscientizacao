@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <!-- Lua crescente: um círculo cheio menos outro deslocado -->
+    <mask id="crescente">
+      <circle cx="80" cy="80" r="46" fill="#fff"/>
+      <circle cx="102" cy="66" r="40" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="80" cy="80" r="74" fill="#f3efd8" opacity=".07"/>
+  <rect width="160" height="160" fill="#f3efd8" mask="url(#crescente)"/>
+</svg>

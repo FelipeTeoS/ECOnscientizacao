@@ -34,7 +34,7 @@
 
 .busca-blog input:focus-visible {
   border-color: var(--verde-escuro);
-  background-color: #ffffff;
+  background-color: var(--superficie);
 }
 
 .filtros-blog {
@@ -71,7 +71,7 @@
 
 .filtro-blog.filtro-ativo,
 .filtro-blog[aria-pressed="true"] {
-  color: #ffffff;
+  color: var(--botao-texto);
   background-color: var(--verde-escuro);
 }
 

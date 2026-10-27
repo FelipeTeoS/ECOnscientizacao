@@ -3,6 +3,54 @@
    Paleta clara, sem sombras, brilhos ou contornos.
    ========================================================== */
 
+/* ---------- Fontes ---------- */
+/* Fontes latinas hospedadas no próprio site. Sem dependência do Google Fonts,
+   a tipografia carrega mesmo se a rede externa falhar ou for bloqueada. */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(resources/fonts/caveat-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(resources/fonts/fraunces-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Mali';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(resources/fonts/mali-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Mali';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(resources/fonts/mali-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Mali';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(resources/fonts/mali-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* Cores base */
   --fundo: #f7f9f1;
@@ -38,6 +86,12 @@
   --raio: 20px;
   --raio-pequeno: 12px;
   --largura-max: 1120px;
+
+  /* Botões e cabeçalho */
+  --botao-texto: #ffffff;
+  --botao-hover: #24492d;
+  --botao-secundario-hover: #c6e0bd;
+  --topo-fundo: rgba(247, 249, 241, 0.94);
 }
 
 /* ---------- Reset básico ---------- */
@@ -177,13 +231,13 @@ h1 em {
 
 .botao-primario {
   background: var(--verde-escuro);
-  color: #ffffff;
+  color: var(--botao-texto);
 }
 
 .botao-primario:hover,
 .botao-primario:focus-visible {
-  background: #24492d;
-  color: #ffffff;
+  background: var(--botao-hover);
+  color: var(--botao-texto);
 }
 
 .botao-secundario {
@@ -193,13 +247,13 @@ h1 em {
 
 .botao-secundario:hover,
 .botao-secundario:focus-visible {
-  background: #c6e0bd;
+  background: var(--botao-secundario-hover);
   color: var(--verde-escuro);
 }
 
 /* ---------- Cabeçalho ---------- */
 .topo {
-  background: rgba(247, 249, 241, 0.94);
+  background: var(--topo-fundo);
 }
 
 @media (min-width: 760px) {
@@ -287,130 +341,9 @@ h1 em {
   color: var(--texto-suave);
 }
 
-.hero-acoes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-/* Ilustração da paisagem (SVG + animações em CSS) */
-.hero-arte {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto 1.1rem;
-}
-
-.paisagem {
-  width: 100%;
-  height: auto;
-}
-
-.pas {
-  animation: girar 7s linear infinite;
-}
-
-.pas-lenta {
-  animation-duration: 10s;
-}
-
-.nuvem {
-  animation: flutuar 9s ease-in-out infinite alternate;
-}
-
-.nuvem-2 {
-  animation-duration: 12s;
-}
-
-.folha-vento {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: balancar 5s ease-in-out infinite alternate;
-}
-
-.folha-vento-2 {
-  animation-duration: 6.5s;
-  animation-delay: -2s;
-}
-
-@keyframes girar {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes flutuar {
-  to { transform: translateX(18px); }
-}
-
-@keyframes balancar {
-  from { transform: translate(0, 0) rotate(-10deg); }
-  to   { transform: translate(14px, 18px) rotate(16deg); }
-}
-
-.hero-etiqueta {
-  position: absolute;
-  right: 8%;
-  bottom: -1.1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 1rem;
-  font-family: var(--fonte-manuscrita);
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--verde-escuro);
-  background: var(--superficie);
-  border-radius: 999px;
-}
-
-.hero-etiqueta span {
-  width: 10px;
-  height: 10px;
-  background: var(--verde);
-  border-radius: 50%;
-}
-
 @media (min-width: 860px) {
   .hero {
     padding: 4rem 0 5rem;
-  }
-
-  .hero-interno {
-    grid-template-columns: 1.15fr 1fr;
-  }
-}
-
-/* ---------- Números ---------- */
-.numeros {
-  padding-bottom: 1rem;
-}
-
-.numeros-lista {
-  display: grid;
-  gap: 1rem;
-}
-
-.numeros-lista li {
-  padding: 1.5rem;
-  background: var(--superficie);
-  border-radius: var(--raio);
-}
-
-.numero {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-family: var(--fonte-titulo);
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: var(--verde-escuro);
-}
-
-.numero-texto {
-  color: var(--texto-suave);
-}
-
-@media (min-width: 760px) {
-  .numeros-lista {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -434,6 +367,20 @@ h1 em {
 
 .secao-cabecalho p:last-child {
   color: var(--texto-suave);
+}
+
+.dica {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #fbefc4;
+  border-radius: var(--raio);
+}
+
+.dica strong {
+  font-family: var(--fonte-manuscrita);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--verde-escuro);
 }
 
 /* ---------- Cartões dos 4 Rs ---------- */
@@ -487,207 +434,6 @@ h1 em {
   .cartoes { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* ---------- Lixeiras ---------- */
-.lixeiras {
-  display: grid;
-  gap: 1rem;
-}
-
-.lixeira {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.25rem;
-  background: var(--superficie);
-  border-radius: var(--raio);
-}
-
-/* Lixeira simples e chapada (SVG); a cor vem de currentColor */
-.lixeira-icone {
-  flex-shrink: 0;
-  width: 48px;
-  height: 64px;
-  overflow: visible;
-}
-
-/* A tampa abre um pouco ao passar o mouse, girando pela dobradiça de trás */
-.lixeira-tampa {
-  transform-box: fill-box;
-  transform-origin: 0% 100%;
-  transition: transform 0.25s ease;
-}
-
-.lixeira:hover .lixeira-tampa {
-  transform: translateY(-3px) rotate(-20deg);
-}
-
-/* Um balancinho de desenho animado ao passar o mouse */
-.lixeira:hover .lixeira-icone {
-  transform-origin: 50% 100%;
-  animation: balancar-lixeira 0.5s ease-in-out;
-}
-
-@keyframes balancar-lixeira {
-  0%, 100% { transform: rotate(0); }
-  25%      { transform: rotate(-7deg); }
-  60%      { transform: rotate(5deg); }
-  85%      { transform: rotate(-2deg); }
-}
-
-.lixeira h3 {
-  font-size: 1.1rem;
-}
-
-.lixeira-material {
-  font-weight: 700;
-  color: var(--texto);
-}
-
-.lixeira p:last-child {
-  font-size: 0.95rem;
-  color: var(--texto-suave);
-}
-
-.cor-azul     { color: var(--lixo-azul); }
-.cor-vermelho { color: var(--lixo-vermelho); }
-.cor-verde    { color: var(--lixo-verde); }
-.cor-amarelo  { color: var(--lixo-amarelo); }
-.cor-marrom   { color: var(--lixo-marrom); }
-
-.dica {
-  margin-top: 2rem;
-  padding: 1.25rem 1.5rem;
-  background: #fbefc4;
-  border-radius: var(--raio);
-}
-
-.dica strong {
-  font-family: var(--fonte-manuscrita);
-  font-size: 1.4rem;
-  line-height: 1;
-  color: var(--verde-escuro);
-}
-
-@media (min-width: 640px) {
-  .lixeiras { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1000px) {
-  .lixeiras { grid-template-columns: repeat(5, 1fr); }
-
-  .lixeira {
-    flex-direction: column;
-    padding-top: 1.75rem;
-  }
-}
-
-/* ---------- Desafio (checklist só com CSS) ---------- */
-.desafio {
-  display: grid;
-  gap: 2rem;
-  align-items: start;
-}
-
-.desafio-texto h2 {
-  margin-bottom: 0.75rem;
-}
-
-.desafio-texto p:last-child {
-  color: var(--texto-suave);
-}
-
-.checklist {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.checklist li {
-  position: relative;
-}
-
-/* Esconde a caixa nativa, mantendo-a acessível */
-.checklist input {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-}
-
-.checklist label {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 1rem 1.25rem;
-  font-weight: 600;
-  background: var(--superficie);
-  border-radius: var(--raio-pequeno);
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Caixa personalizada */
-.checklist label::before {
-  content: "";
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  background: var(--verde-claro);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
-
-.checklist label:hover {
-  background: #f1f7ec;
-}
-
-.checklist input:focus-visible + label {
-  background: #fbefc4;
-}
-
-.checklist input:checked + label {
-  background: var(--verde-claro);
-  color: var(--texto-suave);
-  text-decoration: line-through;
-}
-
-.checklist input:checked + label::before {
-  background-color: var(--verde-escuro);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-@media (min-width: 860px) {
-  .desafio {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-  }
-}
-
-/* ---------- Sobre ---------- */
-.secao-sobre {
-  padding-top: 0;
-}
-
-.sobre {
-  max-width: 48rem;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-  text-align: center;
-  background: var(--areia);
-  border-radius: var(--raio);
-}
-
-.sobre h2 {
-  margin-bottom: 1rem;
-}
-
-.sobre p {
-  margin-bottom: 1.75rem;
-  color: var(--texto-suave);
-}
-
 /* ---------- Apresentação das páginas internas ---------- */
 .pagina-intro {
   padding: 3rem 0;
@@ -733,316 +479,335 @@ h1 em {
   font-size: 1.2rem;
 }
 
+/* O verde do "ECO" escurece no rodapé verde-claro para manter o contraste */
+.marca-rodape strong {
+  color: #3f7d3e;
+}
+
 .rodape a {
   font-weight: 700;
 }
 
-/* ---------- Banner com foto (página inicial) ---------- */
-/* A foto cobre o topo da página; embaixo ela desfoca e se funde à camada de grama.
-   Foto: "Green hills, South Dakota", Tali Despins (Unsplash License)
-   https://unsplash.com/photos/FQkQxgO9Kh8 */
-.pagina-inicial {
-  --banner-foto: url("resources/img/banner-natureza.jpg");
-  --banner-altura: 54rem;
-  --fundo-rgb: 247, 249, 241;
+/* ---------- Abertura com paisagem em SVG (página inicial) ---------- */
+/* A paisagem fica atrás do título; embaixo ela se funde à primeira seção clara, como na página de ONGs. */
+.pagina-inicial .hero {
+  position: relative;
+  isolation: isolate;
+  padding-bottom: clamp(12rem, 20vw + 6rem, 18rem);
+  background: url("resources/img/paisagem-inicio.svg") right bottom / cover no-repeat, #b3dcf5;
 }
 
-/* Foto e camadas do banner */
-.pagina-inicial::before,
-.pagina-inicial::after {
+.pagina-inicial .hero::after {
   content: "";
   position: absolute;
-  inset: 0 0 auto;
-  height: var(--banner-altura);
+  inset: auto 0 0;
   z-index: -1;
+  height: 7rem;
+  background: linear-gradient(to bottom, rgba(238, 244, 230, 0), var(--fundo-claro));
   pointer-events: none;
 }
 
-.pagina-inicial::before {
-  background:
-    var(--banner-foto) center 80% / cover no-repeat,
-    var(--grama);
-  -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
+.pagina-inicial .hero-texto {
+  max-width: 38rem;
 }
 
-/* Desfoque que aumenta para baixo e gradiente até a cor da grama */
-.pagina-inicial::after {
-  background: linear-gradient(to bottom, rgba(var(--grama-rgb), 0) 50%, rgba(var(--grama-rgb), 0.55) 82%, rgb(var(--grama-rgb)) 100%);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 50%, #000 85%);
-  mask-image: linear-gradient(to bottom, transparent 50%, #000 85%);
+/* Tons mais escuros para manter o contraste sobre o céu azul */
+.pagina-inicial .hero h1 em { color: #3f7d3e; }
+.pagina-inicial .hero-lead { color: var(--texto); margin-bottom: 0; }
+
+/* Os links internos param abaixo do cabeçalho fixo */
+@media (min-width: 760px) {
+  .pagina-inicial main > section { scroll-margin-top: 6.5rem; }
 }
 
-/* Cabeçalho de vidro sobre a foto */
-.pagina-inicial .topo {
-  background: rgba(var(--fundo-rgb), 0.55);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  backdrop-filter: blur(16px) saturate(150%);
+/* ---------- Fundo botânico (página inicial e ONGs) ---------- */
+/* Padrão discreto nas seções; cartões continuam opacos, então o texto não perde contraste. */
+:is(.pagina-inicial, .pagina-ongs) :is(.secao, .secao-clara, .rodape) {
+  background-image: url("ongs/fundos/padrao-ongs.svg");
+  background-size: 340px 340px;
 }
 
-/* Ilha acrílica com o texto, os botões e a ilustração animada do destaque */
-.pagina-inicial .hero-interno {
-  /* A ilha nunca encosta nas bordas da tela */
-  width: calc(100% - 2rem);
-  padding-block: 2.5rem;
-  background: rgba(var(--fundo-rgb), 0.62);
-  border-radius: var(--raio);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  backdrop-filter: blur(20px) saturate(140%);
-}
-
-@media (max-width: 640px) {
-  .pagina-inicial .hero-interno { padding: 1.75rem 1.25rem; }
-}
-
-
-/* ---------- Camadas da terra (página inicial) ---------- */
-/* Abaixo da foto, cada seção é uma camada do solo: grama, húmus, terra, argila, pedra e rocha. */
-.pagina-inicial {
-  /* Cores tiradas do próprio solo; a grama continua o verde da foto */
-  --grama: #5a7a26;
-  --grama-rgb: 90, 122, 38;
-  --humus: #4a3626;
-  --terra: #6e5034;
-  --argila: #8c4f36;
-  --pedra: #686a64;
-  --rocha: #33352f;
-  background-color: var(--grama);
-}
-
-.pagina-inicial main > section:not(.hero),
-.pagina-inicial .rodape {
+/* Borda de grama no rodapé. A máscara desenha as lâminas para baixo; o eixo é
+   invertido para que cresçam para cima, a partir da borda superior do rodapé. */
+:is(.pagina-inicial, .pagina-ongs) .rodape {
   position: relative;
 }
 
-.pagina-inicial #atitudes   { --camada: var(--humus); --titulo-camada: #f2d49b; --texto-camada: #efe4d2;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%236b4f2f' fill-opacity='.14'%3E%3Ccircle cx='14' cy='20' r='2'/%3E%3Ccircle cx='62' cy='12' r='1.5'/%3E%3Ccircle cx='104' cy='34' r='2.5'/%3E%3Ccircle cx='30' cy='78' r='1.8'/%3E%3Ccircle cx='88' cy='96' r='2'/%3E%3Ccircle cx='124' cy='120' r='1.5'/%3E%3Ccircle cx='50' cy='126' r='2.2'/%3E%3C/g%3E%3Cg fill='none' stroke='%236b4f2f' stroke-opacity='.16' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M40 0c2 12-4 18 0 30'/%3E%3Cpath d='M112 60c-3 10 3 16-1 26'/%3E%3C/g%3E%3C/svg%3E") var(--humus); }
-.pagina-inicial #reciclagem { --camada: var(--terra); --titulo-camada: #f7e0b5; --texto-camada: #f3e8d6;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='%239c7b55' fill-opacity='.22'%3E%3Cellipse cx='30' cy='40' rx='9' ry='6'/%3E%3Cellipse cx='130' cy='24' rx='6' ry='4'/%3E%3Cellipse cx='168' cy='110' rx='11' ry='7'/%3E%3Cellipse cx='70' cy='150' rx='7' ry='5'/%3E%3Cellipse cx='110' cy='180' rx='4' ry='3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.28'%3E%3Cellipse cx='88' cy='70' rx='5' ry='3.5'/%3E%3Cellipse cx='20' cy='128' rx='4' ry='3'/%3E%3Cellipse cx='176' cy='60' rx='3.5' ry='2.5'/%3E%3C/g%3E%3C/svg%3E") var(--terra); }
-.pagina-inicial #desafio    { --camada: var(--argila); --titulo-camada: #ffd9c2; --texto-camada: #f8e7dc; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='120' viewBox='0 0 260 120'%3E%3Cg fill='none' stroke='%23a0705a' stroke-opacity='.16' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 24c40-8 80 6 130 0s90-6 130 2'/%3E%3Cpath d='M20 70c50 8 90-6 140 0s70 6 100-2'/%3E%3Cpath d='M0 104c30-4 60 4 90 0'/%3E%3C/g%3E%3C/svg%3E") var(--argila); }
-.pagina-inicial #sobre      { --camada: var(--pedra); --titulo-camada: #eef0e8; --texto-camada: #e9ebe4;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='%23b6b5ad' fill-opacity='.45' stroke='%239e9d95' stroke-opacity='.35' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M20 30l22-8 18 10-4 20-24 6-14-12z'/%3E%3Cpath d='M150 18l30 4 8 22-20 12-22-10z'/%3E%3Cpath d='M90 110l26-6 16 16-8 22-28 2-12-18z'/%3E%3Cpath d='M190 160l20 2 6 18-16 10-16-12z'/%3E%3Cpath d='M30 180l18-4 10 14-12 14-18-6z'/%3E%3C/g%3E%3C/svg%3E") var(--pedra); }
-.pagina-inicial .rodape     { --camada: var(--rocha); --titulo-camada: #cfe6bf; --texto-camada: #e2e4dc;  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' viewBox='0 0 260 200'%3E%3Cg fill='none' stroke='%238e8f88' stroke-opacity='.4' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 40l40 10 20-14 34 8'/%3E%3Cpath d='M140 20l20 30 40 6 30 24'/%3E%3Cpath d='M60 120l30 16 10 30'/%3E%3Cpath d='M170 140l40-10 30 20'/%3E%3Cpath d='M90 136l24-8'/%3E%3C/g%3E%3C/svg%3E") var(--rocha); }
-
-/* Borda irregular de cada camada, subindo sobre a camada de cima */
-.pagina-inicial :is(#reciclagem, #desafio, #sobre, .rodape)::before {
+:is(.pagina-inicial, .pagina-ongs) .rodape::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  top: -23px;
-  height: 24px;
-  background: var(--camada);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V12C20 6 40 16 60 12S100 4 120 10S160 18 180 12S220 6 240 12V24Z'/%3E%3C/svg%3E") repeat-x bottom / 240px 24px;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V12C20 6 40 16 60 12S100 4 120 10S160 18 180 12S220 6 240 12V24Z'/%3E%3C/svg%3E") repeat-x bottom / 240px 24px;
-}
-
-.pagina-inicial #desafio::before {
-  -webkit-mask-size: 360px 24px;
-  mask-size: 360px 24px;
-}
-
-.pagina-inicial :is(#sobre, .rodape)::before {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V14L18 8L34 13L52 6L70 12L90 9L108 15L128 7L146 11L166 5L186 12L204 8L222 13L240 14V24Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V14L18 8L34 13L52 6L70 12L90 9L108 15L128 7L146 11L166 5L186 12L204 8L222 13L240 14V24Z'/%3E%3C/svg%3E");
-}
-
-/* Detalhe simples da grama: poucos tufos num verde um pouco mais escuro */
-.pagina-inicial .numeros {
-  isolation: isolate;
-}
-
-.pagina-inicial .numeros::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='170' viewBox='0 0 180 170'%3E%3Cg fill='none' stroke='%234a6a1d' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M26 40l1-6M30 40V32M34 40l-1-6'/%3E%3Cpath d='M126 96l1-6M130 96V88M134 96l-1-6'/%3E%3Cpath d='M66 150l1-6M70 150V142M74 150l-1-6'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 180px 170px;
-  /* Surge aos poucos embaixo do desfoque da foto */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 160px);
-  mask-image: linear-gradient(to bottom, transparent 0, #000 160px);
-}
-
-/* Raízes da grama descendo sobre o húmus */
-.pagina-inicial #atitudes::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
+  top: -24px;
   height: 26px;
-  background: var(--grama);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x top / 60px 26px;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x top / 60px 26px;
+  background: var(--verde-claro);
+  transform: scaleY(-1);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x bottom / 60px 26px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='26' viewBox='0 0 60 26'%3E%3Cpath d='M0 0H60V4L56 18L52 5L47 24L42 6L37 15L33 5L28 22L23 6L18 16L14 4L9 20L5 5L0 12Z'/%3E%3C/svg%3E") repeat-x bottom / 60px 26px;
+  pointer-events: none;
 }
 
-/* Espaço para a camada de pedra aparecer acima do quadro "Sobre" */
-.pagina-inicial #sobre {
-  padding-top: 3.5rem;
+/* ---------- Destaques do blog e ONGs (página inicial) ---------- */
+.recomendacoes + .recomendacoes {
+  margin-top: 3rem;
 }
 
-/* O quadro "Sobre" também não encosta nas bordas da tela */
-.pagina-inicial .sobre {
-  width: calc(100% - 2rem);
+.recomendacoes-titulo {
+  margin-bottom: 1.25rem;
+  font-size: 1.4rem;
 }
 
-/* Títulos e textos claros, no tom de cada camada */
-.pagina-inicial :is(#atitudes, #reciclagem, #desafio) :is(.secao-cabecalho, .desafio-texto) h2 {
-  color: var(--titulo-camada);
+.recomendacoes-lista {
+  display: grid;
+  gap: 1.25rem;
 }
 
-.pagina-inicial :is(.secao-cabecalho, .desafio-texto) p:last-child {
-  color: var(--texto-camada);
+@media (min-width: 640px) {
+  .recomendacoes-lista { grid-template-columns: repeat(2, 1fr); }
 }
 
-.pagina-inicial :is(#atitudes, #reciclagem, #desafio) .selo {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--titulo-camada);
+@media (min-width: 1000px) {
+  .recomendacoes-lista { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Cartões entalhados na camada: só um tom mais escuro do solo, com bordas irregulares */
-.pagina-inicial .numeros    { --entalhe: #47611e; --titulo-camada: #e3efc4; --texto-camada: #eef3e2; }
-.pagina-inicial #atitudes   { --entalhe: #372719; }
-.pagina-inicial #reciclagem { --entalhe: #553c25; }
-.pagina-inicial #desafio    { --entalhe: #6e3a26; --entalhe-hover: #7a4330; }
-.pagina-inicial #sobre      { --entalhe: #52544e; }
-
-.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira, .dica, .checklist label, .sobre) {
+/* Cartão branco; o link do título cobre o cartão inteiro */
+.rec-cartao {
   position: relative;
-  isolation: isolate;
-  background: transparent;
-  color: var(--texto-camada);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--superficie);
+  border-radius: var(--raio);
 }
 
-/* O fundo do entalhe fica numa camada própria; o filtro ondula só as bordas dele, não o texto */
-.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira, .dica, .checklist label, .sobre)::after {
+.rec-cartao h4 {
+  margin-bottom: 0.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.rec-cartao h4 a {
+  color: var(--verde-escuro);
+  text-decoration: none;
+}
+
+.rec-cartao h4 a::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
-  background: var(--entalhe);
-  border-radius: var(--raio-pequeno);
-  filter: url(#entalhe-1);
+  border-radius: inherit;
 }
 
-.pagina-inicial .checklist li:nth-child(3n + 2) label::after,
-.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira):nth-child(3n + 2)::after,
-.pagina-inicial .sobre::after {
-  filter: url(#entalhe-2);
+.rec-cartao:hover h4 a,
+.rec-cartao h4 a:focus-visible {
+  text-decoration: underline;
 }
 
-.pagina-inicial .checklist li:nth-child(3n) label::after,
-.pagina-inicial :is(.numeros-lista li, .cartao, .lixeira):nth-child(3n)::after,
-.pagina-inicial .dica::after {
-  filter: url(#entalhe-3);
+.rec-cartao h4 a:focus-visible {
+  outline: none;
 }
 
-/* Checklist do desafio */
-.pagina-inicial .checklist label:hover,
-.pagina-inicial .checklist input:focus-visible + label,
-.pagina-inicial .checklist input:checked + label {
+.rec-cartao:has(h4 a:focus-visible) {
+  outline: 3px solid var(--verde-escuro);
+  outline-offset: 3px;
+}
+
+.rec-cartao p:last-child {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+
+/* As ilustrações do blog têm cantos próprios e transparentes; o fundo no mesmo verde
+   preenche esses cantos e deixa só o arredondamento do cartão */
+.rec-imagem {
+  width: calc(100% + 2.5rem);
+  max-width: none;
+  height: auto;
+  margin: -1.25rem -1.25rem 1rem;
+  background: #d8ead2;
+  border-radius: var(--raio) var(--raio) 0 0;
+}
+
+.rec-logo {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  margin-bottom: 1rem;
+}
+
+.rec-logo img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.rec-tag {
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4a6a1d;
+}
+
+.recomendacoes-mais {
+  margin-top: 1.25rem;
+}
+
+/* Artigo em destaque: um cartão largo, com a imagem ao lado do texto e um botão para ler */
+.recomendacoes-lista--destaque {
+  grid-template-columns: 1fr;
+}
+
+.rec-cartao--destaque h4 {
+  font-size: 1.5rem;
+}
+
+.rec-texto p:not(.rec-tag) {
+  margin-bottom: 1.25rem;
+  color: var(--texto-suave);
+}
+
+@media (min-width: 760px) {
+  .rec-cartao--destaque {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) 1fr;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .rec-cartao--destaque .rec-imagem {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .rec-cartao--destaque .rec-texto {
+    padding: 2rem 2.25rem;
+  }
+}
+
+/* ---------- Botão de tema (claro/escuro) ---------- */
+/* Criado pelo tema.js dentro do menu; sem JavaScript, o site fica no tema claro. */
+.tema-botao {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--texto-suave);
   background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.pagina-inicial .checklist label:hover::after,
-.pagina-inicial .checklist input:focus-visible + label::after {
-  background: var(--entalhe-hover);
+.tema-botao:hover {
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
 }
 
-.pagina-inicial .checklist label::before {
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
-.pagina-inicial .checklist input:focus-visible + label {
-  outline: 2px solid var(--titulo-camada);
+.tema-botao:focus-visible {
+  outline: 2px solid var(--verde-escuro);
   outline-offset: 2px;
 }
 
-.pagina-inicial .checklist input:checked + label {
-  color: var(--titulo-camada);
-  opacity: 0.8;
+.tema-botao svg {
+  width: 20px;
+  height: 20px;
 }
 
-.pagina-inicial .checklist input:checked + label::before {
-  background-color: var(--grama);
+/* Mostra a lua no tema claro e o sol no escuro */
+.tema-botao .icone-sol,
+:root[data-tema="escuro"] .tema-botao .icone-lua {
+  display: none;
 }
 
-/* Números sobre a grama */
-.pagina-inicial .numero {
-  color: var(--titulo-camada);
+:root[data-tema="escuro"] .tema-botao .icone-sol {
+  display: block;
 }
 
-.pagina-inicial .numero-texto {
-  color: var(--texto-camada);
+/* ---------- Tema escuro ---------- */
+/* O tema.js marca <html data-tema="escuro">; as cores saem das mesmas variáveis do tema claro. */
+:root[data-tema="escuro"] {
+  color-scheme: dark;
+
+  --fundo: #0f1722;
+  --fundo-claro: #131d2a;
+  --superficie: #1a2636;
+  --texto: #e2e9f0;
+  --texto-suave: #a3b2c2;
+
+  /* No escuro, os destaques de texto viram azuis suaves; o verde fica só no logo e nos desenhos */
+  --verde-escuro: #b9d4ee;
+  --verde: #8cc4ea;
+  --verde-claro: #1f3242;
+
+  --areia: #2a2b33;
+  --ceu: #1a2c3d;
+  --pessego: #2f2632;
+
+  --botao-texto: #0d1b26;
+  --botao-hover: #d6e7f7;
+  --botao-secundario-hover: #2a4054;
+  --topo-fundo: rgba(15, 23, 34, 0.94);
 }
 
-/* Os 4 Rs no húmus: o entalhe não flutua; a letra guarda a cor de cada R */
-.pagina-inicial .cartao:hover {
-  transform: none;
+/* O amarelo do foco continua claro, então o texto sobre ele fica escuro */
+:root[data-tema="escuro"] a:focus-visible,
+:root[data-tema="escuro"] .pular {
+  color: #0d1b26;
 }
 
-.pagina-inicial .cartao h3 {
-  color: var(--titulo-camada);
+/* O logo tem letras quase pretas: inverte a claridade e devolve os tons (o verde continua verde) */
+:root[data-tema="escuro"] .marca-logo {
+  filter: invert(1) hue-rotate(180deg) brightness(1.05);
 }
 
-.pagina-inicial .cartao p {
-  color: var(--texto-camada);
+:root[data-tema="escuro"] .marca-rodape strong {
+  color: var(--verde);
 }
 
-/* Cada R com sua cor (os mesmos tons das lixeiras) e a letra num tom escuro da mesma cor */
-.pagina-inicial .cartao-verde   .cartao-letra { background: var(--lixo-verde);    color: #1d4a2b; }
-.pagina-inicial .cartao-areia   .cartao-letra { background: var(--lixo-amarelo);  color: #5e4208; }
-.pagina-inicial .cartao-ceu     .cartao-letra { background: var(--lixo-azul);     color: #1c4466; }
-.pagina-inicial .cartao-pessego .cartao-letra { background: var(--lixo-vermelho); color: #6a2419; }
-
-/* Dica na terra */
-.pagina-inicial .dica {
-  color: var(--texto-camada);
+:root[data-tema="escuro"] .dica {
+  background: #2b2f3a;
 }
 
-.pagina-inicial .dica strong {
-  color: var(--titulo-camada);
+:root[data-tema="escuro"] .cartao-letra {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* Quadro "Sobre" na pedra */
-.pagina-inicial .sobre h2 {
-  color: var(--titulo-camada);
+:root[data-tema="escuro"] :is(.pagina-inicial, .pagina-ongs) :is(.secao, .secao-clara, .rodape) {
+  background-image: url("ongs/fundos/padrao-ongs-escuro.svg");
 }
 
-.pagina-inicial .sobre p {
-  color: var(--texto-camada);
+/* Página inicial: a mesma paisagem à noite. A lua é uma camada própria, presa ao canto
+   superior direito, para não ficar atrás do título em telas estreitas. */
+:root[data-tema="escuro"] .pagina-inicial .hero {
+  background:
+    url("resources/img/lua.svg") right 5% top 1.5rem / clamp(64px, 11vw, 170px) no-repeat,
+    url("resources/img/paisagem-inicio-noite.svg") right bottom / cover no-repeat,
+    #0d1830;
 }
 
-/* Lixeiras da coleta seletiva */
-.pagina-inicial .lixeira h3 {
-  color: var(--titulo-camada);
+:root[data-tema="escuro"] .pagina-inicial .hero h1 em {
+  color: var(--verde);
 }
 
-.pagina-inicial .lixeira-material {
-  color: var(--texto-camada);
+:root[data-tema="escuro"] .rec-tag {
+  color: #9cc3e6;
 }
 
-.pagina-inicial .lixeira p:last-child {
-  color: var(--texto-camada);
-  opacity: 0.85;
-}
-
-/* Rodapé sobre a rocha */
-.pagina-inicial .rodape-interno {
-  color: var(--texto-camada);
-}
-
-.pagina-inicial .rodape .marca {
-  color: var(--texto-camada);
-}
-
-.pagina-inicial .marca-rodape strong,
-.pagina-inicial .rodape a {
-  color: var(--titulo-camada);
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .pagina-inicial .topo { background: var(--fundo); }
-  .pagina-inicial .hero-interno { background: var(--fundo); }
+/* Logos das ONGs foram feitos para fundo branco: ganham uma plaquinha clara */
+:root[data-tema="escuro"] .rec-logo {
+  align-self: flex-start;
+  padding: 0.4rem 0.6rem;
+  background: #f7f9f1;
+  border-radius: var(--raio-pequeno);
 }
 
 /* ---------- Movimento reduzido ---------- */
@@ -1052,26 +817,11 @@ h1 em {
   .cartao,
   .botao,
   .menu a,
-  .checklist label,
-  .lixeira-tampa {
+  .tema-botao {
     transition: none;
-  }
-
-  .lixeira:hover .lixeira-tampa {
-    transform: none;
-  }
-
-  .lixeira:hover .lixeira-icone {
-    animation: none;
   }
 
   .cartao:hover {
     transform: none;
-  }
-
-  .pas,
-  .nuvem,
-  .folha-vento {
-    animation: none;
   }
 }
