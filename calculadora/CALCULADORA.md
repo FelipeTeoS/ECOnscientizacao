@@ -32,8 +32,8 @@ Valores fixos, escolhidos em 21/10/2026. Não são atualizados automaticamente.
 - [MCTI, fator de emissão da geração elétrica em 2023](https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2024/02/fator-de-emissao-de-co2-na-geracao-de-energia-eletrica-no-brasil-em-2023-e-o-menor-em-12-anos), notícia de fevereiro de 2024: média anual do SIN. É uma referência histórica fixa, não a intensidade da rede no momento do uso. Não representa sistemas elétricos isolados.
 - [IPCC 2006, volume 2, capítulo 1](https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_1_Ch1_Introduction.pdf), tabelas 1.2 e 1.4, páginas 1.18 e 1.23: poder calorífico e fator padrão de CO₂ do GLP. A composição real do GLP pode variar.
 
-O CO₂ biogênico do etanol da mistura é mostrado separadamente e não é somado ao total
-fóssil. Essa separação contábil **não significa** que o etanol não emita CO₂ ou tenha impacto
+O CO₂ biogênico do etanol da mistura é calculado à parte pelo modelo e não é somado ao total
+fóssil; a página não o exibe no resultado, só o explica em "Como chegamos a esses números?". Essa separação contábil **não significa** que o etanol não emita CO₂ ou tenha impacto
 zero em seu ciclo de vida. Os fatores são aproximações médias e não medições de um veículo.
 
 ## Fórmulas

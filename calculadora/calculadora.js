@@ -80,7 +80,6 @@
     document.querySelector("#resultado-aviso").hidden = true;
     document.querySelector("#resultado-mensal").textContent = formatar(resultadoAtual.total);
     document.querySelector("#resultado-anual").textContent = formatar(resultadoAtual.anual);
-    document.querySelector("#resultado-biogenico").textContent = formatar(resultadoAtual.biogenico);
     atualizarGrafico(resultadoAtual);
     atualizarDicas(resultadoAtual);
     atualizarComparacao();
@@ -159,9 +158,6 @@
       status.textContent = "";
       delete status.dataset.estado;
     }, 0);
-  });
-  document.querySelector('a[href="#titulo-metodo"]').addEventListener("click", () => {
-    document.querySelector(".calc-metodologia details").open = true;
   });
   atualizarGas();
   document.querySelector("#calcular").disabled = false;

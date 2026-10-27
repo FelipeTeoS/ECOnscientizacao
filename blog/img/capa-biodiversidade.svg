@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="400" viewBox="0 0 1440 400">
+  <defs>
+    <g id="flor">
+      <circle cx="0" cy="-8" r="6" fill="#f29b8f"/>
+      <circle cx="8" cy="0" r="6" fill="#f29b8f"/>
+      <circle cx="0" cy="8" r="6" fill="#f29b8f"/>
+      <circle cx="-8" cy="0" r="6" fill="#f29b8f"/>
+      <circle r="4.5" fill="#f6dc8c"/>
+    </g>
+  </defs>
+
+  <rect width="1440" height="400" fill="#e6f1dc"/>
+
+  <!-- Sol -->
+  <circle cx="1130" cy="96" r="64" fill="#f6dc8c" opacity=".35"/>
+  <circle cx="1130" cy="96" r="40" fill="#f6dc8c"/>
+
+  <!-- Pássaros -->
+  <path d="M610 112q13-14 26 0q13-14 26 0M690 86q10-11 20 0q10-11 20 0M300 140q10-11 20 0q10-11 20 0" fill="none" stroke="#2f5d3a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Colinas -->
+  <path d="M0 270C160 220 320 250 480 262S760 222 960 246S1260 220 1440 240V400H0Z" fill="#b9dcab"/>
+  <path d="M0 316C200 276 340 318 520 304S880 270 1040 296S1320 276 1440 296V400H0Z" fill="#8cc49a"/>
+
+  <!-- Árvore da esquerda -->
+  <rect x="212" y="270" width="16" height="110" rx="8" fill="#8b6848"/>
+  <circle cx="220" cy="246" r="44" fill="#6fae7a"/>
+  <circle cx="192" cy="266" r="28" fill="#8cc49a"/>
+  <circle cx="250" cy="266" r="28" fill="#8cc49a"/>
+
+  <!-- Árvore grande, no centro -->
+  <rect x="548" y="230" width="24" height="140" rx="11" fill="#8b6848"/>
+  <circle cx="560" cy="198" r="62" fill="#5fa06a"/>
+  <circle cx="516" cy="224" r="38" fill="#6fae7a"/>
+  <circle cx="606" cy="226" r="40" fill="#6fae7a"/>
+  <circle cx="540" cy="178" r="22" fill="#7fbd88" opacity=".75"/>
+
+  <!-- Árvore pequena -->
+  <rect x="752" y="282" width="12" height="90" rx="6" fill="#8b6848"/>
+  <circle cx="758" cy="266" r="34" fill="#6fae7a"/>
+  <circle cx="734" cy="284" r="22" fill="#8cc49a"/>
+  <circle cx="782" cy="284" r="22" fill="#8cc49a"/>
+
+  <!-- Árvore da direita -->
+  <rect x="1232" y="262" width="18" height="110" rx="9" fill="#8b6848"/>
+  <circle cx="1241" cy="236" r="50" fill="#5fa06a"/>
+  <circle cx="1210" cy="258" r="32" fill="#6fae7a"/>
+  <circle cx="1274" cy="260" r="32" fill="#6fae7a"/>
+
+  <!-- Colina da frente e flores -->
+  <path d="M0 366C220 336 420 376 620 358S960 336 1140 358S1360 340 1440 352V400H0Z" fill="#2f5d3a"/>
+  <use href="#flor" transform="translate(90 382)"/>
+  <use href="#flor" transform="translate(320 386) scale(.85)"/>
+  <use href="#flor" transform="translate(660 384)"/>
+  <use href="#flor" transform="translate(850 386) scale(.85)"/>
+  <use href="#flor" transform="translate(1010 376)"/>
+  <use href="#flor" transform="translate(1160 386) scale(.85)"/>
+  <use href="#flor" transform="translate(1370 380)"/>
+
+  <!-- Borboleta -->
+  <g transform="translate(880 186) rotate(12)">
+    <ellipse cx="-17" cy="-10" rx="16" ry="22" transform="rotate(-20 -17 -10)" fill="#f29b8f"/>
+    <ellipse cx="17" cy="-10" rx="16" ry="22" transform="rotate(20 17 -10)" fill="#f6dc8c"/>
+    <ellipse cx="-12" cy="16" rx="12" ry="16" transform="rotate(15 -12 16)" fill="#f6dc8c"/>
+    <ellipse cx="12" cy="16" rx="12" ry="16" transform="rotate(-15 12 16)" fill="#f29b8f"/>
+    <rect x="-3.5" y="-18" width="7" height="46" rx="3.5" fill="#2f5d3a"/>
+    <path d="M-2 -18C-8 -30 -14 -34 -20 -36M2 -18C8 -30 14 -34 20 -36" fill="none" stroke="#2f5d3a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>

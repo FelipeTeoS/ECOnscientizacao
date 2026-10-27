@@ -9,25 +9,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <script src="../tema.js"></script>
   <link rel="stylesheet" href="calculadora.css">
   <script src="calculadora-modelo.js" defer></script>
   <script src="calculadora.js" defer></script>
 </head>
 <body class="pagina-calculadora">
-  <!-- Céu com nuvens que passam atrás da página -->
-  <div class="ceu" aria-hidden="true">
-    <span class="nuvem-ceu"></span>
-    <span class="nuvem-ceu"></span>
-    <span class="nuvem-ceu"></span>
-    <span class="nuvem-ceu"></span>
-    <span class="nuvem-ceu"></span>
-    <span class="nuvem-ceu"></span>
-  </div>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
   <header class="topo">
     <div class="container topo-interno">
       <a class="marca" href="../index.html">
-        <img class="marca-logo" src="../resources/img/logo-transparente.png" width="802" height="290" alt="ECOnscientização - Pegada Ecológica, página inicial">
+        <img class="marca-logo" src="../resources/img/logo-transparente-2x.webp" width="481" height="174" alt="ECOnscientização - Pegada Ecológica, página inicial" fetchpriority="high" decoding="async">
       </a>
       <nav aria-label="Navegação principal">
         <ul class="menu">
@@ -43,7 +35,6 @@
   <main id="conteudo" class="container calc-conteudo">
     <section class="pagina-intro" aria-labelledby="titulo-calculadora">
       <div>
-        <p class="selo">Conhecer é o primeiro passo</p>
         <h1 id="titulo-calculadora">Sua rotina deixa uma marca.<br><em>Vamos entender a sua?</em></h1>
         <p class="pagina-lead">Transforme seus consumos do mês em uma estimativa de CO₂ e descubra por onde começar a reduzir.</p>
       </div>
@@ -52,57 +43,64 @@
     <noscript><p class="calc-noscript">Ative o JavaScript no navegador para usar a calculadora. Os cálculos acontecem no seu dispositivo.</p></noscript>
     <div class="calc-layout">
       <form id="form-calculadora" class="calc-form" novalidate>
-        <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência. Aceitamos vírgula ou ponto para decimais, sem separador de milhar.</p></div>
+        <div class="calc-form-titulo"><h2>Conte um pouco da sua rotina</h2><p>Use um mês típico como referência.</p></div>
         <fieldset class="calc-etapa" id="etapa-transporte">
           <legend><span class="etapa-numero" aria-hidden="true">01</span> Transporte</legend>
-          <p class="etapa-descricao">Seus trajetos de carro a gasolina comum (E30).</p>
+          <p class="etapa-descricao">Quanto você anda de carro por mês.</p>
           <div class="campos">
             <div class="campo">
-              <label for="distancia">Distância no mês</label>
+              <div class="campo-rotulo">
+                <label for="distancia">Distância no mês</label>
+                <span class="info" tabindex="0">i<span id="distancia-ajuda" class="info-texto" role="tooltip">Some ida e volta de todos os seus trajetos de carro a gasolina comum (E30). Sem carro? Mantenha 0. O cálculo não vale para etanol, diesel ou gasolina premium.</span></span>
+              </div>
               <div class="campo-linha"><input maxlength="12" autocomplete="off" id="distancia" name="distancia" type="text" inputmode="decimal" value="0" aria-describedby="distancia-unidade distancia-ajuda distancia-erro" required><span class="unidade" id="distancia-unidade">km</span></div>
-              <p id="distancia-ajuda" class="campo-ajuda">Some ida e volta. Sem carro? Mantenha 0.</p>
               <p id="distancia-erro" class="campo-erro" hidden></p>
             </div>
             <div class="campo">
-              <label for="eficiencia">Consumo do carro</label>
+              <div class="campo-rotulo">
+                <label for="eficiencia">Consumo do carro</label>
+                <span class="info" tabindex="0">i<span id="eficiencia-ajuda" class="info-texto" role="tooltip">Quantos quilômetros o carro faz com 1 litro de gasolina. Se não souber, deixe o valor que já está preenchido.</span></span>
+              </div>
               <div class="campo-linha"><input maxlength="12" autocomplete="off" id="eficiencia" name="eficiencia" type="text" inputmode="decimal" value="12" aria-describedby="eficiencia-unidade eficiencia-ajuda eficiencia-erro"><span class="unidade" id="eficiencia-unidade">km/L</span></div>
-              <p id="eficiencia-ajuda" class="campo-ajuda">Quantos quilômetros faz com 1 litro.</p>
               <p id="eficiencia-erro" class="campo-erro" hidden></p>
             </div>
           </div>
-          <p class="etapa-nota">Informe apenas os quilômetros atribuídos a você. O cálculo não cobre etanol hidratado, diesel ou gasolina premium.</p>
         </fieldset>
         <fieldset class="calc-etapa" id="etapa-energia">
           <legend><span class="etapa-numero" aria-hidden="true">02</span> Energia da casa</legend>
-          <p class="etapa-descricao">Pegue o consumo em kWh na sua conta de luz.</p>
+          <p class="etapa-descricao">O consumo de luz da sua casa.</p>
           <div class="campos">
             <div class="campo">
-              <label for="energia">Consumo no mês</label>
+              <div class="campo-rotulo">
+                <label for="energia">Consumo no mês</label>
+                <span class="info" tabindex="0">i<span id="energia-ajuda" class="info-texto" role="tooltip">Use o consumo em kWh que aparece na conta de luz, não o valor em reais.</span></span>
+              </div>
               <div class="campo-linha"><input maxlength="12" autocomplete="off" id="energia" name="energia" type="text" inputmode="decimal" placeholder="Ex.: 150" aria-describedby="energia-unidade energia-ajuda energia-erro" required><span class="unidade" id="energia-unidade">kWh</span></div>
-              <p id="energia-ajuda" class="campo-ajuda">Use o consumo, não o valor em reais.</p>
               <p id="energia-erro" class="campo-erro" hidden></p>
             </div>
             <div class="campo">
-              <label for="moradores">Pessoas na casa</label>
+              <div class="campo-rotulo">
+                <label for="moradores">Pessoas na casa</label>
+                <span class="info" tabindex="0">i<span id="moradores-ajuda" class="info-texto" role="tooltip">Inclua você. O consumo de energia e de gás é dividido igualmente entre as pessoas da casa.</span></span>
+              </div>
               <div class="campo-linha"><input maxlength="12" autocomplete="off" id="moradores" name="moradores" type="text" inputmode="numeric" value="1" aria-describedby="moradores-unidade moradores-ajuda moradores-erro" required><span class="unidade" id="moradores-unidade">pessoas</span></div>
-              <p id="moradores-ajuda" class="campo-ajuda">Inclua você. Energia e gás serão divididos igualmente.</p>
               <p id="moradores-erro" class="campo-erro" hidden></p>
             </div>
           </div>
         </fieldset>
         <fieldset class="calc-etapa" id="etapa-gas">
           <legend><span class="etapa-numero" aria-hidden="true">03</span> Gás de cozinha</legend>
-          <p class="etapa-descricao">Opcional. Para quem usa botijão de GLP de 13 kg.</p>
           <label class="calc-checkbox" for="usa-gas"><input id="usa-gas" name="usaGas" type="checkbox"> Minha casa usa botijão de 13 kg</label>
           <div class="campos" id="gas-campos" hidden>
             <div class="campo campo-inteiro">
-              <label for="duracao-gas">Quanto tempo dura um botijão?</label>
+              <div class="campo-rotulo">
+                <label for="duracao-gas">Quanto tempo dura um botijão?</label>
+                <span class="info" tabindex="0">i<span id="duracao-gas-ajuda" class="info-texto" role="tooltip">Vale para botijão de GLP de 13 kg. O consumo é convertido para 30 dias e dividido pelas pessoas da casa. Gás encanado não entra nesta estimativa.</span></span>
+              </div>
               <div class="campo-linha"><input maxlength="12" autocomplete="off" id="duracao-gas" name="duracaoGas" type="text" inputmode="decimal" placeholder="Ex.: 60" aria-describedby="duracao-gas-unidade duracao-gas-ajuda duracao-gas-erro" disabled><span class="unidade" id="duracao-gas-unidade">dias</span></div>
-              <p id="duracao-gas-ajuda" class="campo-ajuda">O consumo será convertido para 30 dias e dividido pelos moradores.</p>
               <p id="duracao-gas-erro" class="campo-erro" hidden></p>
             </div>
           </div>
-          <p class="etapa-nota">Gás encanado não entra nesta estimativa. Desmarcado, este item contribui com zero no resultado.</p>
         </fieldset>
 
         <div class="calc-acoes">
@@ -113,17 +111,15 @@
       </form>
 
       <aside class="calc-resumo" aria-labelledby="titulo-resultado">
-        <header><p class="selo">Um retrato do seu mês</p><h2 id="titulo-resultado" tabindex="-1">Seu impacto estimado</h2></header>
-        <div id="resultado-vazio" class="resultado-vazio"><span class="resultado-simbolo" aria-hidden="true">↗</span><p>Todo passo começa<br>com uma descoberta.</p><span>Preencha os consumos e calcule para ver sua estimativa aqui.</span></div>
+        <h2 id="titulo-resultado" tabindex="-1">Seu impacto estimado</h2>
+        <div id="resultado-vazio" class="resultado-vazio"><svg class="resultado-vazio-icone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 40h32"/><rect x="11" y="24" width="6" height="16" rx="2"/><rect x="21" y="14" width="6" height="26" rx="2"/><rect x="31" y="20" width="6" height="20" rx="2"/></svg><p>Preencha os consumos e calcule para ver sua estimativa aqui.</p></div>
         <div id="resultado-conteudo" hidden>
           <p id="resultado-aviso" class="resultado-desatualizado" hidden>Você alterou os dados. Calcule novamente para atualizar este resultado.</p>
           <p class="resultado-rotulo">Seu mês, em números</p>
           <p><strong id="resultado-mensal" class="resultado-valor">0,0</strong><span class="resultado-unidade">kg de CO₂ por pessoa / mês</span></p>
           <p class="resultado-anual"><strong id="resultado-anual">0,0</strong> kg de CO₂ por pessoa em 12 meses iguais</p>
-          <p class="resultado-nota">CO₂ biogênico da gasolina: <strong id="resultado-biogenico">0,0</strong> kg/mês, informado separadamente e fora do total acima.</p>
           <div class="resultado-detalhes" aria-labelledby="titulo-categorias">
             <h3 id="titulo-categorias">De onde vem o seu impacto</h3>
-            <p class="resultado-nota">Valores em kg de CO₂ por pessoa no mês. As barras mostram a participação no total. Percentuais arredondados.</p>
             <ul class="categorias-lista">
               <li class="categoria-item" data-categoria="transporte"><div class="categoria-topo"><span>Transporte</span><span><strong id="valor-transporte">0,0 kg</strong> <span class="categoria-percentual" id="percentual-transporte">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-transporte"></span></div></li>
               <li class="categoria-item" data-categoria="energia"><div class="categoria-topo"><span>Energia elétrica</span><span><strong id="valor-energia">0,0 kg</strong> <span class="categoria-percentual" id="percentual-energia">0%</span></span></div><div class="categoria-trilho" aria-hidden="true"><span class="categoria-barra" id="barra-energia"></span></div></li>
@@ -137,10 +133,8 @@
             <p id="comparacao-base" hidden></p>
             <p class="comparacao-resultado" id="comparacao-resultado" hidden></p>
             <button type="button" class="botao botao-secundario" id="salvar-cenario" disabled>Usar este resultado como referência</button>
-            <p class="resultado-nota">A referência fica apenas na memória desta aba. Limpar dados ou recarregar a página apaga a comparação.</p>
           </section>
         </div>
-        <p class="resumo-escopo">Estimativa parcial por pessoa: CO₂ fóssil e da geração elétrica. Referência elétrica do SIN de 2023. <a href="#titulo-metodo">Fontes e limites</a>.</p>
       </aside>
     </div>
     <section class="calc-metodologia" aria-labelledby="titulo-metodo">

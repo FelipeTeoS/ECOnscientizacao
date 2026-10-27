@@ -1,75 +1,53 @@
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="640"
-  height="360"
-  viewBox="0 0 640 360"
->
-  <rect width="640" height="360" rx="32" fill="#f3ead6"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <!-- Uma seta do símbolo de reciclagem; três cópias giradas em 120° fecham o círculo -->
+    <g id="seta">
+      <path d="M-8 -45.3A46 46 0 0 1 46 0" fill="none" stroke="#2f5d3a" stroke-width="12" stroke-linecap="round"/>
+      <path d="M32 -1L60 -1L46 20Z" fill="#2f5d3a" stroke="#2f5d3a" stroke-width="4" stroke-linejoin="round"/>
+    </g>
+  </defs>
 
-  <circle cx="320" cy="118" r="70" fill="#ffffff" opacity="0.75"/>
+  <rect width="640" height="360" fill="#f3ead6"/>
 
-  <path
-    d="M320 58L355 116H332C322 116 314 120 309 128L295 151"
-    fill="none"
-    stroke="#2f5d3a"
-    stroke-width="15"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <!-- Chão e sombras -->
+  <path d="M0 318C140 304 260 320 380 310S560 300 640 312V360H0Z" fill="#e4d6b4"/>
+  <g fill="#cdbd93" opacity=".6">
+    <ellipse cx="160" cy="324" rx="86" ry="8"/>
+    <ellipse cx="320" cy="324" rx="86" ry="8"/>
+    <ellipse cx="480" cy="324" rx="86" ry="8"/>
+  </g>
 
-  <path d="M320 58L292 76L326 83Z" fill="#2f5d3a"/>
+  <!-- Símbolo de reciclagem -->
+  <circle cx="320" cy="104" r="80" fill="#ffffff" opacity=".7"/>
+  <g transform="translate(320 104) scale(1.12)">
+    <use href="#seta"/>
+    <use href="#seta" transform="rotate(120)"/>
+    <use href="#seta" transform="rotate(240)"/>
+  </g>
 
-  <path
-    d="M374 143L340 201L329 181C324 172 316 168 307 168H279"
-    fill="none"
-    stroke="#2f5d3a"
-    stroke-width="15"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <!-- Lixeiras, ampliadas a partir do chão -->
+  <g transform="translate(320 316) scale(1.14) translate(-320 -316)">
+  <!-- Lixeira azul: papel -->
+  <g>
+    <path d="M110 240H210L202 316H118Z" fill="#8fb8de" stroke="#8fb8de" stroke-width="10" stroke-linejoin="round"/>
+    <rect x="98" y="220" width="124" height="26" rx="13" fill="#5f91bd"/>
+    <path d="M144 266H172L180 274V298H144Z" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M150 284H172M150 292H166" stroke="#8fb8de" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
 
-  <path d="M374 143L342 143L360 173Z" fill="#2f5d3a"/>
+  <!-- Lixeira amarela: metal -->
+  <g>
+    <path d="M270 240H370L362 316H278Z" fill="#f2d27a" stroke="#f2d27a" stroke-width="10" stroke-linejoin="round"/>
+    <rect x="258" y="220" width="124" height="26" rx="13" fill="#d5ad42"/>
+    <rect x="304" y="262" width="32" height="40" rx="6" fill="#ffffff"/>
+    <path d="M304 272H336M304 292H336" stroke="#f2d27a" stroke-width="3.5"/>
+  </g>
 
-  <path
-    d="M266 198L232 140L255 140C265 140 273 135 278 127L292 104"
-    fill="none"
-    stroke="#2f5d3a"
-    stroke-width="15"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-
-  <path d="M266 198L282 170L248 171Z" fill="#2f5d3a"/>
-
-  <rect x="90" y="235" width="130" height="95" rx="16" fill="#8fb8de"/>
-  <rect x="80" y="218" width="150" height="25" rx="12" fill="#5f91bd"/>
-
-  <rect x="255" y="235" width="130" height="95" rx="16" fill="#f2d27a"/>
-  <rect x="245" y="218" width="150" height="25" rx="12" fill="#d5ad42"/>
-
-  <rect x="420" y="235" width="130" height="95" rx="16" fill="#8cc49a"/>
-  <rect x="410" y="218" width="150" height="25" rx="12" fill="#579b69"/>
-
-  <path
-    d="M137 267H173M137 284H173M137 301H173"
-    stroke="#ffffff"
-    stroke-width="8"
-    stroke-linecap="round"
-  />
-
-  <path
-    d="M304 269H336L349 303H291Z"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="8"
-    stroke-linejoin="round"
-  />
-
-  <path
-    d="M474 303C474 276 490 258 510 258C530 258 546 276 546 303"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="8"
-    stroke-linecap="round"
-  />
+  <!-- Lixeira verde: vidro -->
+  <g>
+    <path d="M430 240H530L522 316H438Z" fill="#8cc49a" stroke="#8cc49a" stroke-width="10" stroke-linejoin="round"/>
+    <rect x="418" y="220" width="124" height="26" rx="13" fill="#579b69"/>
+    <path d="M474 262H486V272C494 276 498 282 498 290V298A4 4 0 0 1 494 302H466A4 4 0 0 1 462 298V290C462 282 466 276 474 272Z" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+  </g>
 </svg>
