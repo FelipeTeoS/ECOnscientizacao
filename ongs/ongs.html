@@ -4,10 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Conheça organizações ambientais brasileiras e descubra como apoiar seus projetos por meio de doações e participação.">
+  <meta name="theme-color" content="#eef4e6">
   <title>ONGs | ECOnscientização</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" href="../resources/img/favicon.png" type="image/png" sizes="64x64">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ECOnscientização">
+  <meta property="og:title" content="ONGs | ECOnscientização">
+  <meta property="og:description" content="Conheça organizações ambientais brasileiras e descubra como apoiar seus projetos por meio de doações e participação.">
+  <!-- canonical e og:image dependem da URL pública definitiva na Vercel; pendentes. -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NUu8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7iQcIfJD58njU0oc7qv8.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/mali/v13/N0ba2SRONuN4SC3EDw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fundos/paisagem-ongs.svg" as="image" fetchpriority="high">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="ongs.css">
   <!-- Desenhos de linha: Lucide (ISC); fundos originais em fundos/. -->
@@ -18,8 +27,8 @@
   <header class="topo">
     <div class="container topo-interno">
       <a class="marca" href="../index.html">
-        <img class="marca-logo" src="../resources/img/logo-transparente.png" width="802" height="290"
-             alt="ECOnscientização - Pegada Ecológica, página inicial">
+        <img class="marca-logo" src="../resources/img/logo-transparente-2x.webp" width="481" height="174"
+             alt="ECOnscientização - Pegada Ecológica, página inicial" fetchpriority="high" decoding="async">
       </a>
       <nav aria-label="Navegação principal">
         <ul class="menu">
@@ -77,85 +86,85 @@
       <div class="container">
         <header class="secao-cabecalho">
           <p class="selo">Florestas, clima e restauração</p>
-          <h2 id="titulo-florestas">Causas para apoiar</h2>
-          <p>Cada organização atua de uma forma. Acesse os sites oficiais para conhecer seus projetos, formas de trabalho e opções atualizadas de apoio.</p>
+          <h2 id="titulo-florestas">Apoie quem protege as florestas</h2>
+          <p>Cada organização atua de uma forma. Acesse os canais oficiais para conhecer seus projetos, formas de trabalho e opções atualizadas de apoio.</p>
         </header>
 
         <div class="cartoes">
           <article class="cartao cartao-verde">
-            <a class="cartao-conteudo" href="https://sosma.org.br/doacao" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial da SOS Mata Atlântica (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--wordmark">
-                  <img src="logos/sos-mata-atlantica.png" width="144" height="42" alt="SOS Mata Atlântica">
-                </span>
-                <span class="cartao-tag">Mata Atlântica e água</span>
-              </div>
-              <h3 id="titulo-sosma">SOS Mata Atlântica</h3>
-              <p>Conservação e restauração da Mata Atlântica, proteção da água e valorização de áreas protegidas.</p>
-              <p>A Fundação SOS Mata Atlântica desenvolve iniciativas para recuperar florestas, proteger rios e mobilizar a sociedade em defesa do bioma.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19Z"/><path d="M12 19v3"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--wordmark">
+                <img loading="lazy" decoding="async" src="logos/sos-mata-atlantica.png" width="144" height="42" alt="">
+              </span>
+              <span class="cartao-tag">Mata Atlântica e água</span>
+            </div>
+            <h3>
+              <a href="https://sosma.org.br/doacao" target="_blank" rel="noopener noreferrer">
+                SOS Mata Atlântica<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Conservação e restauração da Mata Atlântica, proteção da água e valorização de áreas protegidas.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19Z"/><path d="M12 19v3"/></svg>
+            </div>
           </article>
 
           <article class="cartao cartao-areia">
-            <a class="cartao-conteudo" href="https://www.wwf.org.br/participe/como_apoiar/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial do WWF-Brasil (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--quadrado">
-                  <img src="logos/wwf-brasil.png" width="186" height="209" alt="WWF-Brasil">
-                </span>
-                <span class="cartao-tag">Conservação global</span>
-              </div>
-              <h3 id="titulo-wwf">WWF-Brasil</h3>
-              <p>Conservação e restauração, biodiversidade, justiça socioambiental e mobilização da sociedade.</p>
-              <p>O WWF-Brasil trabalha com organizações parceiras e comunidades em iniciativas de conservação em diferentes regiões do país.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--quadrado">
+                <img loading="lazy" decoding="async" src="logos/wwf-brasil.png" width="186" height="209" alt="">
+              </span>
+              <span class="cartao-tag">Conservação global</span>
+            </div>
+            <h3>
+              <a href="https://www.wwf.org.br/participe/como_apoiar/" target="_blank" rel="noopener noreferrer">
+                WWF-Brasil<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Conservação e restauração, biodiversidade, justiça socioambiental e mobilização da sociedade.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
           </article>
 
           <article class="cartao cartao-ceu">
-            <a class="cartao-conteudo" href="https://www.greenpeace.org/brasil/como-ajudar/faca-uma-doacao/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial do Greenpeace Brasil (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--wordmark">
-                  <img class="logo-greenpeace" src="logos/greenpeace-brasil.svg" width="183" height="30" alt="Greenpeace Brasil">
-                </span>
-                <span class="cartao-tag">Clima e florestas</span>
-              </div>
-              <h3 id="titulo-greenpeace">Greenpeace Brasil</h3>
-              <p>Campanhas e ações ambientais relacionadas a florestas, clima e biodiversidade.</p>
-              <p>A organização mobiliza pessoas por meio de campanhas e ações pacíficas para defender o meio ambiente.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--wordmark">
+                <img loading="lazy" decoding="async" class="logo-greenpeace" src="logos/greenpeace-brasil.svg" width="300" height="49" alt="">
+              </span>
+              <span class="cartao-tag">Clima e florestas</span>
+            </div>
+            <h3>
+              <a href="https://www.greenpeace.org/brasil/como-ajudar/faca-uma-doacao/" target="_blank" rel="noopener noreferrer">
+                Greenpeace Brasil<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Campanhas e ações ambientais relacionadas a florestas, clima e biodiversidade.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
           </article>
 
           <article class="cartao cartao-pessego">
-            <a class="cartao-conteudo" href="https://institutoterra.org/doe/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial do Instituto Terra (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--quadrado">
-                  <img src="logos/instituto-terra.png" width="782" height="768" alt="Instituto Terra">
-                </span>
-                <span class="cartao-tag">Restauração florestal</span>
-              </div>
-              <h3 id="titulo-terra">Instituto Terra</h3>
-              <p>Restauração ecossistêmica, educação ambiental e desenvolvimento rural sustentável.</p>
-              <p>O Instituto Terra atua na recuperação de áreas degradadas e em ações de educação e desenvolvimento sustentável.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--quadrado">
+                <img loading="lazy" decoding="async" src="logos/instituto-terra.png" width="782" height="768" alt="">
+              </span>
+              <span class="cartao-tag">Restauração florestal</span>
+            </div>
+            <h3>
+              <a href="https://institutoterra.org/doe/" target="_blank" rel="noopener noreferrer">
+                Instituto Terra<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Restauração ecossistêmica, educação ambiental e desenvolvimento rural sustentável.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+            </div>
           </article>
         </div>
       </div>
@@ -166,89 +175,89 @@
       <div class="container">
         <header class="secao-cabecalho">
           <p class="selo">Biodiversidade, fauna e biomas</p>
-          <h2 id="titulo-biodiversidade">Organizações para conhecer</h2>
+          <h2 id="titulo-biodiversidade">Apoie quem protege a biodiversidade</h2>
           <p>Da pesquisa científica à convivência com comunidades, esses grupos trabalham para manter a fauna e os biomas brasileiros de pé.</p>
         </header>
 
         <div class="cartoes">
           <article class="cartao cartao-verde">
-            <a class="cartao-conteudo" href="https://ipe.org.br/?page_id=6628" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial do IPÊ (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--quadrado">
-                  <img src="logos/ipe.jpg" width="300" height="300" alt="IPÊ — Instituto de Pesquisas Ecológicas">
-                </span>
-                <span class="cartao-tag">Pesquisa e conservação</span>
-              </div>
-              <h3 id="titulo-ipe">IPÊ — Instituto de Pesquisas Ecológicas</h3>
-              <p>Pesquisa e projetos para conservação da biodiversidade brasileira e transformação socioambiental.</p>
-              <p>A equipe também forma pesquisadores e lideranças locais, conectando ciência e comunidades.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12"/><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--quadrado">
+                <img loading="lazy" decoding="async" src="logos/ipe.jpg" width="300" height="300" alt="">
+              </span>
+              <span class="cartao-tag">Pesquisa e conservação</span>
+            </div>
+            <h3>
+              <a href="https://ipe.org.br/doe/" target="_blank" rel="noopener noreferrer">
+                IPÊ — Instituto de Pesquisas Ecológicas<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Pesquisa e projetos para conservação da biodiversidade brasileira e transformação socioambiental.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12"/><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/></svg>
+            </div>
           </article>
 
           <article class="cartao cartao-areia">
-            <a class="cartao-conteudo" href="https://www.institutoararaazul.org.br/apoie/faca-uma-doacao/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial do Instituto Arara Azul (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--quadrado">
-                  <img src="logos/instituto-arara-azul.png" width="111" height="116" alt="Instituto Arara Azul">
-                </span>
-                <span class="cartao-tag">Pantanal</span>
-              </div>
-              <h3 id="titulo-arara-azul">Instituto Arara Azul</h3>
-              <p>Pesquisa, manejo e conservação da arara-azul e da biodiversidade, especialmente no Pantanal.</p>
-              <p>Os projetos somam ciência cidadã e educação ambiental para inspirar a conservação do bioma.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--quadrado">
+                <img loading="lazy" decoding="async" src="logos/instituto-arara-azul.png" width="111" height="116" alt="">
+              </span>
+              <span class="cartao-tag">Pantanal</span>
+            </div>
+            <h3>
+              <a href="https://www.institutoararaazul.org.br/apoie/faca-uma-doacao/" target="_blank" rel="noopener noreferrer">
+                Instituto Arara Azul<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Pesquisa, manejo e conservação da arara-azul e da biodiversidade, especialmente no Pantanal.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+            </div>
           </article>
 
           <article class="cartao cartao-ceu">
-            <a class="cartao-conteudo" href="https://oncafari.org/doe-agora/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial do Onçafari (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--wordmark">
-                  <img src="logos/oncafari.png" width="457" height="110" alt="Onçafari">
-                </span>
-                <span class="cartao-tag">Fauna e biomas</span>
-              </div>
-              <h3 id="titulo-oncafari">Onçafari</h3>
-              <p>Conservação da biodiversidade e de espécies como onças-pintadas e lobos-guarás, em diferentes biomas.</p>
-              <p>As ações unem pesquisa científica, monitoramento com tecnologia e visitação consciente.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--wordmark">
+                <img loading="lazy" decoding="async" src="logos/oncafari.png" width="457" height="110" alt="">
+              </span>
+              <span class="cartao-tag">Fauna e biomas</span>
+            </div>
+            <h3>
+              <a href="https://oncafari.org/doe-agora/" target="_blank" rel="noopener noreferrer">
+                Onçafari<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Conservação da biodiversidade e de espécies como onças-pintadas e lobos-guarás, em diferentes biomas.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
+            </div>
           </article>
 
           <article class="cartao cartao-pessego">
-            <a class="cartao-conteudo" href="https://www.acaatinga.org.br/proteja-a-caatinga/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visitar site oficial da Associação Caatinga (abre em nova aba)">
-              <div class="cartao-topo">
-                <span class="cartao-logo cartao-logo--wordmark">
-                  <img src="logos/associacao-caatinga.png" width="300" height="80" alt="Associação Caatinga">
-                </span>
-                <span class="cartao-tag">Semiárido</span>
-              </div>
-              <h3 id="titulo-caatinga">Associação Caatinga</h3>
-              <p>Conservação da Caatinga e apoio ao desenvolvimento sustentável de comunidades do semiárido.</p>
-              <p>A defesa do bioma passa por áreas protegidas, educação ambiental e práticas sustentáveis no sertão.</p>
-              <div class="cartao-rodape">
-                <span class="cartao-seta">Visitar site oficial <span aria-hidden="true">↗</span></span>
-                <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9v1a3 3 0 0 0 3 3h1"/><path d="M18 8v5a3 3 0 0 1-3 3h-1"/><path d="M10 21v-16a2 2 0 1 1 4 0v16"/><path d="M7 21h10"/></svg>
-              </div>
-            </a>
+            <div class="cartao-topo">
+              <span class="cartao-logo cartao-logo--wordmark">
+                <img loading="lazy" decoding="async" src="logos/associacao-caatinga.png" width="300" height="80" alt="">
+              </span>
+              <span class="cartao-tag">Semiárido</span>
+            </div>
+            <h3>
+              <a href="https://www.acaatinga.org.br/proteja-a-caatinga/" target="_blank" rel="noopener noreferrer">
+                Associação Caatinga<span class="visualmente-oculto">: ver como apoiar (abre em nova aba)</span>
+              </a>
+            </h3>
+            <p>Conservação da Caatinga e apoio ao desenvolvimento sustentável de comunidades do semiárido.</p>
+            <div class="cartao-rodape" aria-hidden="true">
+              <span class="cartao-seta">Ver como apoiar <span aria-hidden="true">↗</span></span>
+              <svg class="cartao-arte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9v1a3 3 0 0 0 3 3h1"/><path d="M18 8v5a3 3 0 0 1-3 3h-1"/><path d="M10 21v-16a2 2 0 1 1 4 0v16"/><path d="M7 21h10"/></svg>
+            </div>
           </article>
         </div>
 
-        <p class="nota-marcas">Logos oficiais usados apenas para identificação. As marcas pertencem às organizações.</p>
+        <p class="nota-marcas">Logos oficiais usados apenas para identificação, sem vínculo ou endosso. As marcas pertencem às organizações; Greenpeace® é marca registrada do Stichting Greenpeace Council.</p>
       </div>
     </section>
 

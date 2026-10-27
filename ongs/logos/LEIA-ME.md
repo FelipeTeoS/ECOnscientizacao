@@ -18,6 +18,23 @@ efeitos.
 | `oncafari.png` | Onçafari | <https://oncafari.org/wp-content/uploads/2021/08/logo10anos-br.png> |
 | `associacao-caatinga.png` | Associação Caatinga | <https://www.acaatinga.org.br/wp-content/uploads/logo2-300.png> |
 
+## Políticas de uso de marca
+
+Levantamento feito em outubro de 2026 nos canais oficiais. As políticas podem
+mudar; confirme a versão vigente antes de reutilizar os arquivos em outro
+contexto.
+
+| Organização | Política localizada | Situação nesta página |
+|---|---|---|
+| Greenpeace Brasil | Uso referencial e não comercial permitido, com texto explicativo e sem sugerir endosso. O nome e o logotipo pertencem ao Stichting Greenpeace Council. Fonte: <https://www.greenpeace.org/brasil/direitos-autorais/> | Compatível com uso educacional/referencial. Atribuição incluída na nota da página. |
+| WWF-Brasil | Os termos proíbem o uso não autorizado de marcas, logos e designs. Fontes: <https://www.wwf.org.br/termos_e_condicoes_de_uso> e <https://wwfbrand.panda.org/pt-br/diretrizes-de-licenciamento> | **Autorização pendente.** Manter apenas enquanto o uso referencial for aceito; solicitar licença se a página passar a ter fins comerciais. |
+| IPÊ — Instituto de Pesquisas Ecológicas | Os termos de uso proíbem copiar ou distribuir conteúdo sem autorização prévia por escrito. Fonte: <https://ipe.org.br/termos-de-uso/> | **Autorização pendente.** |
+| Associação Caatinga | O código de conduta declara que a propriedade intelectual das marcas e logos pertence exclusivamente à associação. Fonte: <https://www.acaatinga.org.br/wp-content/uploads/Codigo-de-Conduta-Associacao-Caatinga2.pdf> | **Autorização pendente.** |
+| SOS Mata Atlântica | Nenhuma política específica de uso de logo foi localizada nos canais oficiais. | **Verificação pendente.** |
+| Instituto Terra | Nenhuma política específica de uso de logo foi localizada nos canais oficiais. | **Verificação pendente.** |
+| Instituto Arara Azul | Nenhuma política específica de uso de logo foi localizada nos canais oficiais. | **Verificação pendente.** |
+| Onçafari | Nenhuma política específica de uso de logo foi localizada nos canais oficiais. | **Verificação pendente.** |
+
 ## Condições de uso
 
 - Os logos são **marcas registradas** de suas respectivas organizações. A
@@ -28,20 +45,29 @@ efeitos.
 - As marcas não devem ser modificadas, recortadas, distorcidas ou usadas para
   sugerir endosso. Se um logo precisar ser atualizado, baixe novamente o arquivo
   oficial e substitua o existente sem editar o conteúdo.
-- O Greenpeace publica condições para uso de sua marca em contextos
-  educacionais e referenciais; consulte as diretrizes atuais no site oficial
-  antes de reutilizar o arquivo em outro contexto.
-- As demais organizações não publicam uma licença de marca explícita nesta
-  pasta. Em caso de dúvida, solicite autorização ao canal oficial da organização.
-- Se o projeto passar a ter fins comerciais ou se alguma organização solicitar a
-  remoção do logo, retire o arquivo e o item correspondente do cartão.
+- Antes de publicar em um contexto comercial, solicite autorização às
+  organizações com situação pendente na tabela acima.
+- Se alguma organização solicitar a remoção do logo, retire o arquivo e o item
+  correspondente do cartão.
+
+## Acessibilidade
+
+Os logos são **decorativos** nos cartões: o nome da organização já aparece no
+título `h3`, que contém o link para o canal oficial. Por isso as imagens usam
+`alt=""`, evitando que o leitor de tela repita a marca. O Greenpeace pede
+atribuição de marca; ela é feita na nota visível da página, não no texto
+alternativo. As imagens também usam `loading="lazy"` e `decoding="async"`.
 
 ## Nota na página
 
 Depois dos cartões, a página exibe a mensagem:
 
-> Logos oficiais usados apenas para identificação. As marcas pertencem às organizações.
+> Logos oficiais usados apenas para identificação, sem vínculo ou endosso. As
+> marcas pertencem às organizações; Greenpeace® é marca registrada do Stichting
+> Greenpeace Council.
 
 Cada logo aparece no topo do cartão da respectiva organização, em uma placa
-branca, ao lado da etiqueta de tema. Essa nota deve ser mantida enquanto os
-logos oficiais forem exibidos.
+branca sem borda ou sombra, acima da etiqueta de tema. A placa tem duas
+variantes: `cartao-logo--wordmark` (156 × 72 px, imagem até 140 × 44 px) e
+`cartao-logo--quadrado` (72 × 72 px, imagem até 56 × 56 px). Essa nota deve ser
+mantida enquanto os logos oficiais forem exibidos.

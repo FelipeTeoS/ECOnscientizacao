@@ -23,10 +23,12 @@ página ficam em `fundos/` e os logos oficiais em `logos/`.
 2. **Como escolher (`#como-apoiar`):** antes de conhecer as organizações, orienta
    a escolha da causa, a verificação de transparência (CNPJ, relatórios) e a
    confirmação dos canais oficiais antes de doar.
-3. **Seção Florestas, clima e restauração (`#florestas`):** quatro cartões de
-   organizações com logo oficial, nome, resumo curto e link para o site oficial.
-4. **Seção Biodiversidade, fauna e biomas (`#biodiversidade`):** quatro cartões
-   no mesmo formato da seção anterior, seguidos pela nota sobre as marcas.
+3. **Seção “Apoie quem protege as florestas” (`#florestas`):** quatro cartões
+   com logo oficial, etiqueta de tema, nome, um parágrafo de resumo e link para
+   o canal oficial de apoio.
+4. **Seção “Apoie quem protege a biodiversidade” (`#biodiversidade`):** quatro
+   cartões no mesmo formato da seção anterior, seguidos pela nota sobre as
+   marcas.
 5. **Aviso de segurança:** orientar que doações sejam feitas somente pelos
    canais oficiais.
 6. **Navegação:** menu do site para início e demais páginas.
@@ -37,17 +39,23 @@ arquivos temáticos separados.
 ## Logos nos cartões
 
 - **Conteúdo:** cada um dos oito cartões exibe o logo oficial da organização no
-  topo, ao lado da etiqueta de tema. Não há faixa de logos na abertura.
+  topo, acima da etiqueta de tema. Não há faixa de logos na abertura.
 - **Arquivos:** ficam em `logos/`, com nomes que identificam a organização e sem
-  edição de cor, recorte ou redesenho. O `LEIA-ME.md` da pasta registra as fontes
-  e as condições de uso.
-- **Leiaute:** o logo fica em uma placa branca de 120 × 46 px, com a imagem
-  limitada a 104 × 34 px e `object-fit: contain`. A etiqueta de tema fica ao
-  lado; em telas estreitas, o conjunto quebra em duas linhas sem rolagem
-  horizontal.
+  edição de cor, recorte ou redesenho. O `LEIA-ME.md` da pasta registra as fontes,
+  as políticas de marca e as autorizações pendentes.
+- **Leiaute:** o topo é empilhado (logo e, abaixo, a etiqueta). A placa branca é
+  chapada, sem borda, sombra ou brilho, e tem duas variantes:
+  `cartao-logo--wordmark` (156 × 72 px, imagem até 140 × 44 px) e
+  `cartao-logo--quadrado` (72 × 72 px, imagem até 56 × 56 px), sempre com
+  `object-fit: contain`. O empilhamento mantém etiqueta, título e texto alinhados
+  entre cartões vizinhos.
 - **Identificação:** uma nota discreta depois dos cartões informa que os logos
-  são usados apenas para identificação e que as marcas pertencem às
-  organizações.
+  são usados apenas para identificação, sem vínculo ou endosso, e que as marcas
+  pertencem às organizações. A nota também registra a atribuição do Greenpeace
+  ao Stichting Greenpeace Council.
+- **Acessibilidade:** os logos são decorativos (`alt=""`), pois o nome da
+  organização já aparece no título `h3`. As imagens usam `loading="lazy"` e
+  `decoding="async"`.
 - **Sem JavaScript:** os cartões e os logos são HTML e CSS puros, assim como o
   restante da página.
 
@@ -64,7 +72,7 @@ arquivos temáticos separados.
 
 | Organização | Resumo para o cartão | Canal oficial para doar |
 |---|---|---|
-| IPÊ — Instituto de Pesquisas Ecológicas | Desenvolve pesquisa e projetos para conservação da biodiversidade brasileira e transformação socioambiental. | [Doe ao IPÊ](https://ipe.org.br/?page_id=6628) |
+| IPÊ — Instituto de Pesquisas Ecológicas | Desenvolve pesquisa e projetos para conservação da biodiversidade brasileira e transformação socioambiental. | [Doe ao IPÊ](https://ipe.org.br/doe/) |
 | Instituto Arara Azul | Trabalha com pesquisa, manejo e conservação da arara-azul e da biodiversidade, especialmente no Pantanal. | [Faça uma doação ao Instituto Arara Azul](https://www.institutoararaazul.org.br/apoie/faca-uma-doacao/) |
 | Onçafari | Atua na conservação da biodiversidade e de espécies como onças-pintadas e lobos-guarás, em diferentes biomas. | [Doe ao Onçafari](https://oncafari.org/doe-agora/) |
 | Associação Caatinga | Desenvolve ações para conservar a Caatinga e apoiar o desenvolvimento sustentável de comunidades do semiárido. | [Proteja a Caatinga](https://www.acaatinga.org.br/proteja-a-caatinga/) |
@@ -89,13 +97,20 @@ Textos de apoio usados na seção “Como escolher”:
 
 - Reutilizar `style.css`, cabeçalho, logotipo, menu e rodapé do site.
 - Manter os cartões com bordas arredondadas, fundos claros e paleta verde já
-  usada no ECOnscientização; complementos de estilo em `ongs.css`.
-- O cartão inteiro é um link para o site oficial, com foco visível e sem
-  esconder o conteúdo pastel.
-- Cada cartão tem, no topo, o logo oficial em uma placa branca e uma etiqueta de
-  tema. No rodapé, um desenho de linha (Lucide, ISC) em SVG embutido, inteiro,
-  num espaço próprio ao lado do link. O traço usa a cor cheia do cartão, sem
-  recorte e sem sobrepor o texto.
+  usada no ECOnscientização; complementos de estilo em `ongs.css`. O visual é
+  plano: sem sombras, brilhos ou contornos decorativos.
+- **Link esticado:** o link fica no título `h3` e uma camada invisível
+  (`::after`) ocupa o cartão inteiro. Toda a área do cartão é clicável, mas o
+  leitor de tela anuncia apenas um link por cartão. O foco de teclado contorna o
+  cartão inteiro, não só o texto.
+- Cada cartão tem, no topo, o logo oficial em uma placa branca e, abaixo, uma
+  etiqueta de tema. No rodapé, um desenho de linha (Lucide, ISC) em SVG embutido,
+  inteiro, num espaço próprio ao lado do texto de ação. O traço usa a cor cheia
+  do cartão, sem recorte e sem sobrepor o texto.
+- **Chamada de ação:** o rodapé visual usa “Ver como apoiar”, rótulo fiel ao
+  destino (página de doação ou de formas de apoio). O texto visível fica em
+  `aria-hidden="true"`; o nome acessível do link é o nome da organização seguido
+  de “: ver como apoiar (abre em nova aba)”.
 - Dar destaque visual ao tema de cada seção com um selo, como “Florestas e
   clima” ou “Biodiversidade”.
 - A abertura usa `fundos/paisagem-ongs.svg`, uma paisagem original em SVG com
@@ -106,14 +121,33 @@ Textos de apoio usados na seção “Como escolher”:
   `fundos/padrao-ongs.svg`; os cartões continuam opacos para preservar o
   contraste. O cabeçalho fica translúcido sobre a paisagem, com fallback opaco
   em `prefers-reduced-transparency`.
-- O rodapé é fechado por uma borda de grama desenhada em SVG, alinhada ao
-  restante da identidade visual.
-- Usar links de doação com rótulos claros e acessíveis, por exemplo: “Visitar
-  site oficial”, sempre com o nome da organização no `aria-label`.
+- O rodapé é fechado por uma borda de grama desenhada em SVG, com as lâminas
+  crescendo para cima, alinhada ao restante da identidade visual.
 - Abrir links externos em nova aba com `target="_blank"` e
   `rel="noopener noreferrer"`; o rótulo acessível informa “abre em nova aba”.
+- As âncoras `#conteudo`, `#como-apoiar`, `#florestas` e `#biodiversidade` usam
+  `scroll-margin-top` para não ficarem sob o cabeçalho fixo.
 - Não prometer impacto específico para cada valor doado sem confirmação da
   própria organização.
+
+## Metadados e desempenho
+
+- `title` e `meta description` próprios da página.
+- `meta name="theme-color"` com o tom de fundo claro da página.
+- Favicon em `../resources/img/favicon.png` (64 × 64), gerado a partir do
+  símbolo já existente no logo do site, sem recolorir a marca.
+- Open Graph com `og:type`, `og:locale`, `og:site_name`, `og:title` e
+  `og:description`. **Pendentes:** `canonical` e `og:image`, que dependem da URL
+  pública definitiva do site na Vercel.
+- Logos com `loading="lazy"` e `decoding="async"`, sem JavaScript.
+- As regras `@font-face` do subconjunto latino foram incorporadas a `ongs.css`
+  para não depender da folha externa do Google Fonts, que bloqueava a primeira
+  pintura. Fraunces 700 e Mali 400 são pré-carregadas; todas usam
+  `font-display: swap`.
+- O logo do site no cabeçalho desta página usa
+  `../resources/img/logo-transparente-2x.webp` (481 × 174, cerca de 27 KB) com
+  `fetchpriority="high"`. O arquivo PNG original foi mantido intacto.
+- A imagem da paisagem da abertura é pré-carregada com prioridade alta.
 
 ## Fontes oficiais consultadas
 
@@ -121,7 +155,7 @@ Textos de apoio usados na seção “Como escolher”:
 - [WWF-Brasil — como apoiar](https://www.wwf.org.br/participe/como_apoiar/)
 - [Greenpeace Brasil — doação](https://www.greenpeace.org/brasil/como-ajudar/faca-uma-doacao/)
 - [Instituto Terra — doação](https://institutoterra.org/doe/)
-- [IPÊ — doação](https://ipe.org.br/?page_id=6628)
+- [IPÊ — doação](https://ipe.org.br/doe/)
 - [Instituto Arara Azul — doação](https://www.institutoararaazul.org.br/apoie/faca-uma-doacao/)
 - [Onçafari — doe agora](https://oncafari.org/doe-agora/)
 - [Associação Caatinga — proteja a Caatinga](https://www.acaatinga.org.br/proteja-a-caatinga/)
