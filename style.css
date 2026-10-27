@@ -200,20 +200,6 @@ h1 em {
   top: 1rem;
 }
 
-/* ---------- Selo (rótulo acima dos títulos) ---------- */
-.selo {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  padding: 0.25rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--verde-escuro);
-  background: var(--verde-claro);
-  border-radius: 999px;
-}
-
 /* ---------- Botões ---------- */
 .botao {
   display: inline-flex;
@@ -488,13 +474,45 @@ h1 em {
   font-weight: 700;
 }
 
-/* ---------- Abertura com paisagem em SVG (página inicial) ---------- */
-/* A paisagem fica atrás do título; embaixo ela se funde à primeira seção clara, como na página de ONGs. */
+/* ---------- Abertura com céu e nuvens (página inicial) ---------- */
+/* Céu em degradê com sol; duas camadas de nuvens flutuam em velocidades diferentes. Cada
+   camada anda exatamente a largura do seu ladrilho por ciclo, então o laço não tem emenda.
+   Embaixo, o céu se funde à primeira seção clara, como na página de ONGs. */
 .pagina-inicial .hero {
   position: relative;
   isolation: isolate;
-  padding-bottom: clamp(12rem, 20vw + 6rem, 18rem);
-  background: url("resources/img/paisagem-inicio.svg") right bottom / cover no-repeat, #b3dcf5;
+  padding-bottom: clamp(6rem, 12vw, 9rem);
+  background:
+    radial-gradient(circle at calc(100% - 3.5rem) 4rem, #f6dc8c 0 34px, rgba(255, 255, 255, 0.4) 35px 56px, transparent 57px),
+    linear-gradient(180deg, #9fd2f2 0%, #c4e5f8 60%, #e9f6fc 100%);
+}
+
+.pagina-inicial .hero {
+  --nuvem-1: 1200px;
+  --nuvem-2: 900px;
+}
+
+@media (max-width: 640px) {
+  .pagina-inicial .hero {
+    --nuvem-1: 640px;
+    --nuvem-2: 480px;
+  }
+}
+
+.pagina-inicial .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    url("resources/img/nuvens-grandes.svg") 0 6% / var(--nuvem-1) auto repeat-x,
+    url("resources/img/nuvens-pequenas.svg") 0 52% / var(--nuvem-2) auto repeat-x;
+  animation: nuvens 140s linear infinite;
+}
+
+@keyframes nuvens {
+  to { background-position: var(--nuvem-1) 6%, var(--nuvem-2) 52%; }
 }
 
 .pagina-inicial .hero::after {
@@ -502,8 +520,8 @@ h1 em {
   position: absolute;
   inset: auto 0 0;
   z-index: -1;
-  height: 7rem;
-  background: linear-gradient(to bottom, rgba(238, 244, 230, 0), var(--fundo-claro));
+  height: 6rem;
+  background: linear-gradient(to bottom, transparent, var(--fundo-claro));
   pointer-events: none;
 }
 
@@ -787,13 +805,19 @@ h1 em {
   background-image: url("ongs/fundos/padrao-ongs-escuro.svg");
 }
 
-/* Página inicial: a mesma paisagem à noite. A lua é uma camada própria, presa ao canto
+/* Página inicial à noite: céu estrelado e lua. A lua é uma camada própria, presa ao canto
    superior direito, para não ficar atrás do título em telas estreitas. */
 :root[data-tema="escuro"] .pagina-inicial .hero {
   background:
     url("resources/img/lua.svg") right 5% top 1.5rem / clamp(64px, 11vw, 170px) no-repeat,
-    url("resources/img/paisagem-inicio-noite.svg") right bottom / cover no-repeat,
+    url("resources/img/ceu-noite.svg") center / cover no-repeat,
     #0d1830;
+}
+
+/* As nuvens da noite ficam escuras e apagadas */
+:root[data-tema="escuro"] .pagina-inicial .hero::before {
+  filter: brightness(0.38) saturate(0.5);
+  opacity: 0.7;
 }
 
 :root[data-tema="escuro"] .pagina-inicial .hero h1 em {
@@ -825,5 +849,9 @@ h1 em {
 
   .cartao:hover {
     transform: none;
+  }
+
+  .pagina-inicial .hero::before {
+    animation: none;
   }
 }
