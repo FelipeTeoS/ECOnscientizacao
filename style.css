@@ -621,14 +621,11 @@ h1 em {
   color: var(--texto-suave);
 }
 
-/* As ilustrações do blog têm cantos próprios e transparentes; o fundo no mesmo verde
-   preenche esses cantos e deixa só o arredondamento do cartão */
 .rec-imagem {
   width: calc(100% + 2.5rem);
   max-width: none;
   height: auto;
   margin: -1.25rem -1.25rem 1rem;
-  background: #d8ead2;
   border-radius: var(--raio) var(--raio) 0 0;
 }
 

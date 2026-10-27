@@ -1,67 +1,55 @@
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="640"
-  height="360"
-  viewBox="0 0 640 360"
->
-  <rect width="640" height="360" rx="32" fill="#dcecf2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <g id="flor">
+      <circle cx="0" cy="-8" r="6" fill="#f29b8f"/>
+      <circle cx="8" cy="0" r="6" fill="#f29b8f"/>
+      <circle cx="0" cy="8" r="6" fill="#f29b8f"/>
+      <circle cx="-8" cy="0" r="6" fill="#f29b8f"/>
+      <circle r="4.5" fill="#f6dc8c"/>
+    </g>
+  </defs>
 
-  <circle cx="525" cy="72" r="38" fill="#f6dc8c"/>
+  <rect width="640" height="360" fill="#e6f1dc"/>
 
-  <path
-    d="M0 275C100 210 190 250 280 275C390 305 500 200 640 250V360H0Z"
-    fill="#7fb77e"
-  />
+  <!-- Sol -->
+  <circle cx="520" cy="84" r="58" fill="#f6dc8c" opacity=".35"/>
+  <circle cx="520" cy="84" r="36" fill="#f6dc8c"/>
 
-  <path
-    d="M0 310C120 270 200 315 310 295C430 272 525 294 640 270V360H0Z"
-    fill="#2f5d3a"
-  />
+  <!-- Pássaros -->
+  <path d="M270 96q13-14 26 0q13-14 26 0M340 70q10-11 20 0q10-11 20 0" fill="none" stroke="#2f5d3a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <rect x="170" y="145" width="34" height="155" rx="16" fill="#8b6848"/>
+  <!-- Colinas -->
+  <path d="M0 252C100 204 200 232 300 246S480 212 640 238V360H0Z" fill="#b9dcab"/>
+  <path d="M0 292C120 254 220 292 340 278S520 248 640 272V360H0Z" fill="#8cc49a"/>
 
-  <circle cx="187" cy="125" r="72" fill="#7fb77e"/>
-  <circle cx="140" cy="150" r="45" fill="#8cc49a"/>
-  <circle cx="230" cy="152" r="48" fill="#8cc49a"/>
+  <!-- Árvore grande -->
+  <rect x="148" y="188" width="24" height="120" rx="11" fill="#8b6848"/>
+  <circle cx="160" cy="158" r="62" fill="#5fa06a"/>
+  <circle cx="116" cy="184" r="38" fill="#6fae7a"/>
+  <circle cx="206" cy="186" r="40" fill="#6fae7a"/>
+  <circle cx="140" cy="138" r="22" fill="#7fbd88" opacity=".75"/>
 
-  <path
-    d="M380 300C380 242 398 202 430 178"
-    fill="none"
-    stroke="#2f5d3a"
-    stroke-width="12"
-    stroke-linecap="round"
-  />
+  <!-- Árvore pequena -->
+  <rect x="352" y="238" width="12" height="60" rx="6" fill="#8b6848"/>
+  <circle cx="358" cy="224" r="34" fill="#6fae7a"/>
+  <circle cx="334" cy="242" r="22" fill="#8cc49a"/>
+  <circle cx="382" cy="242" r="22" fill="#8cc49a"/>
 
-  <path
-    d="M421 205C383 203 358 183 351 153C389 151 417 169 421 205Z"
-    fill="#8cc49a"
-  />
+  <!-- Colina da frente e flores -->
+  <path d="M0 322C140 294 260 332 380 314S560 294 640 312V360H0Z" fill="#2f5d3a"/>
+  <use href="#flor" transform="translate(72 342)"/>
+  <use href="#flor" transform="translate(236 346) scale(.85)"/>
+  <use href="#flor" transform="translate(440 334)"/>
+  <use href="#flor" transform="translate(500 346) scale(.85)"/>
+  <use href="#flor" transform="translate(572 332)"/>
 
-  <path
-    d="M414 232C449 224 478 236 491 263C458 274 427 263 414 232Z"
-    fill="#7fb77e"
-  />
-
-  <path
-    d="M330 105C345 88 364 88 379 105C394 88 413 88 428 105"
-    fill="none"
-    stroke="#2f5d3a"
-    stroke-width="8"
-    stroke-linecap="round"
-  />
-
-  <ellipse cx="478" cy="138" rx="22" ry="30" fill="#e8998d"/>
-  <ellipse cx="522" cy="138" rx="22" ry="30" fill="#f2d27a"/>
-  <ellipse cx="482" cy="174" rx="19" ry="26" fill="#f2d27a"/>
-  <ellipse cx="518" cy="174" rx="19" ry="26" fill="#e8998d"/>
-
-  <rect x="496" y="132" width="8" height="58" rx="4" fill="#2f5d3a"/>
-
-  <path
-    d="M498 136C489 119 482 112 472 107M502 136C511 119 518 112 528 107"
-    fill="none"
-    stroke="#2f5d3a"
-    stroke-width="4"
-    stroke-linecap="round"
-  />
+  <!-- Borboleta -->
+  <g transform="translate(468 176) rotate(12)">
+    <ellipse cx="-17" cy="-10" rx="16" ry="22" transform="rotate(-20 -17 -10)" fill="#f29b8f"/>
+    <ellipse cx="17" cy="-10" rx="16" ry="22" transform="rotate(20 17 -10)" fill="#f6dc8c"/>
+    <ellipse cx="-12" cy="16" rx="12" ry="16" transform="rotate(15 -12 16)" fill="#f6dc8c"/>
+    <ellipse cx="12" cy="16" rx="12" ry="16" transform="rotate(-15 12 16)" fill="#f29b8f"/>
+    <rect x="-3.5" y="-18" width="7" height="46" rx="3.5" fill="#2f5d3a"/>
+    <path d="M-2 -18C-8 -30 -14 -34 -20 -36M2 -18C8 -30 14 -34 20 -36" fill="none" stroke="#2f5d3a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
 </svg>

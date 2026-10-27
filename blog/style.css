@@ -106,13 +106,42 @@
 
 /* ---------- Artigos da página principal ---------- */
 
+/* O cartão inteiro é o link: o ::after do link do título cobre todo o cartão.
+   A imagem vai de ponta a ponta no topo, e o cartão arredonda os cantos dela. */
+.cartao[data-artigo] {
+  position: relative;
+  overflow: hidden;
+}
+
+.cartao h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cartao h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cartao:has(h3 a:focus-visible) {
+  outline: 3px solid var(--verde-escuro);
+  outline-offset: 3px;
+}
+
+.cartao h3 a:focus-visible {
+  background: transparent;
+  outline: none;
+}
+
 .artigo-imagem {
   display: block;
-  width: 100%;
+  width: calc(100% + 3.5rem);
+  max-width: none;
   height: auto;
   aspect-ratio: 16 / 9;
-  margin-bottom: 1.25rem;
-  border-radius: var(--raio-pequeno);
+  margin: -1.75rem -1.75rem 1.25rem;
   object-fit: cover;
 }
 
@@ -123,24 +152,6 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--verde-escuro);
-}
-
-.cartao .artigo-status {
-  margin-top: 1rem;
-  font-family: var(--fonte-manuscrita);
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--verde-escuro);
-}
-
-.cartao .artigo-status a {
-  color: var(--verde-escuro);
-  text-underline-offset: 0.2em;
-}
-
-.cartao .artigo-status a:hover {
-  text-decoration-thickness: 2px;
 }
 
 .artigo-destaque {
@@ -171,40 +182,35 @@
 }
 
 /* ---------- Página de leitura dos artigos ---------- */
-
+/* Leitor de página inteira: faixa de cabeçalho, capa de ponta a ponta e uma coluna de texto
+   solta no fundo da página, sem cartão. O texto e o cabeçalho usam a mesma margem lateral. */
 .pagina-artigo {
-  width: min(100% - 2rem, 760px);
-  margin-inline: auto;
-  padding-block: 2rem;
+  --coluna: 52rem;
+  --margem: max(1rem, calc((100% - var(--coluna)) / 2));
+  background-image: url("../ongs/fundos/padrao-ongs.svg");
+  background-size: 340px 340px;
+}
+
+:root[data-tema="escuro"] .pagina-artigo {
+  background-image: url("../ongs/fundos/padrao-ongs-escuro.svg");
+}
+
+.artigo-completo {
+  overflow-wrap: anywhere;
+  padding-bottom: 4rem;
+}
+
+/* Faixa do cabeçalho do artigo */
+.artigo-completo .cabecalho-artigo {
+  padding: 2rem var(--margem) 2.5rem;
+  background: var(--fundo-claro);
 }
 
 .voltar-blog {
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   font-weight: 700;
   text-underline-offset: 0.2em;
-}
-
-.aviso-modelo {
-  padding: 1rem;
-  border-left: 4px solid var(--verde-escuro);
-  background-color: var(--fundo-claro);
-}
-
-.artigo-completo {
-  margin-top: 1.5rem;
-  padding: 2rem;
-  border-radius: var(--raio-pequeno);
-  background-color: var(--superficie);
-  overflow-wrap: anywhere;
-}
-
-.artigo-completo .cabecalho-artigo {
-  margin-bottom: 2rem;
-}
-
-.artigo-completo h1 {
-  font-size: clamp(28px, 5vw, 40px);
 }
 
 .artigo-completo .categoria-artigo {
@@ -212,52 +218,74 @@
   color: var(--verde-escuro);
   font-size: 0.875rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.artigo-completo h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  text-wrap: balance;
 }
 
 .artigo-completo .introducao-artigo {
-  margin: 0;
+  margin: 1.25rem 0 0;
   color: var(--texto-suave);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
 }
 
-.artigo-completo h1 + .introducao-artigo {
-  margin-top: 1rem;
+/* Capa: ocupa a largura toda da página */
+.artigo-capa {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: clamp(12rem, 28vw, 22rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Corpo do artigo: coluna confortável para leitura */
+.artigo-completo section,
+.artigo-completo .fim-artigo {
+  width: 100%;
+  max-width: calc(var(--coluna) + 2rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 .artigo-completo section {
-  margin-bottom: 2rem;
-}
-
-.artigo-completo section:last-child {
-  margin-bottom: 0;
+  margin-top: 2.5rem;
 }
 
 .artigo-completo h2 {
   margin-bottom: 1rem;
-  font-size: 1.625rem;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
 }
 
 .artigo-completo section p {
   color: var(--texto);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
+  line-height: 1.8;
 }
 
 /* Separa os parágrafos consecutivos dentro dos artigos. */
 .artigo-completo section p + p {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 /* O CSS principal remove os marcadores das listas.
    Nos artigos, eles ajudam na leitura das orientações. */
 .artigo-completo ul {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   padding-left: 1.5rem;
   list-style: disc;
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .artigo-completo ul + p {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 .artigo-completo li {
@@ -268,20 +296,33 @@
   margin-top: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .artigo-completo {
-    padding: 1.25rem;
-  }
+.artigo-completo .fim-artigo {
+  margin-top: 3rem;
+}
 
-  .artigo-completo h2 {
-    font-size: 1.4375rem;
+/* Aviso da página modelo, na mesma coluna do texto */
+.aviso-modelo {
+  margin: 0 var(--margem);
+  padding: 1rem;
+  border-left: 4px solid var(--verde-escuro);
+  background-color: var(--fundo-claro);
+}
+
+.aviso-modelo + .artigo-completo {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .artigo-completo .cabecalho-artigo {
+    padding-bottom: 2rem;
   }
 
   .artigo-completo .introducao-artigo {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
   }
 
-   .artigo-imagem {
-    margin-bottom: 1rem;
+  .artigo-completo section p,
+  .artigo-completo ul {
+    font-size: 1.0625rem;
   }
 }

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="400" viewBox="0 0 1440 400">
+  <defs>
+    <path id="gota-pequena" d="M0 -14C0 -14 -12 0 -12 6A12 12 0 0 0 12 6C12 0 0 -14 0 -14Z"/>
+    <g id="broto">
+      <path d="M0 60V0" fill="none" stroke="#2f5d3a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M0 24C-22 24 -36 12 -40 -8C-16 -8 -2 4 0 24Z" fill="#6fae7a"/>
+      <path d="M0 8C16 4 30 -8 34 -26C12 -24 0 -10 0 8Z" fill="#8cc49a"/>
+    </g>
+  </defs>
+
+  <rect width="1440" height="400" fill="#d3ebf5"/>
+
+  <!-- Sol e nuvens -->
+  <circle cx="1130" cy="96" r="64" fill="#f6dc8c" opacity=".35"/>
+  <circle cx="1130" cy="96" r="40" fill="#f6dc8c"/>
+  <g fill="#ffffff" opacity=".85">
+    <ellipse cx="300" cy="104" rx="64" ry="16"/>
+    <ellipse cx="274" cy="90" rx="26" ry="19"/>
+    <ellipse cx="318" cy="84" rx="34" ry="24"/>
+    <ellipse cx="1280" cy="200" rx="42" ry="12"/>
+    <ellipse cx="1266" cy="190" rx="20" ry="14"/>
+    <ellipse cx="520" cy="190" rx="40" ry="11"/>
+    <ellipse cx="508" cy="181" rx="18" ry="13"/>
+  </g>
+
+  <!-- Gota grande, no centro -->
+  <path d="M720 40C720 40 636 136 636 204A84 84 0 0 0 804 204C804 136 720 40 720 40Z" fill="#7fb0dc"/>
+  <path d="M720 40C720 40 804 136 804 204A84 84 0 0 1 744 284C778 262 786 214 776 168C766 126 740 80 720 40Z" fill="#6f9fcf"/>
+  <path d="M672 196C672 224 686 248 708 258" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" opacity=".75"/>
+
+  <!-- Gotinhas -->
+  <g fill="#8fb8de">
+    <use href="#gota-pequena" transform="translate(560 150)"/>
+    <use href="#gota-pequena" transform="translate(900 120) scale(.8)"/>
+    <use href="#gota-pequena" transform="translate(520 236) scale(.7)"/>
+    <use href="#gota-pequena" transform="translate(240 190)"/>
+    <use href="#gota-pequena" transform="translate(1030 210) scale(.9)"/>
+    <use href="#gota-pequena" transform="translate(1340 120) scale(.7)"/>
+  </g>
+
+  <!-- Ondas: a gota toca a água de trás, com anéis na superfície -->
+  <path d="M0 290C120 268 240 306 360 290S600 268 720 290S960 312 1080 290S1320 268 1440 288V400H0Z" fill="#a9cdea"/>
+  <ellipse cx="720" cy="290" rx="92" ry="10" fill="none" stroke="#ffffff" stroke-width="4" opacity=".7"/>
+  <ellipse cx="720" cy="290" rx="54" ry="6" fill="none" stroke="#ffffff" stroke-width="4" opacity=".7"/>
+  <path d="M0 326C150 304 270 346 420 326S700 304 840 326S1140 346 1260 326S1400 316 1440 322V400H0Z" fill="#8fb8de"/>
+
+  <!-- Brotos nascendo da água -->
+  <use href="#broto" transform="translate(940 276)"/>
+  <use href="#broto" transform="translate(470 290) scale(.8)"/>
+  <use href="#broto" transform="translate(200 296) scale(.7)"/>
+  <use href="#broto" transform="translate(1250 292) scale(.75)"/>
+
+  <path d="M0 366C170 346 300 382 480 364S800 346 960 366S1280 384 1440 362V400H0Z" fill="#6f9fcf"/>
+</svg>
