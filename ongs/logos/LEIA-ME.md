@@ -68,6 +68,6 @@ Depois dos cartões, a página exibe a mensagem:
 
 Cada logo aparece no topo do cartão da respectiva organização, em uma placa
 branca sem borda ou sombra, acima da etiqueta de tema. A placa tem duas
-variantes: `cartao-logo--wordmark` (156 × 72 px, imagem até 140 × 44 px) e
-`cartao-logo--quadrado` (72 × 72 px, imagem até 56 × 56 px). Essa nota deve ser
+variantes: `cartao-logo--wordmark` (124 × 52 px, imagem até 108 × 36 px) e
+`cartao-logo--quadrado` (52 × 52 px, imagem até 40 × 40 px). Essa nota deve ser
 mantida enquanto os logos oficiais forem exibidos.
