@@ -1,15 +1,14 @@
 /* Complementos da página de ONGs; a identidade comum permanece em ../style.css. */
 
 /* ---------- Fontes ---------- */
-/* @font-face do subconjunto latino servido pelo Google Fonts. Incorporar as
-   regras evita uma folha de estilo externa que bloqueia a primeira pintura;
-   os arquivos continuam vindo de fonts.gstatic.com, com font-display: swap. */
+/* Fontes latinas hospedadas no próprio site. Sem dependência do Google Fonts,
+   a tipografia carrega mesmo se a rede externa falhar ou for bloqueada. */
 @font-face {
   font-family: 'Caveat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/caveat/v23/WnznHAc5bAfYB2QRah7pcpNvOx-pjRV6eIWpYQ.woff2) format('woff2');
+  src: url(../resources/fonts/caveat-700-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -18,7 +17,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/fraunces/v38/6NUu8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7iQcIfJD58njU0oc7qv8.woff2) format('woff2');
+  src: url(../resources/fonts/fraunces-700-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -27,7 +26,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mali/v13/N0ba2SRONuN4SC3EDw.woff2) format('woff2');
+  src: url(../resources/fonts/mali-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -36,7 +35,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mali/v13/N0bV2SRONuN4QPLgGlNQJA.woff2) format('woff2');
+  src: url(../resources/fonts/mali-600-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -45,8 +44,48 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mali/v13/N0bV2SRONuN4QJbhGlNQJA.woff2) format('woff2');
+  src: url(../resources/fonts/mali-700-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------- Cabeçalho compacto em telas estreitas ---------- */
+/* O cabeçalho global empilha logo e menu e chega a ocupar 236 px em 320 px.
+   Aqui o menu vira uma faixa única, com rolagem interna se faltar espaço. */
+@media (max-width: 759px) {
+  .topo-interno {
+    gap: 0.25rem 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .marca-logo {
+    height: 44px;
+  }
+
+  .topo-interno nav {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .menu {
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu a {
+    min-height: 40px;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
 }
 
 /* ---------- Passos "Como escolher uma organização para apoiar" ---------- */

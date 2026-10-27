@@ -54,7 +54,7 @@ arquivos temáticos separados.
   pertencem às organizações. A nota também registra a atribuição do Greenpeace
   ao Stichting Greenpeace Council.
 - **Acessibilidade:** os logos são decorativos (`alt=""`), pois o nome da
-  organização já aparece no título `h3`. As imagens usam `loading="lazy"` e
+  organização já aparece no título `h3`. As imagens usam `loading="eager"` e
   `decoding="async"`.
 - **Sem JavaScript:** os cartões e os logos são HTML e CSS puros, assim como o
   restante da página.
@@ -140,11 +140,13 @@ Textos de apoio usados na seção “Como escolher”:
   `og:description`, `og:url` e `og:image`. A URL canônica é
   `https://econscientizacao.vercel.app/ongs/ongs.html`; a imagem de
   compartilhamento é `../resources/img/ongs-og.png` (1200 × 630).
-- Logos com `loading="lazy"` e `decoding="async"`, sem JavaScript.
-- As regras `@font-face` do subconjunto latino foram incorporadas a `ongs.css`
-  para não depender da folha externa do Google Fonts, que bloqueava a primeira
-  pintura. Fraunces 700 e Mali 400 são pré-carregadas; todas usam
-  `font-display: swap`.
+- Logos com `loading="eager"` e `decoding="async"`, sem JavaScript. O conjunto
+  tem cerca de 68 KB e carrega de imediato, evitando placas vazias quando o
+  visitante rola a página.
+- As fontes latinas são hospedadas em `../resources/fonts/` e declaradas com
+  `@font-face` em `ongs.css`. Assim a tipografia não depende do Google Fonts e
+  carrega mesmo se a rede externa falhar ou for bloqueada. Fraunces 700 e Mali
+  400 são pré-carregadas; todas usam `font-display: swap`.
 - O logo do site no cabeçalho desta página usa
   `../resources/img/logo-transparente-2x.webp` (481 × 174, cerca de 27 KB) com
   `fetchpriority="high"`. O arquivo PNG original foi mantido intacto.

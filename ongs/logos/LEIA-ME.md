@@ -56,7 +56,7 @@ Os logos são **decorativos** nos cartões: o nome da organização já aparece 
 título `h3`, que contém o link para o canal oficial. Por isso as imagens usam
 `alt=""`, evitando que o leitor de tela repita a marca. O Greenpeace pede
 atribuição de marca; ela é feita na nota visível da página, não no texto
-alternativo. As imagens também usam `loading="lazy"` e `decoding="async"`.
+alternativo. As imagens também usam `loading="eager"` e `decoding="async"`.
 
 ## Nota na página
 
