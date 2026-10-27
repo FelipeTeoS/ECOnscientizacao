@@ -8,63 +8,113 @@ incentivando hábitos mais conscientes no cotidiano.
 ## Público
 
 Pessoas interessadas em aprender sobre sustentabilidade,
-com linguagem simples e acessível.
+por meio de uma linguagem simples e acessível.
 
-## Estrutura proposta da página
+## Estrutura implementada
 
-- Cabeçalho com navegação para as páginas do site.
+A página principal do blog possui:
+
+- Cabeçalho integrado às demais páginas do site.
 - Apresentação do blog.
 - Artigo em destaque.
-- Campo de busca.
-- Filtros por categoria.
-- Cartões com título, imagem, resumo e link para cada artigo.
-- Rodapé.
+- Cartões com categoria, título, resumo e link.
+- Rodapé integrado à identidade visual do projeto.
+- Layout adaptável para diferentes tamanhos de tela.
 
-## Conteúdos iniciais propostos
+## Artigos implementados
 
 1. Consumo consciente de água.
 2. Resíduos e reciclagem.
 3. Biodiversidade e preservação.
 
-Cada artigo terá uma página própria e referências das
-fontes utilizadas.
+Cada artigo possui:
 
-Os temas serão confirmados durante o planejamento com o grupo.
+- Página própria.
+- Categoria.
+- Título e introdução.
+- Conteúdo dividido em seções.
+- Lista de orientações quando necessária.
+- Fontes e referências.
+- Link de retorno ao blog.
+- Cabeçalho e rodapé compartilhados com o site.
 
-## Funcionalidades propostas
+## Organização dos arquivos
 
-- Buscar artigos por palavras.
-- Filtrar artigos por categoria.
-- Informar quando nenhum artigo corresponder à busca.
+- `blog/index.html`: página principal do blog.
+- `blog/style.css`: estilos específicos do blog e dos artigos.
+- `blog/planejamento.md`: planejamento e registro da implementação.
+- `blog/modelo-artigo/index.html`: modelo para novos artigos.
+- `blog/consumo-de-agua/index.html`: artigo sobre água.
+- `blog/reciclagem/index.html`: artigo sobre reciclagem.
+- `blog/biodiversidade/index.html`: artigo sobre biodiversidade.
 
-## Tecnologias
+O arquivo `style.css` localizado na raiz do projeto contém
+a identidade visual compartilhada por todas as páginas.
 
-- HTML para estruturar o conteúdo.
+## Tecnologias utilizadas
+
+- HTML para a estrutura e o conteúdo.
 - CSS para apresentação e responsividade.
-- JavaScript para busca e filtros.
+- Git e GitHub para controle de versão.
+- Trello para organização e registro das atividades.
 
-## Organização proposta dos arquivos
+## Acessibilidade
 
-- blog/index.html: página principal do blog.
-- blog/style.css: estilos do blog.
-- blog/script.js: busca e filtros.
-- blog/planejamento.md: planejamento.
-- Uma pasta para cada artigo.
+Foram utilizados:
 
-## Pontos a combinar com o grupo
+- Idioma da página definido como português do Brasil.
+- Títulos organizados de forma hierárquica.
+- Regiões semânticas de cabeçalho, conteúdo e rodapé.
+- Textos alternativos no logotipo.
+- Link para pular diretamente ao conteúdo.
+- Identificação da página atual no menu.
+- Links descritivos para os artigos.
+- Destaque visual durante a navegação por teclado.
 
-- Paleta de cores e fontes.
-- Cabeçalho e rodapé compartilhados.
-- Caminhos da página inicial, calculadora e ONGs.
-- Temas definitivos dos artigos.
-- Organização dos estilos compartilhados.
+## Integração visual
 
-## Etapas de desenvolvimento
+As páginas do blog carregam dois arquivos de estilo:
 
-1. Documentar o planejamento.
-2. Criar a estrutura HTML da página do blog.
-3. Desenvolver os artigos.
-4. Aplicar os estilos.
-5. Adaptar para celular, tablet e computador.
-6. Implementar busca e filtros.
-7. Revisar acessibilidade, links e integração.
+1. O `style.css` principal, com cores, fontes e componentes do site.
+2. O `blog/style.css`, com ajustes próprios da listagem e dos artigos.
+
+Essa organização mantém a identidade visual do projeto e evita
+a repetição desnecessária de estilos.
+
+## Funcionalidades planejadas para versões futuras
+
+As seguintes funcionalidades permanecem planejadas e ainda não
+fazem parte da versão atual:
+
+- Busca de artigos por palavras.
+- Filtro de artigos por categoria.
+- Mensagem quando nenhum artigo corresponder à pesquisa.
+- Imagens próprias para os cartões dos artigos.
+
+Essas funcionalidades deverão ser implementadas em atividades,
+branches e commits separados.
+
+## Etapas concluídas
+
+- Planejamento inicial do blog.
+- Estrutura HTML da página principal.
+- Criação do modelo de artigo.
+- Criação dos três artigos iniciais.
+- Aplicação da identidade visual compartilhada.
+- Adaptação da listagem para diferentes telas.
+- Integração dos links entre a página principal e os artigos.
+- Correção dos caminhos dos arquivos CSS.
+- Padronização do cabeçalho e do rodapé dos artigos.
+- Melhoria da leitura, das listas e dos espaçamentos.
+
+## Verificações finais
+
+Antes da integração na `main`, devem ser conferidos:
+
+- Links dos três artigos.
+- Link de retorno ao blog.
+- Links do menu principal.
+- Link para voltar ao topo.
+- Apresentação em telas largas e estreitas.
+- Ausência de marcadores de conflito do Git.
+- Carregamento do CSS principal e do CSS do blog.
