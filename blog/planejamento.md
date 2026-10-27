@@ -24,6 +24,7 @@ A página principal do blog possui:
 - Filtros por categoria.
 - Contagem de artigos encontrados.
 - Mensagem quando nenhum artigo corresponde à pesquisa.
+- Ilustrações próprias nos cartões dos artigos.
 
 ## Artigos implementados
 
@@ -51,6 +52,9 @@ Cada artigo possui:
 - `blog/consumo-de-agua/index.html`: artigo sobre água.
 - `blog/reciclagem/index.html`: artigo sobre reciclagem.
 - `blog/biodiversidade/index.html`: artigo sobre biodiversidade.
+- `blog/img/agua.svg`: ilustração do artigo sobre água.
+- `blog/img/reciclagem.svg`: ilustração do artigo sobre reciclagem.
+- `blog/img/biodiversidade.svg`: ilustração do artigo sobre biodiversidade.
 
 O arquivo `style.css` localizado na raiz do projeto contém
 a identidade visual compartilhada por todas as páginas.
@@ -79,6 +83,10 @@ Foram utilizados:
 - Informação dinâmica da quantidade de resultados.
 - Estado selecionado dos filtros informado por `aria-pressed`.
 - Botões de filtro acessíveis pelo teclado.
+- Imagens decorativas com texto alternativo vazio para evitar
+  repetição dos títulos dos artigos.
+- Dimensões definidas nas imagens para manter a estabilidade
+  visual durante o carregamento.
 
 ## Integração visual
 
@@ -94,9 +102,10 @@ a repetição desnecessária de estilos.
 
 As seguintes melhorias ainda não fazem parte da versão atual:
 
-- Imagens próprias para os cartões dos artigos.
-- Inclusão de novos conteúdos e categorias.
+- Inclusão de novos artigos e categorias.
 - Ordenação dos artigos por data ou relevância.
+- Exibição da data de publicação e do tempo estimado de leitura.
+- Expansão da busca para novos conteúdos.
 
 Essas funcionalidades deverão ser implementadas em atividades,
 branches e commits separados.
@@ -119,6 +128,10 @@ branches e commits separados.
 - Contagem dinâmica dos resultados.
 - Mensagem para pesquisas sem resultados.
 - Estilização responsiva dos controles.
+- Criação de ilustrações próprias em SVG.
+- Integração das ilustrações aos cartões.
+- Definição de dimensões e carregamento das imagens.
+- Adaptação das ilustrações para diferentes telas.
 
 ## Verificações finais
 
@@ -136,3 +149,7 @@ Antes da integração na `main`, devem ser conferidos:
 - Estado selecionado dos botões.
 - Mensagem para pesquisas sem resultados.
 - Funcionamento dos controles pelo teclado.
+- Carregamento das três ilustrações.
+- Proporção das imagens em telas largas e estreitas.
+- Funcionamento da busca e dos filtros com as imagens.
+- Ausência de caminhos de imagem quebrados.
