@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -37,33 +38,115 @@
       <div class="container">
         <p class="selo">Blog</p>
         <h1 id="titulo-blog">Blog da ECOnscientização</h1>
-        <p class="pagina-lead">
+               <p class="pagina-lead">
           Informação para repensar hábitos e cuidar melhor
           do meio ambiente.
         </p>
- 
-    </div>
-  </section>
+      </div>
+    </section>
 
+    <!-- Busca e filtros -->
+
+    <section
+      class="controles-blog"
+      aria-labelledby="titulo-controles"
+    >
+      <div class="container">
+        <h2 id="titulo-controles" class="visualmente-oculto">
+          Buscar e filtrar artigos
+        </h2>
+
+        <div class="busca-blog">
+          <label for="busca-artigos">Buscar artigos</label>
+
+          <input
+            type="search"
+            id="busca-artigos"
+            name="busca-artigos"
+            placeholder="Digite um tema, como água ou reciclagem"
+            autocomplete="off"
+            aria-describedby="resultado-busca"
+          >
+        </div>
+
+        <div
+          class="filtros-blog"
+          role="group"
+          aria-label="Filtrar artigos por categoria"
+        >
+          <button
+            type="button"
+            class="filtro-blog filtro-ativo"
+            data-filtro="todos"
+            aria-pressed="true"
+          >
+            Todos
+          </button>
+
+          <button
+            type="button"
+            class="filtro-blog"
+            data-filtro="consumo-consciente"
+            aria-pressed="false"
+          >
+            Consumo consciente
+          </button>
+
+          <button
+            type="button"
+            class="filtro-blog"
+            data-filtro="residuos-reciclagem"
+            aria-pressed="false"
+          >
+            Resíduos e reciclagem
+          </button>
+
+          <button
+            type="button"
+            class="filtro-blog"
+            data-filtro="biodiversidade"
+            aria-pressed="false"
+          >
+            Biodiversidade
+          </button>
+        </div>
+
+        <p
+          id="resultado-busca"
+          class="resultado-busca"
+          aria-live="polite"
+        ></p>
+          <p class="sem-resultados" hidden>
+          Nenhum artigo foi encontrado. Tente outra palavra
+          ou selecione uma categoria diferente.
+        </p>
+      </div>
+    </section>
     <!-- Artigo em destaque -->
     <section class="secao secao-clara" aria-labelledby="titulo-destaque">
       <div class="container">
         <div class="secao-cabecalho">
           <h2 id="titulo-destaque">Artigo em destaque</h2>
         </div>
-
-        <article class="cartao cartao-verde artigo-destaque">
+   <article
+          class="cartao cartao-verde artigo-destaque"
+          data-artigo
+          data-categoria="consumo-consciente"
+        >
           <p class="artigo-categoria">Consumo consciente</p>
+
           <h3>Como cuidar da água no dia a dia</h3>
+
           <p>
             Conheça atitudes que ajudam a evitar desperdícios
             e a observar o consumo de água na sua rotina.
           </p>
-         <p class="artigo-status">
-  <a href="consumo-de-agua/index.html">
-    Ler artigo sobre consumo consciente de água
-  </a>
-</p>
+
+          <p class="artigo-status">
+            <a href="consumo-de-agua/index.html">
+              Ler artigo sobre consumo consciente de água
+            </a>
+          </p>
         </article>
       </div>
     </section>
@@ -76,7 +159,11 @@
         </div>
 
         <div class="lista-artigos">
-          <article class="cartao cartao-areia">
+         <article
+  class="cartao cartao-areia"
+  data-artigo
+  data-categoria="residuos-reciclagem"
+>
             <p class="artigo-categoria">Resíduos e reciclagem</p>
 
             <h3>Por onde começar a separar os resíduos em casa</h3>
@@ -93,7 +180,11 @@
             </p>
           </article>
 
-          <article class="cartao cartao-ceu">
+          <article
+  class="cartao cartao-ceu"
+  data-artigo
+  data-categoria="biodiversidade"
+>
             <p class="artigo-categoria">Biodiversidade</p>
 
             <h3>Por que preservar a natureza perto de você</h3>
@@ -110,6 +201,7 @@
             </p>
           </article>
         </div>
+        
       </div>
     </section>
   </main>

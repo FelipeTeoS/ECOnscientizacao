@@ -20,6 +20,10 @@ A página principal do blog possui:
 - Cartões com categoria, título, resumo e link.
 - Rodapé integrado à identidade visual do projeto.
 - Layout adaptável para diferentes tamanhos de tela.
+- Campo de busca por palavras.
+- Filtros por categoria.
+- Contagem de artigos encontrados.
+- Mensagem quando nenhum artigo corresponde à pesquisa.
 
 ## Artigos implementados
 
@@ -55,6 +59,7 @@ a identidade visual compartilhada por todas as páginas.
 
 - HTML para a estrutura e o conteúdo.
 - CSS para apresentação e responsividade.
+- JavaScript para busca e filtragem dos artigos.
 - Git e GitHub para controle de versão.
 - Trello para organização e registro das atividades.
 
@@ -70,6 +75,10 @@ Foram utilizados:
 - Identificação da página atual no menu.
 - Links descritivos para os artigos.
 - Destaque visual durante a navegação por teclado.
+- Rótulo associado ao campo de busca.
+- Informação dinâmica da quantidade de resultados.
+- Estado selecionado dos filtros informado por `aria-pressed`.
+- Botões de filtro acessíveis pelo teclado.
 
 ## Integração visual
 
@@ -83,13 +92,11 @@ a repetição desnecessária de estilos.
 
 ## Funcionalidades planejadas para versões futuras
 
-As seguintes funcionalidades permanecem planejadas e ainda não
-fazem parte da versão atual:
+As seguintes melhorias ainda não fazem parte da versão atual:
 
-- Busca de artigos por palavras.
-- Filtro de artigos por categoria.
-- Mensagem quando nenhum artigo corresponder à pesquisa.
 - Imagens próprias para os cartões dos artigos.
+- Inclusão de novos conteúdos e categorias.
+- Ordenação dos artigos por data ou relevância.
 
 Essas funcionalidades deverão ser implementadas em atividades,
 branches e commits separados.
@@ -106,6 +113,12 @@ branches e commits separados.
 - Correção dos caminhos dos arquivos CSS.
 - Padronização do cabeçalho e do rodapé dos artigos.
 - Melhoria da leitura, das listas e dos espaçamentos.
+- Implementação da busca por palavras.
+- Implementação dos filtros por categoria.
+- Combinação entre busca e categoria.
+- Contagem dinâmica dos resultados.
+- Mensagem para pesquisas sem resultados.
+- Estilização responsiva dos controles.
 
 ## Verificações finais
 
@@ -118,3 +131,8 @@ Antes da integração na `main`, devem ser conferidos:
 - Apresentação em telas largas e estreitas.
 - Ausência de marcadores de conflito do Git.
 - Carregamento do CSS principal e do CSS do blog.
+- Busca com e sem acentuação.
+- Combinação entre busca e filtro.
+- Estado selecionado dos botões.
+- Mensagem para pesquisas sem resultados.
+- Funcionamento dos controles pelo teclado.
